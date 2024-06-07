@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -96,4 +97,20 @@ class User extends Authenticatable implements JWTSubject
     {
       return [];
     }
+
+   // Define the relationship with PermanentAddress
+   public function permanentAddress()
+   {
+       return $this->hasOne(PermanentAddress::class); // When creating models use migration
+   }
+
+   public function currentAddress()
+   {
+       return $this->hasOne(CurrentAddress::class); // When creating models use migration
+   }
+
+   public function emergencyContact()
+   {
+       return $this->hasOne(EmergencyContact::class); // When creating models use migration
+   }
 }

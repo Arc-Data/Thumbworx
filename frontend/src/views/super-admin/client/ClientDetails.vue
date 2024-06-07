@@ -1,6 +1,6 @@
 <template>
     <fieldset>
-      <legend>Driver Details</legend>
+      <legend>Client Details</legend>
       <div>
         <h6>Personal Information</h6>
       </div>
@@ -154,7 +154,7 @@
             id="disabledTextInput12"
             class="form-control"
             disabled
-            :value="userDetails.per_house_number"
+            :value="userDetails.permanent_address.per_house_number"
           />
         </div>
         <div class="col mb-3">
@@ -166,7 +166,7 @@
             id="disabledTextInput13"
             class="form-control"
             disabled
-            :value="userDetails.per_street"
+            :value="userDetails.permanent_address.per_street"
           />
         </div>
         <div class="col mb-3">
@@ -178,7 +178,7 @@
             id="disabledTextInput14"
             class="form-control"
             disabled
-            :value="userDetails.per_barangay"
+            :value="userDetails.permanent_address.per_barangay"
           />
         </div>
       </div>
@@ -193,7 +193,7 @@
             id="disabledTextInput15"
             class="form-control"
             disabled
-            :value="userDetails.per_city"
+            :value="userDetails.permanent_address.per_city"
           />
         </div>
         <div class="col mb-3">
@@ -205,7 +205,7 @@
             id="disabledTextInput16"
             class="form-control"
             disabled
-            :value="userDetails.per_province"
+            :value="userDetails.permanent_address.per_province"
           />
         </div>
         <div class="col mb-3">
@@ -217,7 +217,7 @@
             id="disabledTextInput17"
             class="form-control"
             disabled
-            :value="userDetails.per_region"
+            :value="userDetails.permanent_address.per_region"
           />
         </div>
       </div>
@@ -232,7 +232,7 @@
             id="disabledTextInput18"
             class="form-control"
             disabled
-            :value="userDetails.per_country"
+            :value="userDetails.permanent_address.per_country"
           />
         </div>
         <div class="col mb-3">
@@ -244,7 +244,7 @@
             id="disabledTextInput19"
             class="form-control"
             disabled
-            :value="userDetails.per_zip_code"
+            :value="userDetails.permanent_address.per_zip_code"
           />
         </div>
       </div>
@@ -262,7 +262,7 @@
             id="disabledTextInput20"
             class="form-control"
             disabled
-            :value="userDetails.cur_house_number"
+            :value="userDetails.current_address.cur_house_number"
           />
         </div>
         <div class="col mb-3">
@@ -274,7 +274,7 @@
             id="disabledTextInput21"
             class="form-control"
             disabled
-            :value="userDetails.cur_street"
+            :value="userDetails.current_address.cur_street"
           />
         </div>
         <div class="col mb-3">
@@ -286,7 +286,7 @@
             id="disabledTextInput22"
             class="form-control"
             disabled
-            :value="userDetails.cur_barangay"
+            :value="userDetails.current_address.cur_barangay"
           />
         </div>
       </div>
@@ -301,7 +301,7 @@
             id="disabledTextInput23"
             class="form-control"
             disabled
-            :value="userDetails.cur_city"
+            :value="userDetails.current_address.cur_city"
           />
         </div>
         <div class="col mb-3">
@@ -313,7 +313,7 @@
             id="disabledTextInput24"
             class="form-control"
             disabled
-            :value="userDetails.cur_province"
+            :value="userDetails.current_address.cur_province"
           />
         </div>
         <div class="col mb-3">
@@ -325,7 +325,7 @@
             id="disabledTextInput25"
             class="form-control"
             disabled
-            :value="userDetails.cur_region"
+            :value="userDetails.current_address.cur_region"
           />
         </div>
       </div>
@@ -340,7 +340,7 @@
             id="disabledTextInput26"
             class="form-control"
             disabled
-            :value="userDetails.cur_country"
+            :value="userDetails.current_address.cur_country"
           />
         </div>
         <div class="col mb-3">
@@ -352,7 +352,7 @@
             id="disabledTextInput27"
             class="form-control"
             disabled
-            :value="userDetails.cur_zip_code"
+            :value="userDetails.current_address.cur_zip_code"
           />
         </div>
       </div>
@@ -368,7 +368,7 @@
             id="disabledTextInput28"
             class="form-control"
             disabled
-            :value="userDetails.full_name"
+            :value="userDetails.emergency_contact.full_name"
           />
         </div>
         <div class="col mb-3">
@@ -378,7 +378,7 @@
             id="disabledTextInput29"
             class="form-control"
             disabled
-            :value="userDetails.relationship"
+            :value="userDetails.emergency_contact.relationship"
           />
         </div>
         <div class="col mb-3">
@@ -390,7 +390,7 @@
             id="disabledTextInput30"
             class="form-control"
             disabled
-            :value="userDetails.rel_phone_number"
+            :value="userDetails.emergency_contact.rel_phone_number"
           />
         </div>
       </div>
@@ -405,7 +405,7 @@
             id="disabledTextInput31"
             class="form-control"
             disabled
-            :value="userDetails.rel_email"
+            :value="userDetails.emergency_contact.rel_email"
           />
         </div>
   
@@ -416,7 +416,7 @@
             id="disabledTextInput32"
             class="form-control"
             disabled
-            :value="userDetails.address"
+            :value="userDetails.emergency_contact.address"
           />
         </div>
       </div>
