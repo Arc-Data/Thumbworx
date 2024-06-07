@@ -49,11 +49,21 @@ export const useAdminStore = defineStore('user', {
             }
         },
         logout() {
+            const userType = this.user.user_type
+
             this.token = null
             this.user = null
             localStorage.removeItem('token')
 
-            this.router.push({ name: 'Login' })
+            clearTimeout(this.refreshTimeout)
+            this.refreshTimeout = null
+
+            if (userType === 'admin') {
+                this.router.push({ name: 'LoginAdmin' })
+            } else {
+                this.router.push({ name: 'LoginMain'});
+            }
+
         },
         async refresh() {
             try {

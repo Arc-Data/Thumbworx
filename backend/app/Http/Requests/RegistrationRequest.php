@@ -129,9 +129,9 @@ class RegistrationRequest extends FormRequest
                 "driver.contact_person_phone_number" => "required|string|max:12",
                 "driver.contact_person_email" => "required|email",
                 "driver.contact_person_address" => "required|string|max:255"
-                // "driver.nbi_license" => "required|file",
+                // "driver.nbi_license" => "required|file|thisisapicture",
                 // "driver.license" => "required|file",
-                // "driver.lto_driving_history" => "required|file"
+                // "driver.lto_driving_history" => "required|file|pdf,docx"
             ]);
         }
 

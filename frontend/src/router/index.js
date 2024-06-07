@@ -168,11 +168,6 @@ router.beforeEach((to, from, next) => {
   const requiresClient = to.matched.some(record => record.meta.requiresClient);
   const requiresDriver = to.matched.some(record => record.meta.requiresDriver);
 
-  console.log("requires guest", requiresGuest);
-  console.log("requires admin", requiresAdmin);
-  console.log("requires client", requiresClient);
-  console.log("requires driver", requiresDriver);
-
   if (requiresGuest && user) {
     if (user.user_type === 'admin') {
       next({ name: 'Dashboard' });
@@ -190,6 +185,7 @@ router.beforeEach((to, from, next) => {
   } else if (requiresDriver && (!user || user.user_type !== 'driver')) {
     next({ name: 'LoginMain' });
   } else {
+    console.log("4")
     next();
   }
 });
