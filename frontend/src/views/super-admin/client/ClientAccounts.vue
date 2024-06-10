@@ -117,7 +117,7 @@
     },
       computed: {
     filteredResults() {
-      return this.result.filter(user => user.user_type === "Client");
+      return this.result.filter(user => user.user_type === "client");
     },
   },
     created() {

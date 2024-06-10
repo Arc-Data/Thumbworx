@@ -123,7 +123,7 @@
     },
     computed: {
       filteredResults() {
-        return this.result.filter(user => user.user_type === "Helper");
+        return this.result.filter(user => user.user_type === "helper");
       },
     },
     methods: {

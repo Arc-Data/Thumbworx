@@ -123,7 +123,7 @@ export default {
   },
   computed: {
     filteredResults() {
-      return this.result.filter(user => user.user_type === "Driver");
+      return this.result.filter(user => user.user_type === "driver");
     },
   },
   methods: {

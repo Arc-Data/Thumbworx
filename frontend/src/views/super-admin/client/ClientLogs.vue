@@ -45,7 +45,7 @@ export default {
         .get("http://127.0.0.1:8000/api/admin/logs")
         .then((response) => {
           // Filter logs to only include those with user_type "Client"
-          this.logs = response.data.filter(log => log.user && log.user.user_type === "Client");
+          this.logs = response.data.filter(log => log.user && log.user.user_type === "client");
         })
         .catch((error) => {
           console.error("Error fetching logs:", error);
