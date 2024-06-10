@@ -9,9 +9,22 @@ class CurrentAddress extends Model
 {
     use HasFactory;
 
-    protected $table = 'current_address'; //Database Table | Need eto para matawag ung record sa database
+    protected $table = 'current_address';
+    
+    protected $guarded = [];
 
-    // Define the relationship with User
+    protected $fillable = [
+        'user_id',
+        'cur_house_number',
+        'cur_street',
+        'cur_barangay',
+        'cur_city',
+        'cur_province',
+        'cur_region',
+        'cur_region',
+        'cur_country',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class);

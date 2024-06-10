@@ -5,24 +5,23 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PermanentAddress extends Model
+class Driver extends Model
 {
     use HasFactory;
 
-    protected $table = 'permanent_address';
+    protected $table = 'driver';
     
     protected $guarded = [];
 
     protected $fillable = [
-        'user_id',
-        'per_house_number',
-        'per_street',
-        'per_barangay',
-        'per_city',
-        'per_province',
-        'per_region',
-        'per_region',
-        'per_country',
+        'license',
+        'nbi_clearance',
+        'lto_driving_history',
+        'contact_person',
+        'contact_person_relationship',
+        'contact_person_phone_number',
+        'contact_person_email',
+        'contact_person_address',
     ];
 
     public function user()

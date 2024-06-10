@@ -5,24 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class PermanentAddress extends Model
+class Client extends Model
 {
     use HasFactory;
 
-    protected $table = 'permanent_address';
-    
     protected $guarded = [];
 
     protected $fillable = [
-        'user_id',
-        'per_house_number',
-        'per_street',
-        'per_barangay',
-        'per_city',
-        'per_province',
-        'per_region',
-        'per_region',
-        'per_country',
+        'company_name',
+        'company_telephone_number',
+        'company_address',
     ];
 
     public function user()
