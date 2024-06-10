@@ -368,7 +368,7 @@
           id="disabledTextInput28"
           class="form-control"
           disabled
-          :value="userDetails.emergency_contact.full_name"
+          :value="userDetails.driver.contact_person"
         />
       </div>
       <div class="col mb-3">
@@ -378,7 +378,7 @@
           id="disabledTextInput29"
           class="form-control"
           disabled
-          :value="userDetails.emergency_contact.relationship"
+          :value="userDetails.driver.contact_person_relationship"
         />
       </div>
       <div class="col mb-3">
@@ -390,7 +390,7 @@
           id="disabledTextInput30"
           class="form-control"
           disabled
-          :value="userDetails.emergency_contact.rel_phone_number"
+          :value="userDetails.driver.contact_person_phone_number"
         />
       </div>
     </div>
@@ -405,7 +405,7 @@
           id="disabledTextInput31"
           class="form-control"
           disabled
-          :value="userDetails.emergency_contact.rel_email"
+          :value="userDetails.driver.contact_person_email"
         />
       </div>
 
@@ -416,7 +416,7 @@
           id="disabledTextInput32"
           class="form-control"
           disabled
-          :value="userDetails.emergency_contact.address"
+          :value="userDetails.driver.contact_person_address"
         />
       </div>
     </div>

@@ -358,68 +358,45 @@
       </div>
   
       <div>
-        <h6>Emergency Contact Information</h6>
+        <h6>Company Contact</h6>
       </div>
+
+      <!-- value="userDetails.client.company_name" == Weird kasi may 's' ung sa database so sa user.php ung cinall na variable?  -->
       <div class="row">
         <div class="col mb-3">
-          <label for="disabledTextInput28" class="form-label">Full Name</label>
+          <label for="disabledTextInput28" class="form-label">Company Name</label>
           <input
             type="text"
             id="disabledTextInput28"
             class="form-control"
             disabled
-            :value="userDetails.emergency_contact.full_name"
+            :value="userDetails.client.company_name"
           />
         </div>
         <div class="col mb-3">
-          <label for="disabledTextInput29" class="form-label">Relationship</label>
+          <label for="disabledTextInput29" class="form-label">Company Telephone Number</label>
           <input
             type="text"
             id="disabledTextInput29"
             class="form-control"
             disabled
-            :value="userDetails.emergency_contact.relationship"
+            :value="userDetails.client.company_telephone_number" 
           />
         </div>
         <div class="col mb-3">
           <label for="disabledTextInput30" class="form-label"
-            >Relationship Phone Number</label
+            >Company Address</label
           >
           <input
             type="text"
             id="disabledTextInput30"
             class="form-control"
             disabled
-            :value="userDetails.emergency_contact.rel_phone_number"
+            :value="userDetails.client.company_address"
           />
         </div>
       </div>
-  
-      <div class="row">
-        <div class="col mb-3">
-          <label for="disabledTextInput31" class="form-label"
-            >Relationship Email</label
-          >
-          <input
-            type="text"
-            id="disabledTextInput31"
-            class="form-control"
-            disabled
-            :value="userDetails.emergency_contact.rel_email"
-          />
-        </div>
-  
-        <div class="col mb-3">
-          <label for="disabledTextInput32" class="form-label">Address</label>
-          <input
-            type="text"
-            id="disabledTextInput32"
-            class="form-control"
-            disabled
-            :value="userDetails.emergency_contact.address"
-          />
-        </div>
-      </div>
+   
   
       <div>
         <h6>Documents</h6>

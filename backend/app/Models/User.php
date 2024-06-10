@@ -73,9 +73,10 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    // When creating models use migration
     public function currentAddress()
     {
-      return $this->hasOne(CurrentAddress::class);
+      return $this->hasOne(CurrentAddress::class); 
     }
 
     public function permanentAddress()
@@ -107,20 +108,4 @@ class User extends Authenticatable implements JWTSubject
         ]
     ];
     }
-
-   // Define the relationship with PermanentAddress
-  //  public function permanentAddress()
-  //  {
-  //      return $this->hasOne(PermanentAddress::class); // When creating models use migration
-  //  }
-
-  //  public function currentAddress()
-  //  {
-  //      return $this->hasOne(CurrentAddress::class); // When creating models use migration
-  //  }
-
-   public function emergencyContact()
-   {
-       return $this->hasOne(EmergencyContact::class); // When creating models use migration
-   }
 }
