@@ -51,24 +51,24 @@ export default {
     this.validateToken(token);
   },
   methods: {
-    validateToken(token) {
-      axios
-        .get(`http://127.0.0.1:8000/api/user/validate-token/${token}`)
-        .then((response) => {
-          if (response.data.valid) {
-            // Token is valid, fetch existing documents
-            this.fetchExistingDocuments();
-          } else {
-            // Token is not valid, redirect to error page
-            window.location.href = "/error";
-          }
-        })
-        .catch((error) => {
-          console.error("Error validating token:", error);
-          // Redirect to error page if there's an error
-          window.location.href = "/error";
-        });
-    },
+      // validateToken(token) {
+      //   axios
+      //     .get(`http://127.0.0.1:8000/api/user/validate-token/${token}`)
+      //     .then((response) => {
+      //       if (response.data.valid) {
+      //         // Token is valid, fetch existing documents
+      //         this.fetchExistingDocuments();
+      //       } else {
+      //         // Token is not valid, redirect to error page
+      //         window.location.href = "/error";
+      //       }
+      //     })
+      //     .catch((error) => {
+      //       console.error("Error validating token:", error);
+      //       // Redirect to error page if there's an error
+      //       window.location.href = "/error";
+      //     });
+      // },
 
   } //End of method
 };

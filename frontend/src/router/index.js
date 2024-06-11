@@ -1,11 +1,22 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../views/admin/Dashboard.vue';
-import UserAccount from '../views/admin/UserAccount.vue';
-import UserDetails from '../views/admin/UserDetails.vue';
 import ReviseDocuments from '../views/admin/ReviseDocuments.vue';
+
+
 import DriverAccounts from '../views/super-admin/driver/DriverAccounts.vue';
 import DriverDetails from '../views/super-admin/driver/DriverDetails.vue'; 
 import DriverLogs from '../views/super-admin/driver/DriverLogs.vue';
+
+import HelperAccounts from '../views/super-admin/helper/HelperAccounts.vue'
+import HelperDetails from '../views/super-admin/helper/HelperDetails.vue';
+
+// already a thing
+// import HelperLogs from '../views/admin/HelperLogs.vue';
+
+import ClientAccounts from '../views/super-admin/client/ClientAccounts.vue'
+import ClientDetails from '../views/super-admin/client/ClientDetails.vue'
+import ClientLogs from '../views/super-admin/client/ClientLogs.vue'
+
 import Logs from '../views/admin/Logs.vue';
 import AccountRecover from '../views/admin/AccountRecover.vue';
 import LandingPage from '../views/homepage/LandingPage.vue';
@@ -82,35 +93,48 @@ const routes = [
         meta: { requiresAdmin: true, sidebar: true },
       },
       {
-        path: 'useraccount',
-        component: UserAccount,
-        name: 'UserAccount',
-        meta: { requiresAdmin: true, sidebar: true },
+        path: 'drivers',
+        meta: { requiresAdmin: true },
+        children: [
+          {
+            path: '',
+            name: DriverAccounts,
+            component: DriverAccounts,
+            meta: { requiresAdmin: true, sidebar: true }
+          },
+          {
+            path: ':id',
+            name: DriverDetails,
+            component: DriverDetails,
+            meta: { requiresAdmin: true, sidebar: true }
+          },
+          {
+            path: 'logs',
+            name: DriverLogs,
+            component: DriverLogs,
+            meta: { requiresAdmin: true, sidebar: true }
+          }
+        ]
       },
+      // currently an unused path
       {
         path: 'logs',
         component: Logs,
         name: 'Logs',
         meta: { requiresAdmin: true, sidebar: true },
       },
-      {
-        path: 'userdetails/:id',
-        component: UserDetails,
-        name: 'UserDetails',
-        props: true,
-        meta: { requiresAdmin: true, sidebar: true },
-      },
-      {
-        path: 'revisedocuments',
-        component: ReviseDocuments,
-        name: 'ReviseDocuments',
-        meta: { requiresAdmin: true, sidebar: true },
-      },
+      // what is this supposed to do
+      // {
+      //   path: 'revisedocuments',
+      //   component: ReviseDocuments,
+      //   name: 'ReviseDocuments',
+      //   meta: { requiresAdmin: true, sidebar: true },
+      // },
       {
         path: 'accountrecover',
         component: AccountRecover,
         name: 'AccountRecover',
-        meta: { requiresAdmin: true, sidebar: true },
+        meta: { requiresAdmin: true, sidebar: false },
       },
       {
         path: 'clientaccount',
@@ -128,6 +152,12 @@ const routes = [
         path: 'helperaccount',
         component: HelperAccount,
         name: 'HelperAccount',
+        meta: { requiresAdmin: true, sidebar: true },
+      },
+      {
+        path: 'helperaccounts',
+        component: HelperAccounts,
+        name: 'HelperAccounts',
         meta: { requiresAdmin: true, sidebar: true },
       },
       {
@@ -171,6 +201,8 @@ router.beforeEach((to, from, next) => {
   const requiresClient = to.matched.some(record => record.meta.requiresClient);
   const requiresDriver = to.matched.some(record => record.meta.requiresDriver);
 
+  console.log(requiresGuest)
+
   if (requiresGuest && user) {
     if (user.user_type === 'admin') {
       next({ name: 'Dashboard' });
@@ -188,7 +220,6 @@ router.beforeEach((to, from, next) => {
   } else if (requiresDriver && (!user || user.user_type !== 'driver')) {
     next({ name: 'LoginMain' });
   } else {
-    console.log("4")
     next();
   }
 });

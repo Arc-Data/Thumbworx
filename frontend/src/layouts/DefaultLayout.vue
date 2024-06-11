@@ -1,6 +1,6 @@
 <template>
     <div>
-      <Sidebar v-if="$route.meta.sidebar"></Sidebar>
+      <Sidebar></Sidebar>
       <router-view></router-view>
     </div>
   </template>
