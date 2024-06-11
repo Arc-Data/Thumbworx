@@ -34,6 +34,12 @@ const routes = [
     name: 'LoginMain',
   },
   {
+    path: '/login/admin',
+    component: Login,
+    meta: { requiresGuest: true, sidebar: false },
+    name: 'LoginAdmin',
+  },
+  {
     path: '/registration',
     component: Registration,
     meta: { requiresGuest: true, sidebar: true },
@@ -66,12 +72,6 @@ const routes = [
     path: '/admin',
     component: DefaultLayout,
     children: [
-      {
-        path: 'login',
-        component: Login,
-        meta: { requiresGuest: true, sidebar: false },
-        name: 'LoginAdmin',
-      },
       {
         path: 'dashboard',
         component: Dashboard,

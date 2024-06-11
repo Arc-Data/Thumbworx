@@ -354,25 +354,19 @@ import { useAdminStore } from '../stores/adminStore';
 export default {
 	name: "Sidebar",
 	mounted() {
-		// document.querySelectorAll("[data-collapse-toggle]").forEach((button) => {
-		// 	button.addEventListener("click", function () {
-		// 	const target = document.getElementById(button.getAttribute("aria-controls"));
-		// 	target.classList.toggle("hidden");
-		// 	});
-		// });
+		document.querySelectorAll("[data-collapse-toggle]").forEach((button) => {
+			button.addEventListener("click", function () {
+			const target = document.getElementById(button.getAttribute("aria-controls"));
+			target.classList.toggle("hidden");
+			});
+		});
 
-		// document.querySelectorAll("[data-drawer-toggle]").forEach((button) => {
-		// 	button.addEventListener("click", function () {
-		// 	const target = document.getElementById(button.getAttribute("data-drawer-target"));
-		// 	target.classList.toggle("-translate-x-full");
-		// 	});
-		// });
-
-		// const testButton = document.querySelector("[data-test-toggle]"); // Select the "Test" button
-		// testButton.addEventListener("click", function () {
-		// 	const testSubMenu = document.getElementById(testButton.getAttribute("aria-controls")); // Get the submenu based on the aria-controls attribute
-		// 	testSubMenu.classList.toggle("hidden"); // Toggle the visibility of the submenu
-		// });
+		document.querySelectorAll("[data-drawer-toggle]").forEach((button) => {
+			button.addEventListener("click", function () {
+			const target = document.getElementById(button.getAttribute("data-drawer-target"));
+			target.classList.toggle("-translate-x-full");
+			});
+		});
 	},
 	methods: {
 		handleLogout() {
