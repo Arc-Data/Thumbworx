@@ -435,7 +435,8 @@
 
 <script>
 import axios from "redaxios";
-import { useAdminStore } from "../../stores/adminStore";
+import { ref, onMounted } from "vue";
+import { useAdminStore } from "../../../stores/adminStore";
 
 export default {
   name: "UserDetails",

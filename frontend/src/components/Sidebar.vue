@@ -349,7 +349,9 @@
 	</div>
 </template>
 <script>
-import { useAdminStore } from '../stores/adminStore';
+import { ref } from 'vue'
+import router from '../router' // Para maredirect sa login or other pages kung want
+import { useAdminStore } from '../stores/adminStore'
 
 export default {
 	name: "Sidebar",

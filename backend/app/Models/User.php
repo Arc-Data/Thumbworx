@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -72,9 +73,10 @@ class User extends Authenticatable implements JWTSubject
         'email_verified_at' => 'datetime',
     ];
 
+    // When creating models use migration
     public function currentAddress()
     {
-      return $this->hasOne(CurrentAddress::class);
+      return $this->hasOne(CurrentAddress::class); 
     }
 
     public function permanentAddress()

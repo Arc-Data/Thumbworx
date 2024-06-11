@@ -32,8 +32,16 @@ class UserController extends Controller
 
     public function show(string $id)
     {
-        return $user = $this->user->find($id);
+        // Connecting the table relationship/s
+        $user = $this->user->with(['permanentAddress', 'currentAddress', 'driver', 'client'])->find($id); //Make it array if many tables connected/foreign key.
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        return response()->json($user);
     }
+    
 
 
     public function update(Request $request, string $id)
