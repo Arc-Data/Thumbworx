@@ -20,8 +20,8 @@ import Logs from '../views/admin/Logs.vue';
 import AccountRecover from '../views/admin/AccountRecover.vue';
 import LandingPage from '../views/homepage/LandingPage.vue';
 import Registration from '../views/main/Registration.vue';
-import LoginMain from '../views/main/Login-main.vue';
-import Login from '../views/admin/Login.vue';
+import UserLogin from '../views/main/UserLogin.vue';
+import AdminLogin from '../views/admin/AdminLogin.vue';
 import DefaultLayout from '../layouts/DefaultLayout.vue';
 import ClientAccount from '../views/admin/ClientAccount.vue';
 import ClientBooking from '../views/admin/ClientBooking.vue';
@@ -42,13 +42,13 @@ const routes = [
   },
   {
     path: '/login',
-    component: LoginMain,
+    component: UserLogin,
     meta: { requiresGuest: true },
     name: 'LoginMain',
   },
   {
     path: '/login/admin',
-    component: Login,
+    component: AdminLogin,
     meta: { requiresGuest: true },
     name: 'LoginAdmin',
   },
