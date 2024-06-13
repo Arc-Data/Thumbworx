@@ -1,141 +1,203 @@
 <template>
-  <div class="max-w-3xl mx-auto py-8">
-    <div class="bg-blue shadow-md rounded-lg p-6">
+  <div class="max-w-3xl py-8 mx-auto">
+    <div class="p-6 rounded-lg shadow-md bg-background-100">
       <div v-if="step === 1">
         <!-- First Step Form -->
-        <h2 class="text-xl font-bold mb-4">Step 1: Basic Information</h2>
-        <form @submit.prevent="secondStep">
+        <h2 class="mb-4 text-xl font-bold">Step 1: Basic Information</h2>
+        <form @submit.prevent="nextStep">
           <div class="mb-4">
             <label class="block text-gray-700">User Type</label>
-            <select v-model="form.usertype" class="form-select mt-1 block w-full">
+            <select v-model="form.personal_info.user_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               <option value="driver">Driver</option>
               <option value="client">Client</option>
             </select>
           </div>
           <div class="mb-4">
             <label class="block text-gray-700">First Name</label>
-            <input v-model="form.firstname" type="text" class="form-input mt-1 block w-full" />
+            <input type="text" v-model="form.personal_info.first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
           <div class="mb-4">
             <label class="block text-gray-700">Last Name</label>
-            <input v-model="form.lastname" type="text" class="form-input mt-1 block w-full" />
+            <input type="text" v-model="form.personal_info.last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
           <div class="mb-4">
             <label class="block text-gray-700">Middle Name</label>
-            <input v-model="form.middlename" type="text" class="form-input mt-1 block w-full" />
+            <input type="text" v-model="form.personal_info.middle_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
           <div class="mb-4">
             <label class="block text-gray-700">Email</label>
-            <input v-model="form.email" type="email" class="form-input mt-1 block w-full" />
+            <input type="email" v-model="form.personal_info.email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
           <div class="mb-4">
-            <label class="block text-gray-700">Gender</label>
-            <div>
-              <label><input type="radio" v-model="form.gender" value="male" /> Male</label>
-              <label><input type="radio" v-model="form.gender" value="female" /> Female</label>
-              <label><input type="radio" v-model="form.gender" value="other" /> Other</label>
+            <p class="block text-gray-700">Gender</p>
+            <div class="flex items-center mb-2">
+              <input v-model="form.personal_info.gender" type="radio" value="male" id="genderMale" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="genderMale" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Male</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input v-model="form.personal_info.gender" type="radio" value="female" id="genderFemale" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="genderFemale" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Female</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input v-model="form.personal_info.gender" type="radio" value="other" id="genderOther" name="gender" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="genderOther" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Other</label>
             </div>
           </div>
           <div class="mb-4">
-            <label class="block text-gray-700">Marital Status</label>
-            <div>
-              <label><input type="radio" v-model="form.maritalStatus" value="single" /> Single</label>
-              <label><input type="radio" v-model="form.maritalStatus" value="married" /> Married</label>
-              <label><input type="radio" v-model="form.maritalStatus" value="divorced" /> Divorced</label>
-              <label><input type="radio" v-model="form.maritalStatus" value="widowed" /> Widowed</label>
+            <p class="block text-gray-700">Marital Status</p>
+            <div class="flex items-center mb-2">
+              <input type="radio" v-model="form.personal_info.marital_status" value="single" id="maritalSingle" name="maritalStatus" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="maritalSingle" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Single</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input type="radio" v-model="form.personal_info.marital_status" value="married" id="maritalMarried" name="maritalStatus" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="maritalMarried" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Married</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input type="radio" v-model="form.personal_info.marital_status" value="divorced" id="maritalDivorced" name="maritalStatus" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="maritalDivorced" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Divorced</label>
+            </div>
+            <div class="flex items-center mb-2">
+              <input type="radio" v-model="form.personal_info.marital_status" value="widowed" id="maritalWidowed" name="maritalStatus" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+              <label for="maritalWidowed" class="text-sm font-medium text-gray-900 ms-2 dark:text-gray-300">Widowed</label>
             </div>
           </div>
           <div class="mb-4">
             <label class="block text-gray-700">Phone Number</label>
-            <input v-model="form.phoneNumber" type="text" class="form-input mt-1 block w-full" />
+            <input type="text" v-model="form.personal_info.phone_number1" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
-          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</button>
+          <div class="mb-4">
+            <label class="block text-gray-700">Secondary Phone Number (optional)</label>
+            <input type="text" v-model="form.personal_info.phone_number2" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+          </div>
+          <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Next</button>
         </form>
       </div>
       <div v-else-if="step === 2">
-        <!-- Second Step Form -->
-        
-        <h2 class="text-xl font-bold mb-4">Step 2: Additional Information </h2>
-        <form @submit.prevent="thirdStep">
+        <h2 class="mb-4 text-xl font-bold">Step 2: Additional Information </h2>
+        <form @submit.prevent="nextStep">
           <div class="mb-4">
-            <label class="block text-gray-700">Permanent Address</label>
-            <input v-model="form.permanentAddress.homenumber" type="text" placeholder="Home Number" class="form-input mt-1 block w-full" />
-            <input v-model="form.permanentAddress.street" type="text" placeholder="Street" class="form-input mt-1 block w-full" />
-            <input v-model="form.permanentAddress.barangay" type="text" placeholder="Barangay" class="form-input mt-1 block w-full" />
-            <input v-model="form.permanentAddress.city" type="text" placeholder="City" class="form-input mt-1 block w-full" />
-            <input v-model="form.permanentAddress.province" type="text" placeholder="Province" class="form-input mt-1 block w-full" />
-            <input v-model="form.permanentAddress.region" type="text" placeholder="Region" class="form-input mt-1 block w-full" />
+            <p class="block text-gray-700">Permanent Address</p>
+            <div class="mb-4">
+              <label class="block text-gray-700">House Number</label>
+              <input type="text" v-model="form.permanent_address.house_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Street</label>
+              <input type="text" v-model="form.permanent_address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Barangay</label>
+              <input type="text" v-model="form.permanent_address.barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">City</label>
+              <input type="text" v-model="form.permanent_address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Province</label>
+              <input type="text" v-model="form.permanent_address.province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Region</label>
+              <input type="text" v-model="form.permanent_address.region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Country</label>
+              <input type="text" v-model="form.permanent_address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
           </div>
           <div class="mb-4">
-            <label class="block text-gray-700">Current Address</label>
-            <input v-model="form.currentAddress.homenumber" type="text" placeholder="Home Number" class="form-input mt-1 block w-full" />
-            <input v-model="form.currentAddress.street" type="text" placeholder="Street" class="form-input mt-1 block w-full" />
-            <input v-model="form.currentAddress.barangay" type="text" placeholder="Barangay" class="form-input mt-1 block w-full" />
-            <input v-model="form.currentAddress.city" type="text" placeholder="City" class="form-input mt-1 block w-full" />
-            <input v-model="form.currentAddress.province" type="text" placeholder="Province" class="form-input mt-1 block w-full" />
-            <input v-model="form.currentAddress.region" type="text" placeholder="Region" class="form-input mt-1 block w-full" />
+            <p class="block text-gray-700">Current Address</p>
+            <div class="mb-4">
+              <label class="block text-gray-700">House Number</label>
+              <input type="text" v-model="form.current_address.house_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Street</label>
+              <input type="text" v-model="form.current_address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Barangay</label>
+              <input type="text" v-model="form.current_address.barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">City</label>
+              <input type="text" v-model="form.current_address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Province</label>
+              <input type="text" v-model="form.current_address.province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Region</label>
+              <input type="text" v-model="form.current_address.region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
+            <div class="mb-4">
+              <label class="block text-gray-700">Country</label>
+              <input type="text" v-model="form.current_address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            </div>
           </div>
-          <button type="button" @click="firstStep" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Previous</button>
-          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next</button>
+          <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
+          <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Next</button>
       </form>
       </div>
-
-
       <div v-else-if="step === 3">
-        <form @submit.prevent="thirdStep">
-           <!-- Third Step Form -->
-          <div v-if="form.usertype === 'driver'">
-            <h2 class="text-xl font-bold mb-4">Step 3: Additional Information (Driver)</h2>
-            <div class="mb-4">
-              <label class="block text-gray-700">Emergency Contact Full Name</label>
-              <input v-model="form.emergencyContact.fullname" type="text" class="form-input mt-1 block w-full" />
+        <form @submit.prevent="submitForm">
+
+          <div v-if="form.personal_info.user_type === 'driver' || form.personal_info.user_type === 'client'">
+            <h2 class="mb-4 text-xl font-bold" v-if="form.personal_info.user_type === 'driver'">Step 3: Additional Information (Driver)</h2>
+            <h2 class="mb-4 text-xl font-bold" v-else-if="form.personal_info.user_type === 'client'">Step 3: Additional Information (Client)</h2>
+
+            <div v-if="form.personal_info.user_type === 'driver'">
+              <div class="mb-4">
+                <label class="block text-gray-700">Contact Person</label>
+                <input type="text" v-model="form.driver.contact_person" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Relationship with Contact Person</label>
+                <input type="text" v-model="form.driver.contact_person_relationship" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Contact Person Phone Number</label>
+                <input type="text" v-model="form.driver.contact_person_phone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Contact Person Email</label>
+                <input type="text" v-model="form.driver.contact_person_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Contact Person Address</label>
+                <input type="text" v-model="form.driver.contact_person_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
             </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Relationship</label>
-              <input v-model="form.emergencyContact.relationship" type="text" class="form-input mt-1 block w-full" />
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Phone Number</label>
-              <input v-model="form.emergencyContact.phoneNumber" type="text" class="form-input mt-1 block w-full" />
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Email</label>
-              <input v-model="form.emergencyContact.email" type="email" class="form-input mt-1 block w-full" />
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Address</label>
-              <input v-model="form.emergencyContact.address" type="text" class="form-input mt-1 block w-full" />
+
+            <div v-else-if="form.personal_info.user_type === 'client'">
+              <div class="mb-4">
+                <label class="block text-gray-700">Company Name</label>
+                <input type="text" v-model="form.client.company_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Company Telephone Number</label>
+                <input type="text" v-model="form.client.company_telephone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Company Address</label>
+                <input type="text" v-model="form.client.company_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
             </div>
           </div>
-          <div v-else-if="form.usertype === 'client'">
-            <h2 class="text-xl font-bold mb-4">Step 3: Additional Information (Client)</h2>
-            <div class="mb-4">
-              <label class="block text-gray-700">Company Name</label>
-              <input v-model="form.company.Name" type="text" class="form-input mt-1 block w-full" />
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Company Telephone Number</label>
-              <input v-model="form.company.TelephoneNumber" type="text" class="form-input mt-1 block w-full" />
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Company Address</label>
-              <input v-model="form.company.Address" type="text" class="form-input mt-1 block w-full" />
-            </div>
+
+          <h2 class="mb-4 text-xl font-bold" v-else>Please Go Back and Select a User Type</h2>
+          <div v-if="form.personal_info.user_type === 'driver' || form.personal_info.user_type === 'client'">
+            <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
+            <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Submit</button>
           </div>
-         <h2 class="text-xl font-bold mb-4" v-else> Please Go Back and Select a User Type  </h2>
-
-         <div v-if="form.usertype == 'driver'"> 
-          <button type="button" @click="secondStep" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Previous</button>
-          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button> </div>
-
-          <div v-else-if="form.usertype == 'client'">
-          <button type="button" @click="secondStep" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Previous</button>
-          <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button> </div>
-
-          <div v-else> 
-            <button type="button" @click="secondStep" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Previous</button>
+          <div v-else>
+            <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
           </div>
-        </form>
+
+          </form>
       </div>
     </div>
   </div>
@@ -148,59 +210,60 @@ export default {
     return {
       step: 1,
       form: {
-        usertype: '',
-        firstname: '',
-        lastname: '',
-        middlename: '',
-        email: '',
-        gender: '',
-        maritalStatus: '',
-        phoneNumber: '',
-        permanentAddress: {
-          homenumber: '',
-          street: '',
-          barangay: '',
-          city: '',
-          province: '',
-          region: '',
+        personal_info: {
+          first_name: "",
+          last_name: "",
+          middle_name: "",
+          email: "",
+          phone_number1: "",
+          phone_number2: "",
+          birth_date: "",
+          gender: "",
+          marital_status: "",
+          user_type: ""
         },
-        currentAddress: {
-          homenumber: '',
-          street: '',
-          barangay: '',
-          city: '',
-          province: '',
-          region: '',
+        permanent_address: {
+          house_number: "",
+          street: "",
+          barangay: "",
+          city: "",
+          province: "",
+          region: "",
+          country: ""
         },
-        emergencyContact: {
-          fullname: '',
-          relationship: '',
-          phoneNumber: '',
-          email: '',
-          address: '',
+        current_address: {
+          house_number: "",
+          street: "",
+          barangay: "",
+          city: "",
+          province: "",
+          region: "",
+          country: ""
         },
-        company: {
-          Name: '',
-          TelephoneNumber: '',
-          Address: '',
+        driver: {
+          contact_person: "",
+          contact_person_relationship: "",
+          contact_person_phone_number: "",
+          contact_person_email: "",
+          contact_person_address: ""
         },
+        client: {
+          company_name: "",
+          company_telephone_number: "",
+          company_address: ""
+        }
       },
     };
   },
   methods: {
-    thirdStep() {
-      this.step = 3;
+    prevStep() {
+      this.step--;
     },
-    secondStep() {
-      this.step = 2;
-    },
-    firstStep() {
-      this.step = 1;
+    nextStep() {
+      this.step++;
     },
     submitForm() {
-      // Submit the form data
       console.log('Form submitted', this.form);
-      // You can add your form submission logic here
     },
   },
 };
