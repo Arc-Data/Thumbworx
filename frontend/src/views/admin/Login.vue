@@ -7,10 +7,9 @@
           class="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md"
         >
           <div
-          
             class="p-4 py-6 text-white bg-blue-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly"
           >
-           <div class="my-3 text-4xl font-bold tracking-wider tracking-widest text-center">
+           <div class="my-3 text-4xl font-bold tracking-wider text-center ">
               <a href="#" >Thumbworx</a>
             </div>
             <p class="mt-6 font-normal text-center text-gray-300 md:mt-0">
@@ -76,7 +75,7 @@ export default {
     async login() {
       const adminStore = useAdminStore()
       try {
-        await adminStore.adminLogin(this.email, this.password)
+        await adminStore.login(this.email, this.password)
       } catch (error) {
         console.error('Error:', error);
       }

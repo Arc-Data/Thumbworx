@@ -1,9 +1,5 @@
 <template>
-
-
-	<div class="
-    bg-img
-    ">
+	<div class=" bg-img">
 
 		<div class="
         opacity-sec

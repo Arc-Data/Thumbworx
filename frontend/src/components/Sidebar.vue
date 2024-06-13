@@ -9,7 +9,7 @@
 	>
 		<span class="sr-only">Open sidebar</span>
 		<svg
-		class="w-6 h-6"
+	class="w-6 h-6"
 		aria-hidden="true"
 		fill="currentColor"
 		viewBox="0 0 20 20"
@@ -28,7 +28,7 @@
 		class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
 		aria-label="Sidebar"
 	>
-		<div class="h-full px-3 py-4 overflow-y-auto bg-blue-800 dark:bg-gray-800">
+		<div class="h-full px-3 py-4 overflow-y-auto bg-primary-default">
 		<a href="#" class="flex items-center ps-2.5 mb-5">
 			<img
 			src="https://th.bing.com/th/id/R.f60de85e220a6c066dca269bae4e4eed?rik=5V1xnEBnOuZrJg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftruck-silhouette-images%2ftruck-silhouette-images-24.png&ehk=XOXvl%2bhOQLME4sLz9fccgTnrTYWeaP9o7p%2fun%2bLw0nk%3d&risl=&pid=ImgRaw&r=0"

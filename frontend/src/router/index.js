@@ -2,7 +2,6 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Dashboard from '../views/admin/Dashboard.vue';
 import ReviseDocuments from '../views/admin/ReviseDocuments.vue';
 
-
 import DriverAccounts from '../views/super-admin/driver/DriverAccounts.vue';
 import DriverDetails from '../views/super-admin/driver/DriverDetails.vue'; 
 import DriverLogs from '../views/super-admin/driver/DriverLogs.vue';
@@ -38,25 +37,25 @@ const routes = [
   {   
     path: '/landing-page',
     component: LandingPage,
-    meta: { requiresGuest: true, sidebar: false },
+    meta: { requiresGuest: true },
     name: 'LandingPage',
   },
   {
     path: '/login',
     component: LoginMain,
-    meta: { requiresGuest: true, sidebar: true },
+    meta: { requiresGuest: true },
     name: 'LoginMain',
   },
   {
     path: '/login/admin',
     component: Login,
-    meta: { requiresGuest: true, sidebar: false },
+    meta: { requiresGuest: true },
     name: 'LoginAdmin',
   },
   {
     path: '/registration',
     component: Registration,
-    meta: { requiresGuest: true, sidebar: true },
+    meta: { requiresGuest: true },
     name: 'Registration',
   },
   // driver related routes
@@ -84,44 +83,65 @@ const routes = [
   // admin related routes
   {   
     path: '/admin',
+    meta: { requiresAdmin: true },
     component: DefaultLayout,
     children: [
       {
         path: 'dashboard',
         component: Dashboard,
         name: 'Dashboard',
-        meta: { requiresAdmin: true, sidebar: true },
       },
       {
+        // admin related routes for driver management
         path: 'drivers',
-        meta: { requiresAdmin: true },
         children: [
           {
             path: '',
             name: DriverAccounts,
             component: DriverAccounts,
-            meta: { requiresAdmin: true, sidebar: true }
           },
           {
             path: ':id',
             name: DriverDetails,
             component: DriverDetails,
-            meta: { requiresAdmin: true, sidebar: true }
           },
           {
             path: 'logs',
             name: DriverLogs,
             component: DriverLogs,
-            meta: { requiresAdmin: true, sidebar: true }
           }
         ]
       },
-      // currently an unused path
+      // admin related routes for client management
+      {
+        path: 'clients',
+        children: [
+          {
+            path: '',
+            component: ClientAccount,
+            name: 'ClientAccount',
+          },
+          {
+            path: '2',
+            component: ClientAccounts,
+            name: 'ClientAccounts',
+          },
+          {
+            path: ':id',
+            component: ClientDetails,
+            name: 'ClientDetails',
+          },
+          {
+            path: 'booking',
+            component: ClientBooking,
+            name: 'ClientBooking',
+          }
+        ]
+      },
       {
         path: 'logs',
         component: Logs,
         name: 'Logs',
-        meta: { requiresAdmin: true, sidebar: true },
       },
       // what is this supposed to do
       // {
@@ -134,49 +154,41 @@ const routes = [
         path: 'accountrecover',
         component: AccountRecover,
         name: 'AccountRecover',
-        meta: { requiresAdmin: true, sidebar: false },
       },
       {
-        path: 'clientaccount',
-        component: ClientAccount,
-        name: 'ClientAccount',
-        meta: { requiresAdmin: true, sidebar: true },
-      },
-      {
-        path: 'clientbooking',
-        component: ClientBooking,
-        name: 'ClientBooking',
-        meta: { requiresAdmin: true, sidebar: true },
+        path: 'helpers',
+        children: [
+          {
+            path: '',
+            component: HelperAccount,
+            name: 'HelperAccount',
+          },
+        ]
       },
       {
         path: 'helperaccount',
         component: HelperAccount,
         name: 'HelperAccount',
-        meta: { requiresAdmin: true, sidebar: true },
       },
       {
         path: 'helperaccounts',
         component: HelperAccounts,
         name: 'HelperAccounts',
-        meta: { requiresAdmin: true, sidebar: true },
       },
       {
         path: 'helperlogs',
         component: HelperLogs,
         name: 'HelperLogs',
-        meta: { requiresAdmin: true, sidebar: true },
       },
       {
         path: 'helperratings',
         component: HelperRatings,
         name: 'HelperRatings',
-        meta: { requiresAdmin: true, sidebar: true },
       },
       {
         path: 'helperbooking',
         component: HelperBooking,
         name: 'HelperBooking',
-        meta: { requiresAdmin: true, sidebar: true },
       },
     ],
   },
