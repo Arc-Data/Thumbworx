@@ -17,6 +17,11 @@ return new class extends Migration
             $table->string('license')->nullable();
             $table->string('nbi_clearance')->nullable(); 
             $table->string('lto_driving_history')->nullable(); 
+            $table->string('contact_person');
+            $table->string('contact_person_relationship');
+            $table->string('contact_person_phone_number');
+            $table->string('contact_person_email');
+            $table->string('contact_person_address');
             $table->timestamps();
         });
     }
