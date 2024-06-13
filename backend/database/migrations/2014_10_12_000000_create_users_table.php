@@ -18,10 +18,9 @@ return new class extends Migration
             $table->string('last_name');
             $table->date('birth_date');
             $table->integer('is_restore')->default(0)->change();
-            $table->integer('account_status')->default(1)->change();
+            $table->integer('account_status')->default(0);
             $table->enum('gender', ['male', 'female', 'other']);
             $table->enum('marital_status', ['single', 'married', 'divorced', 'widowed']);
-            $table->integer('account_status'); 
             $table->string('user_type');
             $table->string('email')->unique();
             $table->string('phone_number1'); 
