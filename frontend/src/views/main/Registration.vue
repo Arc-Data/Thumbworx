@@ -210,6 +210,8 @@
 <script>
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
+import { useAdminStore } from '../../stores/adminStore';
+import apiClient from '../../api/apiClient';
 
 export default {
   name: 'MultistepForm',
@@ -271,8 +273,16 @@ export default {
     nextStep() {
       this.step++;
     },
-    submitForm() {
-      console.log('Form submitted', this.form);
+    async submitForm() {
+
+      try {
+        console.log(this.form)
+        const response = await apiClient.post('/api/auth/register/', this.form) 
+        console.log(response)
+      } 
+      catch (error) {
+        console.log("error occcured", error)
+      }
     },
   },
 };
