@@ -25,6 +25,10 @@
             <input type="text" v-model="form.personal_info.middle_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
           <div class="mb-4">
+            <label class="block text-gray-700">Birth Date</label>
+            <vue-date-picker format="yyyy-MM-dd" v-model="form.personal_info.birth_date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"></vue-date-picker>
+          </div>
+          <div class="mb-4">
             <label class="block text-gray-700">Email</label>
             <input type="email" v-model="form.personal_info.email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
           </div>
@@ -204,8 +208,12 @@
 </template>
 
 <script>
+import VueDatePicker from '@vuepic/vue-datepicker';
+import '@vuepic/vue-datepicker/dist/main.css'
+
 export default {
   name: 'MultistepForm',
+  components: { VueDatePicker },
   data() {
     return {
       step: 1,
@@ -220,7 +228,8 @@ export default {
           birth_date: "",
           gender: "",
           marital_status: "",
-          user_type: ""
+          user_type: "",
+          birth_date: null,
         },
         permanent_address: {
           house_number: "",
