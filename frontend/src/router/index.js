@@ -1,17 +1,19 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Dashboard from '../views/admin/Dashboard.vue';
-import ReviseDocuments from '../views/admin/ReviseDocuments.vue';
 
+
+import Dashboard from '../views/admin/Dashboard.vue';
+
+//--Super-admin--
+//--Registration--
+//--Driver_Management--
 import DriverAccounts from '../views/super-admin/driver/DriverAccounts.vue';
 import DriverDetails from '../views/super-admin/driver/DriverDetails.vue'; 
 import DriverLogs from '../views/super-admin/driver/DriverLogs.vue';
-
+//--Helper_Management--
 import HelperAccounts from '../views/super-admin/helper/HelperAccounts.vue'
 import HelperDetails from '../views/super-admin/helper/HelperDetails.vue';
-
-// already a thing
-// import HelperLogs from '../views/admin/HelperLogs.vue';
-
+import HelperLogs from '../views/super-admin/helper/HelperLogs.vue';
+//Client_Management
 import ClientAccounts from '../views/super-admin/client/ClientAccounts.vue'
 import ClientDetails from '../views/super-admin/client/ClientDetails.vue'
 import ClientLogs from '../views/super-admin/client/ClientLogs.vue'
@@ -33,7 +35,9 @@ import { useAdminStore } from '../stores/adminStore';
 import DriverHome from '../views/driver/DriverHome.vue';
 import ClientHome from '../views/client/ClientHome.vue';
 
-const routes = [
+const router = createRouter({
+  history: createWebHistory(),
+  routes: [
   {   
     path: '/landing-page',
     component: LandingPage,
@@ -196,11 +200,9 @@ const routes = [
     path: '/:catchAll(.*)',
     redirect: '/login',
   },
-];
+]
 
-const router = createRouter({
-  history: createWebHistory(),
-  routes,
+
 });
 
 router.beforeEach((to, from, next) => {

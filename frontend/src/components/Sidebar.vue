@@ -3,7 +3,7 @@
 
 
 
-	<aside :class="is_expanded ? 'w-64' : 'w-16'" class="flex flex-col bg-primary-default text-light min-h-screen p-4 transition-all duration-200 ease-in-out">
+	<aside :class="is_expanded ? 'w-64' : 'w-16'" class="flex flex-col bg-primary-default dark:bg-primary-500 text-light min-h-screen p-4 transition-all duration-200 ease-in-out">
 
 
 		<div class="flex justify-end mb-4 relative transition-all duration-200 ease-in-out">
@@ -32,7 +32,7 @@
 	<li>
 
 		<router-link		 
-		to="/admin/Dashboard" 		 
+		to="/Dashboard/Admin" 		 
 		class="flex items-center text-white p-2 transition duration-200 ease-in-out  hover:text-primary">
 		
 		<span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 transition duration-75 w-7 h-7 text-cotton group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-blue-500">
@@ -43,7 +43,7 @@
 		</svg></span>
 		<span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">Dashboard</span>
 		</router-link>
-	</li> 
+	</li> <!--DASHBOARD-->
 		
 	
 
@@ -394,17 +394,16 @@
 	
 	</div>
 		</div>
-		<div class="mode-toggle mt-auto ">
-			<fwb-toggle v-model="isDarkMode" id="darkmode-toggle" @change="switchTheme" class="w-9 h-5 m-1" />
+			<div class="mode-toggle mt-auto cursor-pointer " >
+				<input class="sr-only peer" type="checkbox">
+				<fwb-toggle v-model="isDarkMode" id="darkmode-toggle" @change="switchTheme" class="relative w-9 h-5 m-0 pl-0" />
 				<label for="darkmode-toggle">
-					<span v-if="!isDarkMode" class="material-icons" >light_mode</span>
+					<span v-if="!isDarkMode" class="material-icons">light_mode</span>
 					<span v-if="isDarkMode"  class="material-icons">dark_mode</span>
 				</label>
 			</div>
-
-
-			
-	</aside>
+		
+				</aside>
 	
 	</div>
 </template>

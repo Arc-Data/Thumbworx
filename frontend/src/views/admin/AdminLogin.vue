@@ -19,7 +19,7 @@
           </div>
           <div class="p-5 bg-white md:flex-1">
             <img class="m-auto size-40 center-margin" src="https://th.bing.com/th/id/R.f60de85e220a6c066dca269bae4e4eed?rik=5V1xnEBnOuZrJg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftruck-silhouette-images%2ftruck-silhouette-images-24.png&ehk=XOXvl%2bhOQLME4sLz9fccgTnrTYWeaP9o7p%2fun%2bLw0nk%3d&risl=&pid=ImgRaw&r=0" alt="" srcset="">
-            <h3 class="my-4 text-2xl font-semibold text-center text-gray-700">Super Admin Login</h3>
+            <h3 class="my-4 text-2xl font-semibold text-center text-gray-700"> Admin Login</h3>
             <form @submit.prevent="login" class="flex flex-col space-y-5">
               <div class="flex flex-col space-y-1">
                 <label for="email" class="text-sm font-semibold text-gray-500">Email</label>
