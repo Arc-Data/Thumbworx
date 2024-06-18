@@ -93,7 +93,7 @@ class ApiController extends Controller
             "message" => "Form valid",
             'user' => $user->load(['currentAddress', 'permanentAddress']),
             'token' => $token,
-        ]);
+        ], 201);
     }
     
 

@@ -274,11 +274,29 @@ export default {
       this.step++;
     },
     async submitForm() {
-
       try {
-        console.log(this.form)
-        const response = await apiClient.post('/api/auth/register/', this.form) 
-        console.log(response)
+        if (this.form.personal_info.birth_date) {
+          this.form.personal_info.birth_date = new Date(this.form.personal_info.birth_date)
+            .toISOString()
+            .split('T')[0];
+        }
+
+        const payload = {
+          personal_info: { ...this.form.personal_info },
+          permanent_address: { ...this.form.permanent_address },
+          current_address: { ...this.form.current_address },
+        };
+
+        if (this.form.personal_info.user_type === 'driver') {
+          payload.driver = { ...this.form.driver };
+        } else if (this.form.personal_info.user_type === 'client') {
+          payload.client = { ...this.form.client };
+        }
+
+        const response = await apiClient.post('/api/auth/register', payload);
+        if (response.status === "201") {
+          this.step++
+        }
       } 
       catch (error) {
         console.log("error occcured", error)

@@ -3,17 +3,17 @@
 
 
 
-	<aside :class="is_expanded ? 'w-64' : 'w-24'" class="flex flex-col bg-primary-default dark:bg-primary-500 text-light min-h-screen p-4 transition-all duration-200 ease-in-out">
+	<aside :class="is_expanded ? 'w-64' : 'w-24'" class="fixed flex-col min-h-screen p-4 transition-all duration-200 ease-in-out md:static md:block z-2 bg-primary-default dark:bg-primary-500 text-light">
 
 
-		<div class="flex justify-end mb-4 relative transition-all duration-200 ease-in-out">
+		<div class="relative flex justify-end mb-4 transition-all duration-200 ease-in-out">
 			<button class="transition-transform duration-200 ease-in-out" @click="toggleMenu">
-				<span class="material-icons text-light text-2xl transition-transform duration-200 ease-out hover:text-primary hover:translate-x-2">menu</span>
+				<span class="text-2xl transition-transform duration-200 ease-out material-icons text-light hover:text-primary hover:translate-x-2">menu</span>
 			</button>
 		</div>
 
-		<div class="space-y-1 -mx-4">
-			<div class="mb-4 flex items-center ps-2.5 mb-5">
+		<div class="-mx-4 space-y-1">
+			<div class="mb-4 flex items-center ps-2.5">
 			<img
 			src="https://th.bing.com/th/id/R.f60de85e220a6c066dca269bae4e4eed?rik=5V1xnEBnOuZrJg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftruck-silhouette-images%2ftruck-silhouette-images-24.png&ehk=XOXvl%2bhOQLME4sLz9fccgTnrTYWeaP9o7p%2fun%2bLw0nk%3d&risl=&pid=ImgRaw&r=0"
 			class="rounded-full h-14 w-14 me-3 sm:h-14 sm:w-14"
@@ -21,7 +21,7 @@
 			/>
 			<div>
 			<span class="text-xl font-bold text-white whitespace-nowrap" :class="{'opacity-0': !is_expanded}">Thumbworx <br></span>
-			<span class="block font-semibold text-white ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">Trucking Management System</span>
+			<span class="block ml-4 font-semibold text-white transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">Trucking Management System</span>
 		</div>
 		</div>
 	
@@ -33,7 +33,7 @@
 
 		<router-link		 
 		to="/admin/dashboard" 		 
-		class="flex items-center text-white p-2 transition duration-200 ease-in-out  hover:text-primary">
+		class="flex items-center p-2 text-white transition duration-200 ease-in-out hover:text-primary">
 		
 		<span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 transition duration-75 w-7 h-7 text-cotton group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-blue-500">
 		<path stroke-linecap="round" 
@@ -138,35 +138,35 @@
 
       <ul id="dropdown-sub" class="hidden py-2 space-y-2">
         <li>
-          <router-link to="/admin/accountrecover" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/admin/accountrecover" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Account
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/client/booking" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/client/booking" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Booking
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/helpers/helperratings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
+          <router-link to="/helpers/helperratings" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">    
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Rating
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Evaluation
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Logs
             </span>
@@ -225,35 +225,35 @@
 
 
 	<ul id="dropdown-helper" class="hidden py-2 space-y-2">
-        <li> <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+        <li> <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Account
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Booking
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">    
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Rating
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Evaluation
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Logs
             </span>
@@ -311,35 +311,35 @@
 
 
 	<ul id="dropdown-client" class="hidden py-2 space-y-2">
-        <li> <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+        <li> <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Account
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Booking
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">    
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Rating
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Evaluation
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/" class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Logs
             </span>
@@ -395,7 +395,7 @@
 	</div>
 		</div>
     
-		<label class="mode-toggle mt-auto cursor-pointer mb-3 pb-3">
+		<label class="pb-3 mt-auto mb-3 cursor-pointer mode-toggle">
   <input type="checkbox" v-model="isDarkMode" id="darkmode-toggle" @change="switchTheme" class="sr-only peer">
   <span v-if="!isDarkMode" class="material-icons">light_mode</span>
   <span v-if="isDarkMode" class="material-icons">dark_mode</span>
