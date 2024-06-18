@@ -138,21 +138,21 @@
 
       <ul id="dropdown-sub" class="hidden py-2 space-y-2">
         <li>
-          <router-link to="/admin/accountrecover" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/superadmin/drivers" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Account
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/client/booking" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/superadmin/drivers/bookings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Booking
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/helpers/helperratings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
+          <router-link to="/superadmin/drivers/ratings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Rating
             </span>
@@ -166,7 +166,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/superadmin/drivers/logs" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Logs
             </span>
@@ -225,21 +225,21 @@
 
 
 	<ul id="dropdown-helper" class="hidden py-2 space-y-2">
-        <li> <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+        <li> <router-link to="/superadmin/helpers" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Account
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/superadmin/helpers/bookings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Booking
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
+          <router-link to="/superadmin/helpers/ratings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Rating
             </span>
@@ -253,7 +253,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/superadmin/helpers/logs" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Logs
             </span>
@@ -311,21 +311,21 @@
 
 
 	<ul id="dropdown-client" class="hidden py-2 space-y-2">
-        <li> <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+        <li> <router-link to="/superadmin/clients" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Account
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/superadmin/clients/bookings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Booking
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
+          <router-link to="/superadmin/clients/ratings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Rating
             </span>
@@ -339,7 +339,7 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/superadmin/clients/logs" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Logs
             </span>
