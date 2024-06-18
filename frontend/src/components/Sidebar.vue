@@ -145,14 +145,14 @@
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/client/booking" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Booking
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
+          <router-link to="/helpers/helperratings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Rating
             </span>
