@@ -32,7 +32,7 @@
 	<li>
 
 		<router-link		 
-		to="/Dashboard/Admin" 		 
+		to="/admin/dashboard" 		 
 		class="flex items-center text-white p-2 transition duration-200 ease-in-out  hover:text-primary">
 		
 		<span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 transition duration-75 w-7 h-7 text-cotton group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-blue-500">
