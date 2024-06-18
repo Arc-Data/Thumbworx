@@ -138,7 +138,7 @@
 
       <ul id="dropdown-sub" class="hidden py-2 space-y-2">
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/admin/accountrecover" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Account
             </span>
