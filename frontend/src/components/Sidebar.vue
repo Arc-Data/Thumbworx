@@ -2,16 +2,9 @@
 	<div>
 
 
-     <!-- <aside :class="is_expanded ? 'w-64' : 'w-16'" class="flex flex-col bg-primary-default dark:bg-primary-500 text-light min-h-screen p-4 transition-all duration-200 ease-in-out">
-    -->
-     <!-- <aside :class="is_expanded ? 'w-64' : 'w-16'" class="flex flex-col bg-primary-default dark:bg-primary-500 text-light min-h-screen p-3 transition-all duration-200 ease-in-out">
-    -->
 
-	
-    <aside :class="is_expanded ? 'w-64' : 'w-24'" class="flex flex-col bg-primary-default dark:bg-primary-500 text-light min-h-screen p-4 transition-all duration-200 ease-in-out">
-     
-     
- 
+	<aside :class="is_expanded ? 'w-64' : 'w-24'" class="flex flex-col bg-primary-default dark:bg-primary-500 text-light min-h-screen p-4 transition-all duration-200 ease-in-out">
+
 
 		<div class="flex justify-end mb-4 relative transition-all duration-200 ease-in-out">
 			<button class="transition-transform duration-200 ease-in-out" @click="toggleMenu">
@@ -39,7 +32,7 @@
 	<li>
 
 		<router-link		 
-		to="/Dashboard/Admin" 		 
+		to="/admin/dashboard" 		 
 		class="flex items-center text-white p-2 transition duration-200 ease-in-out  hover:text-primary">
 		
 		<span> <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 transition duration-75 w-7 h-7 text-cotton group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-blue-500">
@@ -145,21 +138,21 @@
 
       <ul id="dropdown-sub" class="hidden py-2 space-y-2">
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/admin/accountrecover" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Account
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
+          <router-link to="/client/booking" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Booking
             </span>
           </router-link>
         </li>
         <li>
-          <router-link to="/" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
+          <router-link to="/helpers/helperratings" class="flex items-center text-light p-2 transition duration-200 ease-in-out hover:bg-dark-alt hover:text-primary">    
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Rating
             </span>
@@ -401,15 +394,13 @@
 	
 	</div>
 		</div>
-		 
-
+    
 		<label class="mode-toggle mt-auto cursor-pointer mb-3 pb-3">
   <input type="checkbox" v-model="isDarkMode" id="darkmode-toggle" @change="switchTheme" class="sr-only peer">
   <span v-if="!isDarkMode" class="material-icons">light_mode</span>
   <span v-if="isDarkMode" class="material-icons">dark_mode</span>
   <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
 </label>
-		
 				</aside>
 	
 	</div>

@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
 
-import Dashboard from '../views/admin/Dashboard.vue';
 
 //--Super-admin--
 //--Registration--
@@ -18,6 +17,9 @@ import ClientAccounts from '../views/super-admin/client/ClientAccounts.vue'
 import ClientDetails from '../views/super-admin/client/ClientDetails.vue'
 import ClientLogs from '../views/super-admin/client/ClientLogs.vue'
 
+
+//--Admin--
+import Dashboard from '../views/admin/Dashboard.vue';
 import Logs from '../views/admin/Logs.vue';
 import AccountRecover from '../views/admin/AccountRecover.vue';
 import LandingPage from '../views/homepage/LandingPage.vue';
@@ -61,6 +63,12 @@ const router = createRouter({
     meta: { requiresGuest: true },
     name: 'Registration',
   },
+
+  
+
+
+
+
   // driver related routes
   {
     path: '/driver',
