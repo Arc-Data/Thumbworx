@@ -50,7 +50,8 @@ class ApiController extends Controller
 
 
     public function register(RegistrationRequest $request)
-    {    
+    {
+        Log::info("Got past that");    
         $userData = $request->input('personal_info');
         $user = User::create($userData);
         
