@@ -11,7 +11,7 @@ import DriverLogs from '../views/super-admin/driver/DriverLogs.vue';
 //--Helper_Management--
 import HelperAccounts from '../views/super-admin/helper/HelperAccounts.vue'
 import HelperDetails from '../views/super-admin/helper/HelperDetails.vue';
-// import HelperLogs from '../views/super-admin/helper/HelperLogs.vue';
+import HelperLogs from '../views/super-admin/helper/HelperLogs.vue';
 //Client_Management
 import ClientAccounts from '../views/super-admin/client/ClientAccounts.vue'
 import ClientDetails from '../views/super-admin/client/ClientDetails.vue'
