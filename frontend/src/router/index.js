@@ -31,7 +31,6 @@ import ClientAccount from '../views/admin/ClientAccount.vue';
 import ClientBooking from '../views/admin/ClientBooking.vue';
 import HelperAccount from '../views/admin/HelperAccount.vue';
 import HelperBooking from '../views/admin/HelperBooking.vue';
-import HelperLogs from '../views/admin/HelperLogs.vue';
 import HelperRatings from '../views/admin/HelperRatings.vue';
 import { useAdminStore } from '../stores/adminStore';
 import DriverHome from '../views/driver/DriverHome.vue';
