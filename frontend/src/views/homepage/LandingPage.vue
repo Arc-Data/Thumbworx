@@ -16,7 +16,7 @@
 				A Smart Trucking Management System
 			</p>
 			<div class="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-        <router-link to="/loginadmin"> <a rel="noopener noreferrer"  class="px-8 py-3 text-lg font-semibold border-fmt white-txt">ADMIN</a></router-link>
+        <router-link to="/login/admin"> <a rel="noopener noreferrer"  class="px-8 py-3 text-lg font-semibold border-fmt white-txt">ADMIN</a></router-link>
 		<router-link to="/login"> <a rel="noopener noreferrer"  class="px-8 py-3 text-lg font-semibold border-fmt white-txt">SUPER ADMIN</a></router-link>
 			</div>
 		</div>
