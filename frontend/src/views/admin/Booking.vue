@@ -51,7 +51,7 @@
                   <td :class="getStatusClass(1)" class="whitespace-nowrap px-6 py-4">
                     {{ getStatusDisplay(1) }}
                   </td>
-                  <td class="whitespace-nowrap px-6 py-4"><button class="btn btn-primary" @click="viewHelperBookingDetails(1)">View</button> </td>
+                  <td class="whitespace-nowrap px-6 py-4"><button class="btn btn-primary" @click="viewBookingDetails(1)">View</button> </td>
               </tr>
               </tbody>
             </table>
@@ -78,7 +78,7 @@
       </div>
     </div>
 
-    <div id="helperBookingDetailsPop" class=" w-full absolute z-10 bg-black bg-opacity-50 pt-20 pb-20">
+    <div id="bookingDetailsPop" class=" w-full absolute z-10 bg-black bg-opacity-50 pt-20 pb-20">
     <!-- pop up content div -->
      <div class="rounded-lg drop-shadow-lg border-1 border-slate-400 bg-white w-fit ml-auto mr-auto">
           <!-- popup header --> 
@@ -332,43 +332,6 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col mb-3">
-                        <label for="disabledTextInput9" class="form-label"
-                        >Helper ID</label
-                        >
-                        <input
-                        type="text"
-                        id="disabledTextInput9"
-                        class="form-control"
-                        disabled
-                        :value="2"
-                        />
-                    </div>
-                    <div class="col mb-3">
-                        <label for="disabledTextInput10" class="form-label"
-                        >Fullname</label
-                        >
-                        <input
-                        type="text"
-                        id="disabledTextInput10"
-                        class="form-control"
-                        disabled
-                        :value="2"
-                        />
-                    </div>
-                    <div class="col mb-3">
-                        <label for="disabledTextInput11" class="form-label">Helper Type</label>
-                        <input
-                        type="text"
-                        id="disabledTextInput11"
-                        class="form-control"
-                        disabled
-                        :value="2"
-                        />
-                    </div>
-                </div>
-
 
 
             </div>
@@ -451,11 +414,11 @@ export default { //provides a more modular and organized way to define multiple 
       }
     },
     closePopup(){
-      document.getElementById("helperBookingDetailsPop")?.classList.add("collapse")
+      document.getElementById("bookingDetailsPop").classList.add('collapse');
     },
     // new function popup vieww of details
-    viewHelperBookingDetails(bookID){
-        document.getElementById("helperBookingDetailsPop")?.classList.add("collapse")
+    viewBookingDetails(bookID){
+        document.getElementById("bookingDetailsPop").classList.remove('collapse');
     },
  
 
