@@ -443,7 +443,7 @@
   <script>
   import axios from "redaxios";
   import { ref, onMounted } from "vue";
-  import { useAdminStore } from "../../stores/adminStore";
+  import { useAdminStore } from '../../../stores/adminStore.js';
   
   export default {
     name: "UserDetails",

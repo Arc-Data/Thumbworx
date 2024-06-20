@@ -21,7 +21,7 @@ import ClientDetails from '../views/admin/client/ClientDetails.vue';
 import ClientBooking from '../views/admin/client/ClientBooking.vue';
 import ClientLogs from '../views/admin/client/ClientLogs.vue';
 import ClientRatings from '../views/admin/client/ClientRatings.vue';
-import ClientAccounts from '../views/admin/client/ClientAccounts.vue;'
+import ClientAccounts from '../views/admin/client/ClientAccounts.vue';
 
 
 //--Helper_Management--
@@ -42,7 +42,7 @@ import DefaultLayout from '../layouts/DefaultLayout.vue';
 import { useAdminStore } from '../stores/adminStore';
 import DriverHome from '../views/driver/DriverHome.vue';
 import ClientHome from '../views/client/ClientHome.vue';
-import ClientRatings from '../views/admin/ClientRatings.vue';
+
 
 const router = createRouter({
   history: createWebHistory(),

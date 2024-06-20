@@ -1,11 +1,11 @@
 <template>
     <fieldset>
-      <legend>Client Details</legend>
+      <legend>Helper Details</legend>
       <div>
         <h6>Personal Information</h6>
       </div>
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput1" class="form-label">First Name</label>
           <!-- first_name and others is from the database. Hindi sya tinawag directly dito sa script code sa baba -->
           <input
@@ -16,7 +16,7 @@
             :value="userDetails.first_name"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput2" class="form-label">Middle Name</label>
           <input
             type="text"
@@ -26,7 +26,7 @@
             :value="userDetails.middle_name"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput3" class="form-label">Last Name</label>
           <input
             type="text"
@@ -38,7 +38,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput4" class="form-label">Date of Birth</label>
           <input
             type="text"
@@ -48,7 +48,7 @@
             :value="userDetails.birth_date"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput5" class="form-label">Age</label>
           <input
             type="text"
@@ -58,7 +58,7 @@
             :value="userDetails.age"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput6" class="form-label">Gender</label>
           <input
             type="text"
@@ -70,7 +70,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput7" class="form-label"
             >Marital Status</label
           >
@@ -82,7 +82,7 @@
             :value="userDetails.marital_status"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput8" class="form-label">User Type</label>
           <input
             type="text"
@@ -100,7 +100,7 @@
         <h6>Contact Information</h6>
       </div>
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput9" class="form-label"
             >Phone Number 1</label
           >
@@ -112,7 +112,7 @@
             :value="userDetails.phone_number1"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput10" class="form-label"
             >Phone Number 2</label
           >
@@ -124,7 +124,7 @@
             :value="userDetails.phone_number2"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput11" class="form-label">Email</label>
           <input
             type="text"
@@ -143,12 +143,15 @@
       <div>
         <h6>Permanent Address</h6>
       </div>
+
+        <!-- hindi lalabas ung page kapag walang laman ung table sa db  -->
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput12" class="form-label"
             >Permanent House No.</label
           >
-  
+          
+        
           <input
             type="text"
             id="disabledTextInput12"
@@ -157,7 +160,7 @@
             :value="userDetails.permanent_address.per_house_number"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput13" class="form-label"
             >Permanent Street</label
           >
@@ -169,7 +172,7 @@
             :value="userDetails.permanent_address.per_street"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput14" class="form-label"
             >Permanent Barangay</label
           >
@@ -184,7 +187,7 @@
       </div>
   
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput15" class="form-label"
             >Permanent City.</label
           >
@@ -196,7 +199,7 @@
             :value="userDetails.permanent_address.per_city"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput16" class="form-label"
             >Permanent Province</label
           >
@@ -208,7 +211,7 @@
             :value="userDetails.permanent_address.per_province"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput17" class="form-label"
             >Permanent Region</label
           >
@@ -223,7 +226,7 @@
       </div>
   
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput18" class="form-label"
             >Permanent Country.</label
           >
@@ -235,7 +238,7 @@
             :value="userDetails.permanent_address.per_country"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput19" class="form-label"
             >Permanent Zip Code</label
           >
@@ -252,8 +255,10 @@
       <div>
         <h6>Current Address</h6>
       </div>
+
+        <!-- hindi lalabas ung page kapag walang laman ung table sa db  -->
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput20" class="form-label"
             >Current House No.</label
           >
@@ -265,7 +270,7 @@
             :value="userDetails.current_address.cur_house_number"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput21" class="form-label"
             >Current Street</label
           >
@@ -277,7 +282,7 @@
             :value="userDetails.current_address.cur_street"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput22" class="form-label"
             >Current Barangay</label
           >
@@ -292,7 +297,7 @@
       </div>
   
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput23" class="form-label"
             >Current City.</label
           >
@@ -304,7 +309,7 @@
             :value="userDetails.current_address.cur_city"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput24" class="form-label"
             >Current Province</label
           >
@@ -316,7 +321,7 @@
             :value="userDetails.current_address.cur_province"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput25" class="form-label"
             >Current Region</label
           >
@@ -331,7 +336,7 @@
       </div>
   
       <div class="row">
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput26" class="form-label"
             >Current Country.</label
           >
@@ -343,7 +348,7 @@
             :value="userDetails.current_address.cur_country"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput27" class="form-label"
             >Current Zip Code</label
           >
@@ -358,45 +363,70 @@
       </div>
   
       <div>
-        <h6>Company Contact</h6>
+        <h6>Emergency Contact Information</h6>
       </div>
 
-      <!-- value="userDetails.client.company_name" == Weird kasi may 's' ung sa database so sa user.php ung cinall na variable?  -->
+        <!-- hindi lalabas ung page kapag walang laman ung table sa db  -->
       <div class="row">
-        <div class="col mb-3">
-          <label for="disabledTextInput28" class="form-label">Company Name</label>
+        <div class="mb-3 col">
+          <label for="disabledTextInput28" class="form-label">Full Name</label>
           <input
             type="text"
             id="disabledTextInput28"
             class="form-control"
             disabled
-            :value="userDetails.client.company_name"
+            :value="userDetails.driver.contact_person"
           />
         </div>
-        <div class="col mb-3">
-          <label for="disabledTextInput29" class="form-label">Company Telephone Number</label>
+        <div class="mb-3 col">
+          <label for="disabledTextInput29" class="form-label">Relationship</label>
           <input
             type="text"
             id="disabledTextInput29"
             class="form-control"
             disabled
-            :value="userDetails.client.company_telephone_number" 
+            :value="userDetails.driver.contact_person_relationship"
           />
         </div>
-        <div class="col mb-3">
+        <div class="mb-3 col">
           <label for="disabledTextInput30" class="form-label"
-            >Company Address</label
+            >Relationship Phone Number</label
           >
           <input
             type="text"
             id="disabledTextInput30"
             class="form-control"
             disabled
-            :value="userDetails.client.company_address"
+            :value="userDetails.driver.contact_person_phone_number"
           />
         </div>
       </div>
-   
+  
+      <div class="row">
+        <div class="mb-3 col">
+          <label for="disabledTextInput31" class="form-label"
+            >Relationship Email</label
+          >
+          <input
+            type="text"
+            id="disabledTextInput31"
+            class="form-control"
+            disabled
+            :value="userDetails.driver.contact_person_email"
+          />
+        </div>
+  
+        <div class="mb-3 col">
+          <label for="disabledTextInput32" class="form-label">Address</label>
+          <input
+            type="text"
+            id="disabledTextInput32"
+            class="form-control"
+            disabled
+            :value="userDetails.contact_person_address"
+          />
+        </div>
+      </div>
   
       <div>
         <h6>Documents</h6>
@@ -413,7 +443,7 @@
   <script>
   import axios from "redaxios";
   import { ref, onMounted } from "vue";
-  import { useAdminStore } from "../../../stores/adminStore";
+  import { useAdminStore } from "../../stores/adminStore";
   
   export default {
     name: "UserDetails",

@@ -106,7 +106,7 @@
     
   <script> //Bawal tanggalin ung script tag para makita pa rin display kasi part sya ng default code
   import axios from "redaxios";
-  import { useAdminStore } from '../../stores/adminStore'; //Added Folder needs to add "../"
+  import { useAdminStore } from '../../../stores/adminStore'; //Added Folder needs to add "../"
   
   export default {
     name: 'UserAccount',

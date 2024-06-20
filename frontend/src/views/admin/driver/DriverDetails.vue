@@ -435,7 +435,7 @@
   
   <script>
   import axios from "redaxios";
-  import { useAdminStore } from "../../stores/adminStore";
+  import { useAdminStore } from "../../../stores/adminStore";
   
   export default {
     name: "UserDetails",

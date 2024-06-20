@@ -336,6 +336,7 @@
             <span class="ml-4 transition-opacity duration-200 ease-in-out" :class="{'opacity-0': !is_expanded}">
               Evaluation
             </span>
+            
           </router-link>
         </li>
         <li>
