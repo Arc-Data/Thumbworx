@@ -365,33 +365,6 @@
 
 
 	
-	<ul class="space-y-2 font-medium">
-	
-	<div class="">
-	<li>
-		<button
-		@click="handleLogout"
-		class="flex items-center w-full p-2 text-base text-white transition duration-75 rounded-lg group hover:bg-gray-300 dark:text-white dark:hover:bg-gray-700"
-		>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke-width="1.5"
-			stroke="currentColor"
-			class="flex-shrink-0 transition duration-75 w-7 h-7 text-cotton group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-blue-500"
-		>
-			<path
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25V9m-6 0h16.5m-16.5 0L5.25 12m0 0l-2.25 3m2.25-3h16.5"
-			/>
-		</svg>
-		<span class="ms-3 group-hover:text-black" :class="{'opacity-0': !is_expanded}" >Logout</span>
-		</button>
-	</li>
-	</div>
-	</ul>
 	
 	</div>
 		</div>

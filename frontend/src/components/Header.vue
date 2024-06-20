@@ -36,6 +36,8 @@
   </template>
   
   <script>
+import { useAdminStore } from '../stores/adminStore';
+
 
   export default {
     data() {
@@ -55,14 +57,8 @@
         this.closeDropdown();
       },
       logout() {
-          // Remove the token from local storage or wherever it's stored
-          localStorage.removeItem('userToken');
-  
-          // Optionally, clear other user-related data
-          // localStorage.removeItem('userData');
-
-          // Redirect the user to the login page
-          this.$router.push('/login');
+          const adminStore = useAdminStore()
+          adminStore.logout()
       },
     },
   };
