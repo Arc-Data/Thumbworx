@@ -18,6 +18,7 @@ class RegistrationRequest extends FormRequest
 
     protected function prepareForValidation()
     {
+        Log::info($this);
         $personalInfo = [
             'first_name' => strip_tags($this->input('personal_info.first_name')),
             'last_name' => strip_tags($this->input('personal_info.last_name')),
@@ -86,6 +87,7 @@ class RegistrationRequest extends FormRequest
                 if ($age < 18) {
                     $validator->errors()->add('personal_info.birth_date', 'You must be at least 18 years old.');
                 }
+                Log::info("no problems in here");
             }
         });
     }

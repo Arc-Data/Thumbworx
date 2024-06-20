@@ -76,6 +76,7 @@ const router = createRouter({
     path: '/driver',
     children: [
       {
+        name: 'DriverHome',
         path: 'home',
         component: DriverHome,
         meta: { requiresDriver: true }
@@ -88,6 +89,7 @@ const router = createRouter({
     children: [
       {
         path: 'home',
+        name:'ClientHome',
         component: ClientHome,
         meta: { requiresClient: true }
       }

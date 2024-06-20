@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegistrationRequest;
+use App\Mail\UserRegistered;
 use App\Models\CurrentAddress;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 use App\Models\User; //IMPORTING THE USER MODEL CLASS | Hindi ginamit dito kasi walang register
 use Illuminate\Support\Facades\Hash; //Hashing the password | Hindi rin ginamit dito kasi sa register of password eto. Maybe sa UserController pwede
+use Illuminate\Support\Str;
 use Tymon\JWTAuth\Facades\JWTAuth; 
+use Mail;
 use Illuminate\Support\Facades\Log;
 
 class ApiController extends Controller
@@ -44,14 +47,14 @@ class ApiController extends Controller
         ]);
     }
 
-    public function createDriver(Request $request) {
-
-    }
-
-
     public function register(RegistrationRequest $request)
-    {    
+    {
         $userData = $request->input('personal_info');
+
+        $password = Str::random(12);
+        $hashedPassword = Hash::make($password);
+
+        $userData['password'] = $hashedPassword;
         $user = User::create($userData);
         
         $currentAddressInput = $request->input('current_address');
@@ -86,15 +89,16 @@ class ApiController extends Controller
             $user->client()->create($request->input('client'));
         }
 
+        Mail::to($user->email)->send(new UserRegistered($user, $password));
+
         $token = JWTAuth::fromUser($user);
 
         return response()->json([
             "message" => "Form valid",
             'user' => $user->load(['currentAddress', 'permanentAddress']),
             'token' => $token,
-        ]);
+        ], 201);
     }
-    
 
     //Profile API (GET) | Protected methods
     public function profile(){ //Kapag tinawag mo to ireread nya ung user details
