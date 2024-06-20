@@ -1,96 +1,98 @@
 <template>
-  <Header />
-  <div class="px-10 py-10 h-screen w-full relative justify-center ">
-    <button  type="button" class="dark:hover:border-yellow-500 dark:bg-blue-950 dark:hover:bg-blue-900 shadow-md absolute top-3 right-10 text-white bg-[#2557D6] hover:bg-[#2557D6]/90 font-medium rounded-lg text-sm  text-center  me-2 shadow-md">
-      <div class=" pl-4 px-5 py-2.5 dark:hover:text-yellow-400 inline-flex items-center">
-        <span class="material-icons mr-2 ">
-        content_copy
-      </span> Generate Report
+  <div class="flex flex-col w-full">
+
+    <Header />
+    <div class="relative justify-center w-full h-screen px-10 py-10 ">
+      <button  type="button" class="dark:hover:border-yellow-500 dark:bg-blue-950 dark:hover:bg-blue-900 shadow-md absolute top-3 right-10 text-white bg-[#2557D6] hover:bg-[#2557D6]/90 font-medium rounded-lg text-sm  text-center  me-2 shadow-md">
+        <div class=" pl-4 px-5 py-2.5 dark:hover:text-yellow-400 inline-flex items-center">
+          <span class="mr-2 material-icons ">
+            content_copy
+          </span> Generate Report
       </div>
       
     </button>
-
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mx-auto mt-10">
-
-                    <!-- card component -->
-                <div class="h-28 bg-blue-500 dark:bg-blue-950 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-700 dark:border-yellow-500 text-white font-medium group">
-                        
-                            <span class="material-icons text-5xl pl-4">
-                              group
-                            </span>
-                        
-                          
-                          <div class="text-right">
-                            <!-- {{ totalClients }} -->
-                            <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
-                            
-                            <p class="">Total Clients</p>
-                          </div>
-                </div>
-
-                <div class="h-28 bg-blue-500 dark:bg-blue-950 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-700 dark:border-yellow-500 text-white font-medium group">
-                            <span class="material-icons text-5xl pl-4">
+    
+    <div class="grid grid-cols-1 gap-4 mx-auto mt-10 sm:grid-cols-2 lg:grid-cols-4">
+      
+      <!-- card component -->
+      <div class="flex items-center justify-between p-3 font-medium text-white bg-blue-500 border-b-4 border-blue-700 rounded-md shadow-lg h-28 dark:bg-blue-950 dark:border-yellow-500 group">
+        
+        <span class="pl-4 text-5xl material-icons">
+          group
+        </span>
+        
+        
+        <div class="text-right">
+          <!-- {{ totalClients }} -->
+          <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
+          
+          <p class="">Total Clients</p>
+        </div>
+      </div>
+      
+      <div class="flex items-center justify-between p-3 font-medium text-white bg-blue-500 border-b-4 border-blue-700 rounded-md shadow-lg h-28 dark:bg-blue-950 dark:border-yellow-500 group">
+                            <span class="pl-4 text-5xl material-icons">
                               handshake
                             </span>
-
-                          <div class="text-right">
-                            <p class="text-2xl dark:text-yellow-400">{{ totalHelpers }}</p>
-                            <p>Total Helpers</p>
+                            
+                            <div class="text-right">
+                              <p class="text-2xl dark:text-yellow-400">{{ totalHelpers }}</p>
+                              <p>Total Helpers</p>
+                            </div>
                           </div>
-                </div>
-                    <!-- card component -->
-                <div class="h-28 bg-blue-500 dark:bg-blue-950 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-700 dark:border-yellow-500 text-white font-medium group">
-                  <span class="material-icons text-5xl pl-4">
-                            local_shipping
+                          <!-- card component -->
+                          <div class="flex items-center justify-between p-3 font-medium text-white bg-blue-500 border-b-4 border-blue-700 rounded-md shadow-lg h-28 dark:bg-blue-950 dark:border-yellow-500 group">
+                            <span class="pl-4 text-5xl material-icons">
+                              local_shipping
                             </span>
-                          <div class="text-right">
-                            <p class="text-2xl dark:text-yellow-400">{{ totalDrivers }}</p>
-                            <p>Total Drivers</p>
+                            <div class="text-right">
+                              <p class="text-2xl dark:text-yellow-400">{{ totalDrivers }}</p>
+                              <p>Total Drivers</p>
+                            </div>
                           </div>
-                </div>
-
-                  <!-- card component -->
-                <div class="h-28 bg-blue-500 dark:bg-blue-950 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-700 dark:border-yellow-500 text-white font-medium group">
-                  <span class="material-icons text-5xl pl-4">
+                          
+                          <!-- card component -->
+                          <div class="flex items-center justify-between p-3 font-medium text-white bg-blue-500 border-b-4 border-blue-700 rounded-md shadow-lg h-28 dark:bg-blue-950 dark:border-yellow-500 group">
+                            <span class="pl-4 text-5xl material-icons">
                               event
                             </span>
-                          
-                          <div class="text-right">
-                            <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
-                            <p>Total Booking</p>
+                            
+                            <div class="text-right">
+                              <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
+                              <p>Total Booking</p>
+                            </div>
                           </div>
-              </div>
 
                     <!-- card component -->
-              <div class="h-28 bg-blue-500 dark:bg-blue-950 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-700 dark:border-yellow-500 text-white font-medium group">
-                <span class="material-icons text-5xl pl-4">
+              <div class="flex items-center justify-between p-3 font-medium text-white bg-blue-500 border-b-4 border-blue-700 rounded-md shadow-lg h-28 dark:bg-blue-950 dark:border-yellow-500 group">
+                <span class="pl-4 text-5xl material-icons">
                   admin_panel_settings
-                            </span>
-                          
-                          <div class="text-right">
-                            <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
-                            <p>Total Admin</p>
-                          </div>
+                </span>
+                
+                <div class="text-right">
+                  <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
+                  <p>Total Admin</p>
+                </div>
               </div>
-
-                      <!-- card component -->
-              <div class="h-28 bg-blue-500 dark:bg-blue-950 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-700 dark:border-yellow-500 text-white font-medium group">
-                <span class="material-icons text-5xl pl-4">
+              
+              <!-- card component -->
+              <div class="flex items-center justify-between p-3 font-medium text-white bg-blue-500 border-b-4 border-blue-700 rounded-md shadow-lg h-28 dark:bg-blue-950 dark:border-yellow-500 group">
+                <span class="pl-4 text-5xl material-icons">
                   favorite
-                            </span>
+                </span>
                           
-                          <div class="text-right">
-                            <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
-                            <p>Total Rating</p>
-                          </div>
+                <div class="text-right">
+                  <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
+                  <p>Total Rating</p>
+                </div>
               </div>
+              
 
-
-                      <!-- card component -->
-              <div class="h-28 bg-blue-500 dark:bg-blue-950 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-700 dark:border-yellow-500 text-white font-medium group">
-                <span class="material-icons text-5xl pl-4">
+              <!-- card component -->
+              <div class="flex items-center justify-between p-3 font-medium text-white bg-blue-500 border-b-4 border-blue-700 rounded-md shadow-lg h-28 dark:bg-blue-950 dark:border-yellow-500 group">
+                <span class="pl-4 text-5xl material-icons">
                   directions_boat
-                            </span>
+                </span>
                           
                           <div class="text-right">
                             <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
@@ -99,20 +101,21 @@
               </div>
 
                       <!-- card component -->
-              <div class="h-28 bg-blue-500 dark:bg-blue-950 shadow-lg rounded-md flex items-center justify-between p-3 border-b-4 border-blue-700 dark:border-yellow-500 text-white font-medium group">
-                <span class="material-icons text-5xl pl-4">
+              <div class="flex items-center justify-between p-3 font-medium text-white bg-blue-500 border-b-4 border-blue-700 rounded-md shadow-lg h-28 dark:bg-blue-950 dark:border-yellow-500 group">
+                <span class="pl-4 text-5xl material-icons">
                               security
                             </span>
                           
-                          <div class="text-right">
-                            <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
-                            <p>Total Super Admin</p>
+                            <div class="text-right">
+                              <p class="text-2xl dark:text-yellow-400">{{ totalClients }}</p>
+                              <p>Total Super Admin</p>
+                            </div>
                           </div>
-              </div>
 
+                        </div>
+    </div>
   </div>
-  </div>
- </template>
+</template>
 
 
 
