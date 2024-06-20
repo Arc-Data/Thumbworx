@@ -44,7 +44,6 @@
     data() {
       return {
         dropdownOpen: false,
-        menuOpen: false
       };
     },
     methods: {
