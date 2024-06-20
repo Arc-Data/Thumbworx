@@ -1,6 +1,6 @@
 <template>
     <fieldset>
-      <legend>Helper Details</legend>
+      <legend>Driver Details</legend>
       <div>
         <h6>Personal Information</h6>
       </div>
@@ -143,21 +143,18 @@
       <div>
         <h6>Permanent Address</h6>
       </div>
-
-        <!-- hindi lalabas ung page kapag walang laman ung table sa db  -->
       <div class="row">
         <div class="mb-3 col">
           <label for="disabledTextInput12" class="form-label"
             >Permanent House No.</label
           >
-          
-        
+  
           <input
             type="text"
             id="disabledTextInput12"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_house_number"
+            :value="userDetails.permanent_address?.per_house_number"
           />
         </div>
         <div class="mb-3 col">
@@ -169,7 +166,7 @@
             id="disabledTextInput13"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_street"
+            :value="userDetails.permanent_address?.per_street"
           />
         </div>
         <div class="mb-3 col">
@@ -181,7 +178,7 @@
             id="disabledTextInput14"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_barangay"
+            :value="userDetails.permanent_address?.per_barangay"
           />
         </div>
       </div>
@@ -196,7 +193,7 @@
             id="disabledTextInput15"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_city"
+            :value="userDetails.permanent_address?.per_city"
           />
         </div>
         <div class="mb-3 col">
@@ -208,7 +205,7 @@
             id="disabledTextInput16"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_province"
+            :value="userDetails.permanent_address?.per_province"
           />
         </div>
         <div class="mb-3 col">
@@ -220,7 +217,7 @@
             id="disabledTextInput17"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_region"
+            :value="userDetails.permanent_address?.per_region"
           />
         </div>
       </div>
@@ -235,7 +232,7 @@
             id="disabledTextInput18"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_country"
+            :value="userDetails.permanent_address?.per_country"
           />
         </div>
         <div class="mb-3 col">
@@ -247,7 +244,7 @@
             id="disabledTextInput19"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_zip_code"
+            :value="userDetails.permanent_address?.per_zip_code"
           />
         </div>
       </div>
@@ -255,8 +252,6 @@
       <div>
         <h6>Current Address</h6>
       </div>
-
-        <!-- hindi lalabas ung page kapag walang laman ung table sa db  -->
       <div class="row">
         <div class="mb-3 col">
           <label for="disabledTextInput20" class="form-label"
@@ -267,7 +262,7 @@
             id="disabledTextInput20"
             class="form-control"
             disabled
-            :value="userDetails.current_address.cur_house_number"
+            :value="userDetails.current_address?.cur_house_number"
           />
         </div>
         <div class="mb-3 col">
@@ -279,7 +274,7 @@
             id="disabledTextInput21"
             class="form-control"
             disabled
-            :value="userDetails.current_address.cur_street"
+            :value="userDetails.current_address?.cur_street"
           />
         </div>
         <div class="mb-3 col">
@@ -291,7 +286,7 @@
             id="disabledTextInput22"
             class="form-control"
             disabled
-            :value="userDetails.current_address.cur_barangay"
+            :value="userDetails.current_address?.cur_barangay"
           />
         </div>
       </div>
@@ -306,7 +301,7 @@
             id="disabledTextInput23"
             class="form-control"
             disabled
-            :value="userDetails.current_address.cur_city"
+            :value="userDetails.current_address?.cur_city"
           />
         </div>
         <div class="mb-3 col">
@@ -318,7 +313,7 @@
             id="disabledTextInput24"
             class="form-control"
             disabled
-            :value="userDetails.current_address.cur_province"
+            :value="userDetails.current_address?.cur_province"
           />
         </div>
         <div class="mb-3 col">
@@ -330,7 +325,7 @@
             id="disabledTextInput25"
             class="form-control"
             disabled
-            :value="userDetails.current_address.cur_region"
+            :value="userDetails.current_address?.cur_region"
           />
         </div>
       </div>
@@ -345,7 +340,7 @@
             id="disabledTextInput26"
             class="form-control"
             disabled
-            :value="userDetails.current_address.cur_country"
+            :value="userDetails.current_address?.cur_country"
           />
         </div>
         <div class="mb-3 col">
@@ -357,7 +352,7 @@
             id="disabledTextInput27"
             class="form-control"
             disabled
-            :value="userDetails.current_address.cur_zip_code"
+            :value="userDetails.current_address?.cur_zip_code"
           />
         </div>
       </div>
@@ -365,8 +360,6 @@
       <div>
         <h6>Emergency Contact Information</h6>
       </div>
-
-        <!-- hindi lalabas ung page kapag walang laman ung table sa db  -->
       <div class="row">
         <div class="mb-3 col">
           <label for="disabledTextInput28" class="form-label">Full Name</label>
@@ -375,7 +368,7 @@
             id="disabledTextInput28"
             class="form-control"
             disabled
-            :value="userDetails.driver.contact_person"
+            :value="userDetails.driver?.contact_person"
           />
         </div>
         <div class="mb-3 col">
@@ -385,7 +378,7 @@
             id="disabledTextInput29"
             class="form-control"
             disabled
-            :value="userDetails.driver.contact_person_relationship"
+            :value="userDetails.driver?.contact_person_relationship"
           />
         </div>
         <div class="mb-3 col">
@@ -397,7 +390,7 @@
             id="disabledTextInput30"
             class="form-control"
             disabled
-            :value="userDetails.driver.contact_person_phone_number"
+            :value="userDetails.driver?.contact_person_phone_number"
           />
         </div>
       </div>
@@ -412,7 +405,7 @@
             id="disabledTextInput31"
             class="form-control"
             disabled
-            :value="userDetails.driver.contact_person_email"
+            :value="userDetails.driver?.contact_person_email"
           />
         </div>
   
@@ -423,7 +416,7 @@
             id="disabledTextInput32"
             class="form-control"
             disabled
-            :value="userDetails.contact_person_address"
+            :value="userDetails.driver?.contact_person_address"
           />
         </div>
       </div>
@@ -442,8 +435,7 @@
   
   <script>
   import axios from "redaxios";
-  import { ref, onMounted } from "vue";
-  import { useAdminStore } from "../../../stores/adminStore";
+  import { useAdminStore } from "../../stores/adminStore";
   
   export default {
     name: "UserDetails",

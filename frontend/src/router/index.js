@@ -4,20 +4,33 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import Dashboard from '../views/admin/Dashboard.vue';
 
-//--Super-admin--
+//--Admin--
 //--Registration--
 //--Driver_Management--
-import DriverAccounts from '../views/super-admin/driver/DriverAccounts.vue';
-import DriverDetails from '../views/super-admin/driver/DriverDetails.vue'; 
-import DriverLogs from '../views/super-admin/driver/DriverLogs.vue';
-//--Helper_Management--
-import HelperAccounts from '../views/super-admin/helper/HelperAccounts.vue'
-import HelperDetails from '../views/super-admin/helper/HelperDetails.vue';
-import HelperLogs from '../views/super-admin/helper/HelperLogs.vue';
+//Client gives Ratings to Helper, Helper Evaluates Driver
+
+import DriverAccounts from '../views/admin/driver/DriverAccounts.vue';
+import DriverDetails from '../views/admin/driver/DriverDetails.vue'; 
+import DriverLogs from '../views/admin/driver/DriverLogs.vue';
+import DriverRatings from '../views/admin/driver/DriverRatings.vue';
+// No Evaluation 
+
 //Client_Management
-import ClientAccounts from '../views/super-admin/client/ClientAccounts.vue'
-import ClientDetails from '../views/super-admin/client/ClientDetails.vue'
-import ClientLogs from '../views/super-admin/client/ClientLogs.vue'
+import ClientAccount from '../views/admin/client/ClientAccount.vue';
+import ClientDetails from '../views/admin/client/ClientDetails.vue';
+import ClientBooking from '../views/admin/client/ClientBooking.vue';
+import ClientLogs from '../views/admin/client/ClientLogs.vue';
+import ClientRatings from '../views/admin/client/ClientRatings.vue';
+import ClientAccounts from '../views/admin/client/ClientAccounts.vue;'
+
+
+//--Helper_Management--
+import HelperAccount from '../views/admin/helper/HelperAccount.vue'
+import HelperDetails from '../views/admin/helper/HelperDetails.vue';
+import HelperLogs from '../views/admin/helper/HelperLogs.vue';
+import HelperBooking from '../views/admin/helper/HelperBooking.vue';
+import HelperRatings from '../views/admin/helper/HelperRatings.vue';
+
 
 import Logs from '../views/admin/Logs.vue';
 import AccountRecover from '../views/admin/AccountRecover.vue';
@@ -26,15 +39,10 @@ import Registration from '../views/main/Registration.vue';
 import UserLogin from '../views/main/UserLogin.vue';
 import AdminLogin from '../views/admin/AdminLogin.vue';
 import DefaultLayout from '../layouts/DefaultLayout.vue';
-import ClientAccount from '../views/admin/ClientAccount.vue';
-import ClientBooking from '../views/admin/ClientBooking.vue';
-import HelperAccount from '../views/admin/HelperAccount.vue';
-import HelperBooking from '../views/admin/HelperBooking.vue';
-// import HelperLogs from '../views/admin/HelperLogs.vue';
-import HelperRatings from '../views/admin/HelperRatings.vue';
 import { useAdminStore } from '../stores/adminStore';
 import DriverHome from '../views/driver/DriverHome.vue';
 import ClientHome from '../views/client/ClientHome.vue';
+import ClientRatings from '../views/admin/ClientRatings.vue';
 
 const router = createRouter({
   history: createWebHistory(),
@@ -114,7 +122,13 @@ const router = createRouter({
             path: 'logs',
             name: DriverLogs,
             component: DriverLogs,
+          },
+          {
+            path: 'ratings',
+            name: DriverRatings,
+            component: DriverRatings,
           }
+          
         ]
       },
       // admin related routes for client management
@@ -140,25 +154,19 @@ const router = createRouter({
             path: 'booking',
             component: ClientBooking,
             name: 'ClientBooking',
+          },
+          {
+            path: 'rating',
+            component: ClientRatings,
+            name: 'ClientRatings',
+          },
+          {
+            path: 'logs',
+            component: ClientLogs,
+            name: 'ClientLogs',
           }
+
         ]
-      },
-      {
-        path: 'logs',
-        component: Logs,
-        name: 'Logs',
-      },
-      // what is this supposed to do
-      // {
-      //   path: 'revisedocuments',
-      //   component: ReviseDocuments,
-      //   name: 'ReviseDocuments',
-      //   meta: { requiresAdmin: true, sidebar: true },
-      // },
-      {
-        path: 'accountrecover',
-        component: AccountRecover,
-        name: 'AccountRecover',
       },
       {
         path: 'helpers',
@@ -168,33 +176,45 @@ const router = createRouter({
             component: HelperAccount,
             name: 'HelperAccount',
           },
+          {
+            path: ':id',
+            component: HelperDetails,
+            name: 'HelperDetails',
+          },
+          {
+            path: 'helperlogs',
+            component: HelperLogs,
+            name: 'HelperLogs',
+          },
+          {
+            path: 'helperratings',
+            component: HelperRatings,
+            name: 'HelperRatings',
+          },
+          {
+            path: 'helperbooking',
+            component: HelperBooking,
+            name: 'HelperBooking',
+          },
         ]
       },
       {
-        path: 'helperaccount',
-        component: HelperAccount,
-        name: 'HelperAccount',
+        path: 'logs',
+        component: Logs,
+        name: 'Logs',
       },
       {
-        path: 'helperaccounts',
-        component: HelperAccounts,
-        name: 'HelperAccounts',
+        path: 'accountrecover',
+        component: AccountRecover,
+        name: 'AccountRecover',
       },
-      {
-        path: 'helperlogs',
-        component: HelperLogs,
-        name: 'HelperLogs',
-      },
-      {
-        path: 'helperratings',
-        component: HelperRatings,
-        name: 'HelperRatings',
-      },
-      {
-        path: 'helperbooking',
-        component: HelperBooking,
-        name: 'HelperBooking',
-      },
+      // what is this supposed to do
+      // {
+      //   path: 'revisedocuments',
+      //   component: ReviseDocuments,
+      //   name: 'ReviseDocuments',
+      //   meta: { requiresAdmin: true, sidebar: true },
+      // },
     ],
   },
   {
