@@ -9,7 +9,7 @@
         refreshTimeout: null,
         }),
         actions: {
-            async login() {
+            async login(email, password) {
                 try {
                     const response = await apiClient.post('/api/auth/login', {
                         email,
