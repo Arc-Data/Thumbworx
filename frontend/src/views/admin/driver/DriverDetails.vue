@@ -451,9 +451,13 @@
       };
     },
     created() {
+
       this.fetchUserDetails();
+      
     },
     methods: {
+
+
       fetchUserDetails() {
         const userId = this.$route.params.id;
         const adminStore = useAdminStore();
@@ -586,6 +590,9 @@
           console.error("Error denying user:", error);
         }
       },
+
+
+
     }, //end before method
   };
   </script>
