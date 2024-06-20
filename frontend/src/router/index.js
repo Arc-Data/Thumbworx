@@ -1,136 +1,263 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Dashboard from '../views/super-admin/Dashboard.vue';
-import DriverAccounts from '../views/super-admin/driver/DriverAccounts.vue';
-import DriverDetails from '../views/super-admin/driver/DriverDetails.vue'; 
-import ReviseDocuments from '../views/super-admin/ReviseDocuments.vue'; 
-import DriverLogs from '../views/super-admin/driver/DriverLogs.vue';
-import Login from '../views/super-admin/Login.vue';
-import AccountRecover from '../views/super-admin/client/AccountRecover.vue';
-import LandingPage from '../views/super-admin/LandingPage.vue';
-import Header from '../views/super-admin/Header.vue';
-import ClientAccounts from '../views/super-admin/client/ClientAccounts.vue';
-import ClientDetails from '../views/super-admin/client/ClientDetails.vue'; 
-import ClientLogs from '../views/super-admin/client/ClientLogs.vue';
 
-import HelperAccounts from '../views/super-admin/helper/HelperAccounts.vue';
-import HelperDetails from '../views/super-admin/helper/HelperDetails.vue';
-import HelperLogs from '../views/super-admin/helper/HelperLogs.vue';
+
+
+import Dashboard from '../views/admin/Dashboard.vue';
+
+//--Admin--
+//--Registration--
+//--Driver_Management--
+//Client gives Ratings to Helper, Helper Evaluates Driver
+
+import DriverAccounts from '../views/admin/driver/DriverAccounts.vue';
+import DriverDetails from '../views/admin/driver/DriverDetails.vue'; 
+import DriverLogs from '../views/admin/driver/DriverLogs.vue';
+import DriverRatings from '../views/admin/driver/DriverRatings.vue';
+// No Evaluation 
+
+//Client_Management
+import ClientAccount from '../views/admin/client/ClientAccount.vue';
+import ClientDetails from '../views/admin/client/ClientDetails.vue';
+import ClientBooking from '../views/admin/client/ClientBooking.vue';
+import ClientLogs from '../views/admin/client/ClientLogs.vue';
+import ClientRatings from '../views/admin/client/ClientRatings.vue';
+import ClientAccounts from '../views/admin/client/ClientAccounts.vue';
+
+
+//--Helper_Management--
+import HelperAccount from '../views/admin/helper/HelperAccount.vue'
+import HelperDetails from '../views/admin/helper/HelperDetails.vue';
+import HelperLogs from '../views/admin/helper/HelperLogs.vue';
+import HelperBooking from '../views/admin/helper/HelperBooking.vue';
+import HelperRatings from '../views/admin/helper/HelperRatings.vue';
+
+
+import Logs from '../views/admin/Logs.vue';
+import AccountRecover from '../views/admin/AccountRecover.vue';
+import LandingPage from '../views/homepage/LandingPage.vue';
+import Registration from '../views/main/Registration.vue';
+import UserLogin from '../views/main/UserLogin.vue';
+import AdminLogin from '../views/admin/AdminLogin.vue';
+import DefaultLayout from '../layouts/DefaultLayout.vue';
+import { useAdminStore } from '../stores/adminStore';
+import DriverHome from '../views/driver/DriverHome.vue';
+import ClientHome from '../views/client/ClientHome.vue';
+
 
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    {
-      path: '/Header',
-      component: Header,
-      name: 'Header',
-      meta: { requiresAuth: false }, // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-    {
-      path: '/LandingPage',
-      component: LandingPage,
-      name: 'LandingPage',
-      meta: { requiresAuth: false }, // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-    {
-      path: '/Dashboard',
-      component: Dashboard,
-      name: 'Dashboard',
-      meta: { requiresAuth: true }, // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-    {
-      path: '/DriverAccounts', 
-      component: DriverAccounts,
-      name: 'DriverAccounts',
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-    {
-      path: '/DriverLogs',
-      component: DriverLogs,
-      name: 'DriverLogs',
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-    {
-      path: '/DriverDetails/:id',
-      component: DriverDetails,
-      name: 'DriverDetails',
-      props: true, // Pass route params as props to UserDetails component
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-    {
-      path: '/ReviseDocuments',
-      component: ReviseDocuments,
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-    {
-      path: '/Login', 
-      component: Login,
-      name: 'Login',
-    },
+  {   
+    path: '/landing-page',
+    component: LandingPage,
+    meta: { requiresGuest: true },
+    name: 'LandingPage',
+  },
+  {
+    path: '/login',
+    component: UserLogin,
+    meta: { requiresGuest: true },
+    name: 'LoginMain',
+  },
+  {
+    path: '/login/admin',
+    component: AdminLogin,
+    meta: { requiresGuest: true },
+    name: 'LoginAdmin',
+  },
+  {
+    path: '/registration',
+    component: Registration,
+    meta: { requiresGuest: true },
+    name: 'Registration',
+  },
+  // driver related routes
+  {
+    path: '/driver',
+    children: [
+      {
+        name: 'DriverHome',
+        path: 'home',
+        component: DriverHome,
+        meta: { requiresDriver: true }
+      }
+    ]
+  },
+  // client related routes
+  {
+    path: '/client',
+    children: [
+      {
+        path: 'home',
+        name:'ClientHome',
+        component: ClientHome,
+        meta: { requiresClient: true }
+      }
+    ]
+  },
+  // admin related routes
+  {   
+    path: '/admin',
+    meta: { requiresAdmin: true },
+    component: DefaultLayout,
+    children: [
+      {
+        path: 'dashboard',
+        component: Dashboard,
+        name: 'Dashboard',
+      },
+      {
+        // admin related routes for driver management
+        path: 'drivers',
+        children: [
+          {
+            path: '',
+            name: DriverAccounts,
+            component: DriverAccounts,
+          },
+          {
+            path: ':id',
+            name: DriverDetails,
+            component: DriverDetails,
+          },
+          {
+            path: 'logs',
+            name: DriverLogs,
+            component: DriverLogs,
+          },
+          {
+            path: 'ratings',
+            name: DriverRatings,
+            component: DriverRatings,
+          }
+          
+        ]
+      },
+      // admin related routes for client management
+      {
+        path: 'clients',
+        children: [
+          {
+            path: '',
+            component: ClientAccount,
+            name: 'ClientAccount',
+          },
+          {
+            path: '2',
+            component: ClientAccounts,
+            name: 'ClientAccounts',
+          },
+          {
+            path: ':id',
+            component: ClientDetails,
+            name: 'ClientDetails',
+          },
+          {
+            path: 'booking',
+            component: ClientBooking,
+            name: 'ClientBooking',
+          },
+          {
+            path: 'rating',
+            component: ClientRatings,
+            name: 'ClientRatings',
+          },
+          {
+            path: 'logs',
+            component: ClientLogs,
+            name: 'ClientLogs',
+          }
 
-    {
-      path: '/AccountRecover',
-      component: AccountRecover,
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
+        ]
+      },
+      {
+        path: 'helpers',
+        children: [
+          {
+            path: '',
+            component: HelperAccount,
+            name: 'HelperAccount',
+          },
+          {
+            path: ':id',
+            component: HelperDetails,
+            name: 'HelperDetails',
+          },
+          {
+            path: 'helperlogs',
+            component: HelperLogs,
+            name: 'HelperLogs',
+          },
+          {
+            path: 'helperratings',
+            component: HelperRatings,
+            name: 'HelperRatings',
+          },
+          {
+            path: 'helperbooking',
+            component: HelperBooking,
+            name: 'HelperBooking',
+          },
+        ]
+      },
+      {
+        path: 'logs',
+        component: Logs,
+        name: 'Logs',
+      },
+      {
+        path: 'accountrecover',
+        component: AccountRecover,
+        name: 'AccountRecover',
+      },
+      // what is this supposed to do
+      // {
+      //   path: 'revisedocuments',
+      //   component: ReviseDocuments,
+      //   name: 'ReviseDocuments',
+      //   meta: { requiresAdmin: true, sidebar: true },
+      // },
+    ],
+  },
+  {
+    path: '/:catchAll(.*)',
+    redirect: '/login',
+  },
+]
 
-    {
-      path: '/ClientAccounts', 
-      component: ClientAccounts,
-      name: 'ClientAccounts',
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
 
-    {
-      path: '/ClientDetails/:id',
-      component: ClientDetails,
-      name: 'ClientDetails',
-      props: true, // Pass route params as props to UserDetails component
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-
-    {
-      path: '/ClientLogs',
-      component: ClientLogs,
-      name: 'ClientLogs',
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-
-    {
-      path: '/HelperAccounts', 
-      component: HelperAccounts,
-      name: 'HelperAccounts',
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-
-    {
-      path: '/HelperDetails/:id',
-      component: HelperDetails,
-      name: 'HelperDetails',
-      props: true, // Pass route params as props to UserDetails component
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-
-    {
-      path: '/HelperLogs',
-      component: HelperLogs,
-      name: 'HelperLogs',
-      meta: { requiresAuth: true },  // Add this line of code para hindi maaccess kapag hindi naka-login.
-    },
-  ],
 });
 
-// Route guard to check if the user is authenticated
 router.beforeEach((to, from, next) => {
-  const isAuthenticated = localStorage.getItem('token');
+  const adminStore = useAdminStore();
+  const user = adminStore.user;
+  console.log(user)
 
-  if (to.matched.some((record) => record.meta.requiresAuth)) {
-    if (!isAuthenticated) {
-      next({ name: 'Login' }); // Redirect unauthenticated users to login page
+  const requiresGuest = to.matched.some(record => record.meta.requiresGuest);
+  const requiresAdmin = to.matched.some(record => record.meta.requiresAdmin);
+  const requiresClient = to.matched.some(record => record.meta.requiresClient);
+  const requiresDriver = to.matched.some(record => record.meta.requiresDriver);
+
+  console.log(requiresGuest)
+
+  if (requiresGuest && user) {
+    if (user.user_type === 'admin') {
+      next({ name: 'Dashboard' });
+    } else if (user.user_type === 'client') {
+      next({ path: '/client/home' });
+    } else if (user.user_type === 'driver') {
+      next({ path: '/driver/home' });
     } else {
-      next(); // Proceed to the next route
+      next({ name: 'LandingPage' });
     }
+  } else if (requiresAdmin && (!user || user.user_type !== 'admin')) {
+    next({ name: 'LoginAdmin' });
+  } else if (requiresClient && (!user || user.user_type !== 'client')) {
+    next({ name: 'LoginMain' });
+  } else if (requiresDriver && (!user || user.user_type !== 'driver')) {
+    next({ name: 'LoginMain' });
   } else {
-    next(); // Proceed to the next route
+    next();
   }
 });
 
