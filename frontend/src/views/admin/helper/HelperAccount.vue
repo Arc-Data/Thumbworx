@@ -1,22 +1,28 @@
 
 
 <template>
-    <div class="w-full">
-      <div class="flex justify-center overflow-x-auto sm:-mx-6 lg:-mx-8">
-        <div class="inline-block py-2 mt-20 bg-white border-solid sm:px-6 lg:px-8 rounded-2xl border-slate-500 drop-shadow-md">
+
+<div class="flex flex-col w-full">
+    <Header />
+    <div class="w-full text-black">
+      <div class=" sm:-mx-6 lg:-mx-8 flex justify-center">
+        <div class="
+        text-black
+        inline-block py-2 sm:px-6 lg:px-8 w-11/12 mx-6 lg:w-auto h-fit
+        my-10 rounded-2xl border-solid border-slate-500 drop-shadow-md bg-blue-50">
           <div class="overflow-hidden ">
           <!-- tablecontainer -->
                     <div class="block">
                       <!-- searchbar part -->
-                      <div class="flex flex-wrap justify-between p-2 ">
+                      <div class=" p-2 flex flex-wrap justify-between">
                         <form class="w-1/2 ">   
                             <div class="relative">
-                                <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                    <svg class="w-4 h-4 text-gray-500:t " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                     </svg>
                                 </div>
-                                <input type="search" id="default-search" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg ps-5 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required />
+                                <input type="search" id="default-search" class="block w-full p-2 ps-5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" placeholder="Search" required />
                             </div>
                           <div>
                         </div>
@@ -27,33 +33,42 @@
                         <!-- driver filter -->
                       <div>
                         <div>
-                            <button type="button" @click="toggle" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-blue px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                              Helper type filter
-                              <svg class="w-5 h-5 -mr-1 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <button type="button" @click="toggle" class="
+                          
+                          bg-blue-100 inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-blue-200" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            Helper type filter
+                              <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                               </svg>
                             </button>
                         </div>
                       </div>
                       
-                      <div v-if="showDropdown" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                      <div v-if="showDropdown" class=" absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1" role="none">
-                          <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">Type 1</a>
-                          <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Type 2</a>
-                          <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">Type 3</a>
-                          <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">--Clear--</a>
+                          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Type 1</a>
+                          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Type 2</a>
+                          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Type 3</a>
+                          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">--Clear--</a>
                         </div>
                       </div>
                     </div>
                   </div>
       
         
-          <div class="">
+          <div class="px-4">
             <br>
-            <h2>Helper Account Records</h2>
+            <h2 class="
+            
+            text-lg
+            md:text-xl
+            lg:text-xl
+            xl:text-xl ml-1 font-bold tracking-wide"><i class="icon pi pi-folder-open"></i> Helper Account Records</h2>
             <br>
-            <table class="min-w-full text-sm font-light text-center text-surface dark:text-white">
-              <thead class="font-medium border-b border-neutral-200 dark:border-white/10">
+
+            <div class="overflow-hidden overflow-x-auto">
+              <table class="min-w-full text-center text-sm font-light text-surface ">
+              <thead class="border-b border-neutral-200 font-medium ">
                 <tr>
                   <th scope="col px-6 py-4">Helper ID</th>
                   <th scope="col px-6 py-4">Fullname</th>
@@ -66,149 +81,154 @@
               <tbody>
         
                 <tr v-for="user in result" v-bind:key="user.id" 
-                  class="transition duration-300 ease-in-out border-b border-neutral-200 hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-600">
-                  <td class="px-6 py-4 font-medium whitespace-nowrap">{{ user.id }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ user.first_name }} {{ user.last_name }}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ user.email}}</td>
-                  <td class="px-6 py-4 whitespace-nowrap">{{ user.phone_number1 }}</td>
-                  <td :class="getStatusClass(user.account_status)" class="px-6 py-4 whitespace-nowrap">
-                    {{ getStatusDisplay(user.account_status) }}
+                  class="
+                  dark:hover:bg-slate-700
+                  border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-blue-100  ">
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">{{ user.id }}</td>
+                  <td class="whitespace-nowrap px-6 py-4">{{ user.first_name }} {{ user.last_name }}</td>
+                  <td class="whitespace-nowrap px-6 py-4">{{ user.email}}</td>
+                  <td class="whitespace-nowrap px-6 py-4">{{ user.phone_number1 }}</td>
+                  <td  class="whitespace-nowrap px-6 py-4">
+                      <div :class="getStatusClass(user.account_status)" class="p-1 text-center rounded-md border-2">{{ getStatusDisplay(user.account_status) }}</div>
                   </td>
-                  <td class="px-6 py-4 whitespace-nowrap"><button class="btn btn-primary" @click="viewDriverDetails(user.id)">View</button> </td>
+                  <td class="whitespace-nowrap px-6 py-4"><button class="btn btn-primary" @click="viewDriverDetails(user.id)"><span class="material-icons">visibility</span></button> </td>
               </tr>
               </tbody>
             </table>
+            </div>
+           
     
     
-      <!-- page turner button -->
-      <div class="flex justify-between w-full p-4 border-t border-blue-gray-50">
-        <button
-          class="select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button">
-          Previous
-        </button>
-          
-        <button
-          class="select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button">
-          Next
-        </button>
-      </div>
-          </div>
+        <!-- page turner button -->
+    <div class="w-full flex justify-between p-4 border-t border-blue-gray-50">
+      <button
+      class="bg-blue-100 select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      type="button">
+      <span class="material-icons">arrow_back_ios</span>
+    </button>
+      
+    <button
+      class="bg-blue-100 select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      type="button">
+      <span class="material-icons">arrow_forward_ios</span>
+    </button>
     </div>
+          </div>
+      </div>
           </div>
         </div>
       </div>
-    
-    <div id="helperDetailsPop" class="absolute z-10 w-full pt-20 pb-20 bg-black bg-opacity-50 collapse">
     </div>
-    <!-- pop up content div -->
-      <div class="ml-auto mr-auto bg-white rounded-lg drop-shadow-lg border-1 border-slate-400 w-fit">
-          <!-- popup header --> 
-          <div class="flex items-stretch px-8 text-white bg-blue-600 rounded-tl-lg rounded-tr-lg"> 
-            <legend class="self-center">Helper's Details</legend>
-            <!-- close btn -->
-            <img @click="closePopup" src="https://www.nicepng.com/png/full/52-521935_close-button-png.png" class="self-center size-7" alt="">
-          </div>
-  
+
+    <div id="helperDetailsPop" class=" collapse w-screen h-screen fixed top-0 left-0 z-50 bg-black bg-opacity-50 flex justify-center pt-10">
+       <!-- pop up content div -->
+       <div class="rounded-lg drop-shadow-lg border-1 border-slate-400 bg-white max-w-screen-md w-11/12 h-fit ">  
+           <div class=" pr-2 pl-4  text-white bg-blue-600 rounded-tl-lg rounded-tr-lg flex items-center font-bold"> 
+                            <legend class="self-center">Helper Details</legend>
+                            <!-- close btn -->
+                            <span @click="closePopup" class="material-icons text-slate-50 hover:cursor-pointer">close</span>
+                          </div>
+
           <!-- popup body -->
-          <div class="p-8">
-  
+          <div class="
+          text-black
+          p-8 max-h-[600px] overflow-hidden overflow-y-auto">
+
           <!-- personal info div -->
-          <div class="drop-shadow-lg">
+          <div class="drop-shadow-lg ">
             <!-- header -->
-            <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+            <div class=" rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
                 <h6>Personal Information</h6>
             </div>
             <!-- body -->
-            <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
-              <div class="row">
-                <div class="mb-3 col">
+            <div class=" rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput1" class="form-label">First Name:</label>
                   <!-- first_name and others is from the database. Hindi sya tinawag directly dito sa script code sa baba -->
                   <input
                     type="text"
                     id="disabledTextInput1"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
                     :value="userDetails.first_name"
                   />
                 </div>
-  
-                <div class="mb-3 col">
+
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput2" class="form-label">Middle Name:</label>
                   <input
                     type="text"
                     id="disabledTextInput2"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
                     :value="userDetails.middle_name"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput3" class="form-label">Last Name</label>
                   <input
                     type="text"
                     id="disabledTextInput3"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
                     :value="userDetails.last_name"
                   />
                 </div>
               </div>
-  
-              <div class="row">
-                <div class="mb-3 col">
+
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput4" class="form-label">Date of Birth</label>
                   <input
                     type="text"
                     id="disabledTextInput4"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
                     :value="userDetails.birth_date"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput5" class="form-label">Age</label>
                   <input
                     type="text"
                     id="disabledTextInput5"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
                     :value="userDetails.age"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput6" class="form-label">Gender</label>
                   <input
                     type="text"
                     id="disabledTextInput6"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
                     :value="userDetails.gender"
                   />
                 </div>
               </div>
-  
-              <div class="row">
-                <div class="mb-3 col">
+
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput7" class="form-label"
                     >Marital Status</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput7"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
                     :value="userDetails.marital_status"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput8" class="form-label">User Type</label>
                   <input
                     type="text"
                     id="disabledTextInput8"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
                     :value="userDetails.user_type"
                   />
@@ -221,43 +241,43 @@
           </div>
           <!-- contact info div -->
           <br>
-          <div class="drop-shadow-lg">
-            <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+          <div class=" drop-shadow-lg">
+            <div class="  rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
               <h6>Contact Information</h6>
             </div>
-  
-            <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
-              <div class="row">
-              <div class="mb-3 col">
+
+            <div class=" rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
+              <div class="flex flex-wrap justify-between">
+               <div class="mb-3 mx-2 w-full lg:w-48">
                 <label for="disabledTextInput9" class="form-label"
                   >Phone Number 1</label
                 >
                 <input
                   type="text"
                   id="disabledTextInput9"
-                  class="form-control"
+                   class=" block w-full p-2 rounded-md border border-slate-300"
                   disabled
                   :value="userDetails.phone_number1"
                 />
               </div>
-              <div class="mb-3 col">
+               <div class="mb-3 mx-2 w-full lg:w-48">
                 <label for="disabledTextInput10" class="form-label"
                   >Phone Number 2</label
                 >
                 <input
                   type="text"
                   id="disabledTextInput10"
-                  class="form-control"
+                   class=" block w-full p-2 rounded-md border border-slate-300"
                   disabled
                   :value="userDetails.phone_number2"
                 />
               </div>
-              <div class="mb-3 col">
+               <div class="mb-3 mx-2 w-full lg:w-48">
                 <label for="disabledTextInput11" class="form-label">Email</label>
                 <input
                   type="text"
                   id="disabledTextInput11"
-                  class="form-control"
+                   class=" block w-full p-2 rounded-md border border-slate-300"
                   disabled
                   :value="userDetails.email"
                 />
@@ -267,359 +287,408 @@
           </div>
     <br>
           <!-- address info div -->
-          <div class="drop-shadow-lg">
-            <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+          <div class=" drop-shadow-lg">
+            <div class=" rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
               <h6>Address</h6>
             </div>
-  
-            <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
+
+            <div class=" rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
               
-            <div class="mb-2 text-xl">
+            <div class="text-xl mb-2">
                 <h6>Permanent Address</h6>
             </div>
-              <div class="row">
-                <div class="mb-3 col">
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput12" class="form-label"
                     > House No.</label
                   >
-  
+
                   <input
                     type="text"
                     id="disabledTextInput12"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.per_house_number"
+                    :value="'house no.'"    <!-- userDetails.permanent_address.per_house_number -->
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput13" class="form-label"
                     > Street</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput13"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.per_street"
+                      <!-- :value="userDetails.permanent_address.per_street" -->
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput14" class="form-label"
                     > Barangay</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput14"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.per_barangay"
+                   :value="userDetails.permanent_address.per_barangay"
                   />
                 </div>
               </div>
-  
-              <div class="row">
-                <div class="mb-3 col">
+
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput15" class="form-label"
                     > City.</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput15"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.per_city"
+                :value="userDetails.permanent_address.per_city"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput16" class="form-label"
                     > Province</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput16"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.per_province"
+                    :value="userDetails.permanent_address.per_province"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput17" class="form-label"
                     > Region</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput17"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.per_region"
+                             :value="userDetails.permanent_address.per_region"
                   />
                 </div>
               </div>
-  
-              <div class="row">
-                <div class="mb-3 col">
+
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput18" class="form-label"
                     > Country.</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput18"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.per_country"
+                    :value="userDetails.permanent_address.per_country"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput19" class="form-label"
                     > Zip Code</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput19"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.per_zip_code"
+                   :value="userDetails.permanent_address.per_zip_code"
                   />
                 </div>
+
+                <div class="col"></div>
               </div>
-  
-            <div class="mb-2 text-xl">
+
+            <div class="text-xl mb-2">
               <h6>Current Address</h6>
             </div>
-  
-              <div class="row">
-                <div class="mb-3 col">
+
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput20" class="form-label"
                     >House No.</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput20"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.cur_house_number"
+                        :value="userDetails.current_address.cur_house_number"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput21" class="form-label"
                     >Street</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput21"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.cur_street"
+                  :value="userDetails.current_address.cur_street"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput22" class="form-label"
                     >Barangay</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput22"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.cur_barangay"
+                     :value="userDetails.current_address.cur_barangay"
                   />
                 </div>
               </div>
-  
-              <div class="row">
-                <div class="mb-3 col">
+
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput23" class="form-label"
                     >City.</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput23"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.cur_city"
+                         :value="userDetails.current_address.cur_city"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput24" class="form-label"
                     >Province</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput24"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.cur_province"
+                    :value="userDetails.current_address.cur_province"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput25" class="form-label"
                     >Region</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput25"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.cur_region"
+                 :value="userDetails.current_address.cur_region"
                   />
                 </div>
               </div>
-  
-              <div class="row">
-                <div class="mb-3 col">
+
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput26" class="form-label"
                     >Country.</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput26"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.cur_country"
+                     :value="userDetails.current_address.cur_country"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput27" class="form-label"
                     >Zip Code</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput27"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.cur_zip_code"
+                      :value="userDetails.current_address.cur_zip_code"
                   />
                 </div>
+
+                <div class="col"></div>
               </div>
-  
+
             </div>
           </div>
+    <br>
           <!-- emergency contact div -->
           <div class="drop-shadow-lg"> 
-            <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+            <div class=" rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
               <h6>Emergency Contact Information</h6>
             </div>
-            <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
-              <div class="row">
-                <div class="mb-3 col">
+            <div class=" rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput28" class="form-label">Full Name</label>
                   <input
                     type="text"
                     id="disabledTextInput28"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.full_name"
+                    :value="userDetails.driver.contact_person"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput29" class="form-label">Relationship</label>
                   <input
                     type="text"
                     id="disabledTextInput29"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.relationship"
+                     :value="userDetails.driver.contact_person_relationship"
                   />
                 </div>
-                <div class="mb-3 col">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput30" class="form-label"
-                    >Relationship Phone Number</label
+                    >Phone Number</label
                   >
                   <input
                     type="text"
                     id="disabledTextInput30"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.rel_phone_number"
+                    :value="userDetails.driver.contact_person_phone_number"
                   />
                 </div>
               </div>
-              <div class="row">
-                <div class="mb-3 col">
-                  <label for="disabledTextInput31" class="form-label">Relationship Email</label>
+
+              <div class="flex flex-wrap justify-between">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
+                  <label for="disabledTextInput31" class="form-label"
+                    >Relationship Email</label
+                  >
                   <input
                     type="text"
                     id="disabledTextInput31"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.rel_email"
+                      :value="userDetails.driver.contact_person_email"
                   />
                 </div>
-                <div class="mb-3 col">
+
+                 <div class="mb-3 mx-2 w-full lg:w-48">
                   <label for="disabledTextInput32" class="form-label">Address</label>
                   <input
                     type="text"
                     id="disabledTextInput32"
-                    class="form-control"
+                     class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.address"
+                      :value="userDetails.contact_person_address"
                   />
                 </div>
+
+                <div class="col"></div>
               </div>
             </div>
           </div>
-    <!-- <br> -->
+    <br>
           <!-- docu div -->
           <div class="drop-shadow-lg">
-              <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+              <div class=" rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
                 <h6>Documents</h6>
               </div>
-  
+
               <!-- body -->
-              <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
-                <div class="mb-3 col">
-                  <label for="disabledTextInput12" class="form-label">Valid ID:</label>
+              <div class=" rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
+                 <div class="mb-3 mx-2 w-full lg:w-48">
+                  <label for="disabledTextInput12" class="form-label"
+                    >Valid ID:</label
+                  >
+
                   <img src="" alt="uploaded file">
                 </div>
-                <div class="mb-3 col">
-                  <label for="disabledTextInput12" class="form-label">NBI Clearance:</label>
+
+                 <div class="mb-3 mx-2 w-full lg:w-48">
+                  <label for="disabledTextInput12" class="form-label"
+                    >NBI Clearance:</label
+                  >
+
                   <img src="" alt="uploaded file">
                 </div>
-                <div class="mb-3 col">
-                  <label for="disabledTextInput12" class="form-label">Other Document:</label>
+
+                 <div class="mb-3 mx-2 w-full lg:w-48">
+                  <label for="disabledTextInput12" class="form-label"
+                    >Other Document:</label
+                  >
+
                   <img src="" alt="uploaded file">
                 </div>
+
+
+
               </div>
           </div>
+    <br>
           <!-- buttons div -->
           <div class="flex justify-end">
               <!-- triggers the approveUser method -->
-              <button class="w-40 px-5 py-2 m-3 font-semibold text-white rounded-full shadow-md btn btn-primary hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-75 " @click="approveUser(userDetails)">
+              <button class="btn btn-primary m-3 w-40
+              py-2 px-5 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-75
+              " @click="approveUser(userDetails)">
                 Approve
               </button>
-              <button class="w-40 px-5 py-2 m-3 font-semibold text-white bg-red-600 rounded-full shadow-md hover:bg-red-700 focus:outline-none` focus:ring focus:ring-red-400 focus:ring-opacity-75 " @click="denyUser(userDetails)">Deny</button>
+              <button class="m-3 w-40 bg-red-600
+              py-2 px-5 text-white font-semibold rounded-full shadow-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-400 focus:ring-opacity-75
+              " @click="denyUser(userDetails)">Deny</button>
           </div>
-        </div>
-      </div>
+
+          </div>
+
+
+
+
+
+     </div>
     </div>
-  </template>
+  </div>
+</template>
   
   
   <script>
   //Bawal tanggalin ung script tag para makita pa rin display kasi part sya ng default code
   import axios from "redaxios";
-  
+  import Header from '../../../components/Header.vue';
   export default { //provides a more modular and organized way to define multiple data properties within a component
-    name: 'UserAccount',
+    name: 'HelperAccount',
+    components: {
+      Header
+    },
     data() {
         return {
+          result: [], //Change into array
           userDetails: {},
-            result: {
+            results: {
               account_status: "", //Eto lang nakalagay kasi eto lang naman ung inupdate or current need tawagin sa database
               email: "",
               password: "",
               token: "",
             },
             showDropdown: false,
-          
         };
     },
   created() { //fetches data from the API when the component is created
     this.UserAccountLoad();
   },
+  computed: {
+      filteredResults() {
+        return this.result.filter(user => user.user_type === "helper");
+      },
+    },
   mounted() {
-    console.log("mounted() called.......");
-  },
+  const headerTitle = document.getElementById("header-title");
+        if (headerTitle) {
+          headerTitle.innerText = "Registration Management / Helper Management";
+        } else {
+          console.error("Element with ID 'header-title' not found")}
+},
   
   methods: { //responsible for making the API request to fetch user data.
     UserAccountLoad() {
@@ -629,7 +698,28 @@
         this.result = data;
       });
     },
-    getStatusClass(status) {
+    getStatusDisplay(accountStatus) {
+        // Convert integer status to display text
+        switch (accountStatus) {
+          case 0:
+            return "Pending";
+          case 1:
+            return "Onboarding";
+          case 2:
+            return "Denied";
+          case 3:
+            return "Terminated";
+          case 4:
+            return "Cancelled";
+          case 5:
+            return "Blocked";
+          case 6:
+            return "Freezed";
+          default:
+            return accountStatus;// Return status as is if not matched | lalabas lng ung number
+        }
+      },
+      getStatusClass(status) {
       switch (status) {
         case 0:
           return "status-pending";
@@ -638,26 +728,17 @@
         case 2:
           return "status-denied";
         case 3:
-          return "status-active";
-        default:
+          return "status-terminated";
+          case 4:
+            return "status-cancelled";
+          case 5:
+            return "status-blocked";
+          case 6:
+            return "status-freezed";
+          default:
           return "";
       }
-    },
-    getStatusDisplay(accountStatus) {
-      // Convert integer status to display text
-      switch (accountStatus) {
-        case 0:
-          return "Pending";
-        case 1:
-          return "Onboarding";
-        case 2:
-          return "Denied";
-        case 3:
-          return "Active";
-        default:
-          return accountStatus; // Return status as is if not matched | lalabas lng ung number
-      }
-    },
+      },
     toggle() {
       this.showDropdown = !this.showDropdown;
     },
@@ -665,125 +746,184 @@
       document.getElementById("helperDetailsPop").classList.add('collapse');
     },
     // new function popup vieww off criver details
-    viewDriverDetails(userID){
-      axios
-        .get(`http://127.0.0.1:8000/api/user/${userID}`)
-        .then((response) => {
-          this.userDetails = response.data;
-          document.getElementById("helperDetailsPop").classList.remove("collapse")
-        })
-        .catch((error) => {
-          console.error("Error fetching user details:", error);
-        });
-    },
-    approveUser(userDetails) {
-    // Make a POST request to UserController's endpoint to generate the random password
-  //   axios
-  //     .post(`http://127.0.0.1:8000/api/user/generate-random-password/${userDetails.id}`)
-  //     .then((response) => {
-  //       console.log("Password generated successfully:", response.data);
+    viewDriverDetails(userId) {
+       // const userId = this.$route.params.id;
+        const adminStore = useAdminStore();
+        const token = adminStore.token;
   
-  //       // Update the account_status to 1
-  //       userDetails.account_status = 1;
+        if (!token) {
+          console.error("Token not available");
+          return;
+        }
   
-  //       // Store the unhashed password
-  //       const unhashedPassword = response.data.password;
+        axios
+          .get(`http://127.0.0.1:8000/api/user/${userId}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {
+            this.userDetails = response.data;
+            document.getElementById("helperDetailsPop").classList.remove("collapse")
+          })
+          .catch((error) => {
+            console.error("Error fetching user details:", error);
+          });
+      },
   
-  //       // Make a PUT request to update the user details including the account_status and hashed password
-  //       axios
-  //         .put(`http://127.0.0.1:8000/api/user/approve/${userDetails.id}`, userDetails)
-  //         .then((response) => {
-  //           console.log("User approved successfully:", response.data);
-  //           // Show alert that the account has been approved
-  //           alert("Account has been approved!");
-  //           this.closePopup();
-  //           // Send approval email with unhashed password
-  //           axios
-  //             .post(
-  //               `http://127.0.0.1:8000/api/user/send-account-approved-email`,
-  //               { 
-  //                 email: userDetails.email, 
-  //                 password: unhashedPassword
-  //               }
-  //             )
-  //             .then((emailResponse) => {
-  //               console.log(
-  //                 "Approval email sent successfully:",
-  //                 emailResponse.data
-  //               );
-  //             })
-  //             .catch((emailError) => {
-  //               console.error("Error sending approval email:", emailError);
-  //             });
+      async approveUser(userDetails) {
+        try {
+          const adminStore = useAdminStore();
+          const token = adminStore.token;
   
-  //           // Fetch updated user details after approval
-  //           // this.fetchUserDetails(); replace
-  //           this.UserAccountLoad();
-  //         })
-  //         .catch((error) => {
-  //           console.error("Error approving user:", error);
-  //         });
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error generating random password:", error);
-  //     });
-    },
+          // Make a POST request to UserController's endpoint to generate the random password
+          const passwordResponse = await axios.post(
+            `http://127.0.0.1:8000/api/user/generate-random-password/${userDetails.id}`,
+            {},
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          console.log("Password generated successfully:", passwordResponse.data);
   
-    denyUser(userDetails) {
-      userDetails.account_status = 2;
+          // Update the account_status to 1
+          userDetails.account_status = 1;
   
-      // Generate a unique token
-      const token = Math.random().toString(36); // Generates a random alphanumeric token
+          // Store the unhashed password
+          const unhashedPassword = passwordResponse.data.password;
   
-      // Set the generated token to userDetails.token
-      userDetails.token = token;
+          // Make a PUT request to update the user details including the account_status and hashed password
+          const approveResponse = await axios.put(
+            `http://127.0.0.1:8000/api/user/approve/${userDetails.id}`,
+            userDetails,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          console.log("User approved successfully:", approveResponse.data);
   
-      axios
-        .put(`http://127.0.0.1:8000/api/user/deny/${userDetails.id}`, userDetails)
-        .then((response) => {
-          console.log("User denied successfully:", response.data);
-          alert("Account has been denied!");
-          this.closePopup();
-          // Send denial email with the token
-          axios
-            .post(`http://127.0.0.1:8000/api/user/send-account-denied-email`, {
+          // Show alert that the account has been approved
+          alert("Account has been approved!");
+  
+          // Send approval email with unhashed password
+          const emailResponse = await axios.post(
+            `http://127.0.0.1:8000/api/user/send-account-approved-email`,
+            {
               email: userDetails.email,
-              token: token, // Pass the token to the backend
-            })
-            .then((emailResponse) => {
-              console.log(
-                "Denial email sent successfully:",
-                emailResponse.data
-              );
-            })
-            .catch((emailError) => {
-              console.error("Error sending denial email:", emailError);
-            });
+              password: unhashedPassword,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          console.log("Approval email sent successfully:", emailResponse.data);
+  
+          // Fetch updated user details after approval
+          //this.viewDriverDetails(userDetails.id);
+          this.closePopup()
+          this.UserAccountLoad();
+        } catch (error) {
+          console.error("Error approving user:", error);
+        }
+      },
+  
+      async denyUser(userDetails) {
+        try {
+          const adminStore = useAdminStore();
+          const token = adminStore.token;
+  
+          userDetails.account_status = 2;
+  
+          // Generate a unique token
+          const denialToken = Math.random().toString(36); // Generates a random alphanumeric token
+  
+          // Set the generated token to userDetails.token
+          userDetails.token = denialToken;
+  
+          const denyResponse = await axios.put(
+            `http://127.0.0.1:8000/api/user/deny/${userDetails.id}`,
+            userDetails,
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          console.log("User denied successfully:", denyResponse.data);
+  
+          // Send denial email with the token
+          const emailResponse = await axios.post(
+            `http://127.0.0.1:8000/api/user/send-account-denied-email`,
+            {
+              email: userDetails.email,
+              token: denialToken,
+            },
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          );
+          console.log("Denial email sent successfully:", emailResponse.data);
+  
+              // Show alert that the account has been denied
+              alert("Account has been denied!");
   
           // Fetch updated user details after denial
-          // this.fetchUserDetails();
+          //this.fetchUserDetails();
+          this.closePopup()
           this.UserAccountLoad();
-        })
-        .catch((error) => {
+        } catch (error) {
           console.error("Error denying user:", error);
-        });
-    },
+        }
+      },
   },
   };
   </script>
   
-  <style scoped>
-  .status-pending {
-  color: yellow;
-  }
-  .status-onboarding {
-  color: blue;
-  }
-  .status-denied {
-  color: red;
-  }
-  .status-active {
-  color: green;
-  }
-  </style>
+  
+<style scoped>
+.status-pending {
+  color: rgb(250 204 21);
+  border-color: rgb(250 204 21);
+  background-color: rgb(254 240 138);
+}
+.status-onboarding {
+  color: rgb(96 165 250);
+  border-color: rgb(96 165 250);
+  background-color: rgb(191 219 254);
+}
+.status-denied {
+  color:  rgb(248 113 113);
+  border-color: rgb(248 113 113);
+  background-color: rgb(254 202 202)
+}
+.status-terminated {
+  color: rgb(74 222 128);
+  border-color: rgb(74 222 128);
+  background-color: rgb(187 247 208);
+}
+.status-cancelled {
+  color: rgb(74 222 128);
+  border-color: rgb(74 222 128);
+  background-color: rgb(187 247 208);
+}
+.status-blocked {
+  color: rgb(74 222 128);
+  border-color: rgb(74 222 128);
+  background-color: rgb(187 247 208);
+}
+.status-freezed {
+  color: rgb(74 222 128);
+  border-color: rgb(74 222 128);
+  background-color: rgb(187 247 208);
+}
+</style>
+  
   

@@ -27,7 +27,7 @@
                         </div>
                         </form>
 
-                  </div>
+                      </div>
       
         
             <div class="px-4">
@@ -54,7 +54,6 @@
                     <tbody>
                       <tr 
                         class="
-                        
                         border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-blue-100  ">
                         <td class="whitespace-nowrap px-6 py-4 font-medium">D-112121</td> 
                         <td class="whitespace-nowrap px-6 py-4">John Doe</td>

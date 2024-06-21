@@ -62,12 +62,7 @@
 
                   </tbody>
                 </table>
-
-
                 </div>
-              
-        
-        
           <!-- page turner button -->
             <!-- page turner button -->
       <div class="w-full flex justify-between p-4 border-t border-blue-gray-50">

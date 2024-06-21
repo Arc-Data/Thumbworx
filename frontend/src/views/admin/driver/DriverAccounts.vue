@@ -679,7 +679,7 @@
   import Header from '../../../components/Header.vue';
 
   export default {
-    name: 'UserAccount',
+    name: 'DriverAccount',
     components: {
       Header
     },
@@ -778,7 +778,7 @@
           default:
           return "";
       }
-    },
+      },
 
       toggle() {
         this.showDropdown = !this.showDropdown;

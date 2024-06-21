@@ -157,7 +157,7 @@
             id="disabledTextInput12"
             class="form-control"
             disabled
-            :value="userDetails.permanent_address.per_house_number"
+            :value="userDetails.permanent_address"
           />
         </div>
         <div class="mb-3 col">
