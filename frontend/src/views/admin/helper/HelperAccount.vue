@@ -30,7 +30,7 @@
     
                       <div 
                       class="relative inline-block text-left">
-                        <!-- driver filter -->
+                        <!-- driver? filter -->
                       <div>
                         <div>
                           <button type="button" @click="toggle" class="
@@ -120,7 +120,7 @@
       </div>
     </div>
 
-    <div id="helperDetailsPop" class=" collapse w-screen h-screen fixed top-0 left-0 z-50 bg-black bg-opacity-50 flex justify-center pt-10">
+    <div id="helperDetailsPop" class="  w-screen h-screen fixed top-0 left-0 z-50 bg-black bg-opacity-50 flex justify-center pt-10">
        <!-- pop up content div -->
        <div class="rounded-lg drop-shadow-lg border-1 border-slate-400 bg-white max-w-screen-md w-11/12 h-fit ">  
            <div class=" pr-2 pl-4  text-white bg-blue-600 rounded-tl-lg rounded-tr-lg flex items-center font-bold"> 
@@ -308,7 +308,7 @@
                     id="disabledTextInput12"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="'house no.'"    <!-- userDetails.permanent_address.per_house_number -->
+                    :value="userDetails.permanent_address?.per_house_number"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -320,7 +320,7 @@
                     id="disabledTextInput13"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                      <!-- :value="userDetails.permanent_address.per_street" -->
+                     :value="userDetails.permanent_address?.per_street"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -332,7 +332,7 @@
                     id="disabledTextInput14"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                   :value="userDetails.permanent_address.per_barangay"
+                   :value="userDetails.permanent_address?.per_barangay"
                   />
                 </div>
               </div>
@@ -347,7 +347,7 @@
                     id="disabledTextInput15"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                :value="userDetails.permanent_address.per_city"
+                :value="userDetails.permanent_address?.per_city"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -359,7 +359,7 @@
                     id="disabledTextInput16"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.permanent_address.per_province"
+                    :value="userDetails.permanent_address?.per_province"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -371,7 +371,7 @@
                     id="disabledTextInput17"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                             :value="userDetails.permanent_address.per_region"
+                             :value="userDetails.permanent_address?.per_region"
                   />
                 </div>
               </div>
@@ -386,7 +386,7 @@
                     id="disabledTextInput18"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.permanent_address.per_country"
+                    :value="userDetails.permanent_address?.per_country"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -398,7 +398,7 @@
                     id="disabledTextInput19"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                   :value="userDetails.permanent_address.per_zip_code"
+                   :value="userDetails.permanent_address?.per_zip_code"
                   />
                 </div>
 
@@ -419,7 +419,7 @@
                     id="disabledTextInput20"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                        :value="userDetails.current_address.cur_house_number"
+                        :value="userDetails.current_address?.cur_house_number"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -431,7 +431,7 @@
                     id="disabledTextInput21"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                  :value="userDetails.current_address.cur_street"
+                  :value="userDetails.current_address?.cur_street"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -443,7 +443,7 @@
                     id="disabledTextInput22"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                     :value="userDetails.current_address.cur_barangay"
+                     :value="userDetails.current_address?.cur_barangay"
                   />
                 </div>
               </div>
@@ -458,7 +458,7 @@
                     id="disabledTextInput23"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                         :value="userDetails.current_address.cur_city"
+                         :value="userDetails.current_address?.cur_city"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -470,7 +470,7 @@
                     id="disabledTextInput24"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.current_address.cur_province"
+                    :value="userDetails.current_address?.cur_province"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -482,7 +482,7 @@
                     id="disabledTextInput25"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                 :value="userDetails.current_address.cur_region"
+                 :value="userDetails.current_address?.cur_region"
                   />
                 </div>
               </div>
@@ -497,7 +497,7 @@
                     id="disabledTextInput26"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                     :value="userDetails.current_address.cur_country"
+                     :value="userDetails.current_address?.cur_country"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -509,7 +509,7 @@
                     id="disabledTextInput27"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                      :value="userDetails.current_address.cur_zip_code"
+                      :value="userDetails.current_address?.cur_zip_code"
                   />
                 </div>
 
@@ -533,7 +533,7 @@
                     id="disabledTextInput28"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.driver.contact_person"
+                    :value="userDetails.driver?.contact_person"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -543,7 +543,7 @@
                     id="disabledTextInput29"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                     :value="userDetails.driver.contact_person_relationship"
+                     :value="userDetails.driver?.contact_person_relationship"
                   />
                 </div>
                  <div class="mb-3 mx-2 w-full lg:w-48">
@@ -555,7 +555,7 @@
                     id="disabledTextInput30"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                    :value="userDetails.driver.contact_person_phone_number"
+                    :value="userDetails.driver?.contact_person_phone_number"
                   />
                 </div>
               </div>
@@ -570,7 +570,7 @@
                     id="disabledTextInput31"
                      class=" block w-full p-2 rounded-md border border-slate-300"
                     disabled
-                      :value="userDetails.driver.contact_person_email"
+                      :value="userDetails.driver?.contact_person_email"
                   />
                 </div>
 
@@ -655,6 +655,7 @@
   <script>
   //Bawal tanggalin ung script tag para makita pa rin display kasi part sya ng default code
   import axios from "redaxios";
+  import { ref, onMounted } from "vue";
   import Header from '../../../components/Header.vue';
   export default { //provides a more modular and organized way to define multiple data properties within a component
     name: 'HelperAccount',
@@ -747,7 +748,7 @@
     },
     // new function popup vieww off criver details
     viewDriverDetails(userId) {
-       // const userId = this.$route.params.id;
+      // const userId = this.$route.params.id;
         const adminStore = useAdminStore();
         const token = adminStore.token;
   
@@ -764,7 +765,6 @@
           })
           .then((response) => {
             this.userDetails = response.data;
-            document.getElementById("helperDetailsPop").classList.remove("collapse")
           })
           .catch((error) => {
             console.error("Error fetching user details:", error);
@@ -825,7 +825,7 @@
           console.log("Approval email sent successfully:", emailResponse.data);
   
           // Fetch updated user details after approval
-          //this.viewDriverDetails(userDetails.id);
+          //this.viewDriver?Details(userDetails.id);
           this.closePopup()
           this.UserAccountLoad();
         } catch (error) {
