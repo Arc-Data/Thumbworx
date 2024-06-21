@@ -120,7 +120,7 @@
       </div>
     </div>
 
-    <div id="helperDetailsPop" class="  w-screen h-screen fixed top-0 left-0 z-50 bg-black bg-opacity-50 flex justify-center pt-10">
+    <div id="helperDetailsPop" class="collapse  w-screen h-screen fixed top-0 left-0 z-50 bg-black bg-opacity-50 flex justify-center pt-10">
        <!-- pop up content div -->
        <div class="rounded-lg drop-shadow-lg border-1 border-slate-400 bg-white max-w-screen-md w-11/12 h-fit ">  
            <div class=" pr-2 pl-4  text-white bg-blue-600 rounded-tl-lg rounded-tr-lg flex items-center font-bold"> 
