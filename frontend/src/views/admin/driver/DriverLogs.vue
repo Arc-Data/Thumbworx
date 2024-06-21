@@ -53,7 +53,6 @@
                   <tbody>
                     <tr v-for="log in logs" v-bind:key="log.logs_id"
                       class="
-                      
                       border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-blue-100  ">
                       <td class="whitespace-nowrap px-6 py-4 font-medium">{{ log.logs_id }}</td> 
                       <td class="whitespace-nowrap px-6 py-4">{{ log.user && `${log.user.first_name} ${log.user.last_name}` }}</td>

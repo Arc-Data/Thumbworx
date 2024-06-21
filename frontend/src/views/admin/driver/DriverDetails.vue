@@ -12,12 +12,12 @@
           <div class="">
           <!-- tablecontainer -->
                     <div class="block">
-                      <!-- searchbar part -->
-                      <div class=" p-2 flex flex-wrap justify-between">
+                        <!-- searchbar part -->
+                        <div class=" p-2 flex flex-wrap justify-between">
                         <form class="w-full">   
                             <div class="relative">
                                 <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                     </svg>
                                 </div>
@@ -26,7 +26,8 @@
                           <div>
                         </div>
                         </form>
-                  </div>
+
+                      </div>
           <div class="px-4">
             <br>
             <h2 class=" 
@@ -53,33 +54,18 @@
         
                 <tr v-for="user in result" v-bind:key="1" 
                   class="
-                  
                   border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-blue-100 ">
-                  <td class="whitespace-nowrap px-6 py-4 font-medium">{{ 1 }}</td>
-                  <td class="whitespace-nowrap px-6 py-4">{{ 1 }} {{ 1 }}</td>
-                  <td class="whitespace-nowrap px-6 py-4">{{ 1}}</td>
-                  <td class="whitespace-nowrap px-6 py-4">{{ 1 }}</td>
+                  <td class="whitespace-nowrap px-6 py-4 font-medium">{{  }}</td>
+                  <td class="whitespace-nowrap px-6 py-4">{{  }} {{  }}</td>
+                  <td class="whitespace-nowrap px-6 py-4">{{  }}</td>
+                  <td class="whitespace-nowrap px-6 py-4">{{  }}</td>
                   <td  class="whitespace-nowrap px-6 py-4">
                       <div :class="getStatusClass(user.account_status)" class="p-1 text-center rounded-md border-2">{{ getStatusDisplay(user.account_status) }}</div>
                   </td>
                   <td class="whitespace-nowrap px-6 py-4"><button class="btn btn-primary" @click="viewBookingDetails(1)"> <span class="material-icons">visibility</span></button> </td>
               </tr>
 
-              <!-- //////////// example table roww -->
-              <tr 
-                  class="
-                   border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-blue-100 ">
-                  <td class="whitespace-nowrap px-6 py-4 font-medium">asdasdasd</td>
-                  <td class="whitespace-nowrap px-6 py-4">asdasdasd asdasdasd</td>
-                  <td class="whitespace-nowrap px-6 py-4">sdadsad</td>
-                  <td class="whitespace-nowrap px-6 py-4">asdasdasd</td>
-                  <td  class="whitespace-nowrap px-6 py-4">
-                      <div :class="getStatusClass(1)" class="p-1 text-center rounded-md border-2">{{ getStatusDisplay(1) }}</div>
-                  </td>
-                  <td class="whitespace-nowrap px-6 py-4"><button class="btn btn-primary" @click="viewBookingDetails(1)"> <span class="material-icons">visibility</span></button> </td>
-              </tr>
-            
-              <!-- //////////// example table roww end-->
+        
 
               </tbody>
             </table>
@@ -101,26 +87,19 @@
           <span class="material-icons">arrow_forward_ios</span>
         </button>
       </div>
+
+      
           </div>
     </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <transition
-        enter-active-class="transition ease-out duration-500" 
-        enter-from-class="transform opacity-0 scale-99" 
-        enter-to-class="transform opacity-100 scale-100" 
-        leave-active-class="transition ease-in duration-500"
-        leave-from-class="transform opacity-100 scale-100"
-        leave-to-class="transform opacity-0 scale-95"
-    > -->
             <div id="bookingDetailsPop" class=" collapse w-screen h-screen fixed top-0 left-0 z-50 bg-black bg-opacity-50 flex justify-center pt-10">
             <!-- pop up content div -->
             <div class="rounded-lg drop-shadow-lg border-1 border-slate-400 bg-white max-w-screen-md w-11/12 h-fit ">     <!-- popup header --> 
                           <div class="
-                          dark:bg-blue-950
+                       
                           pr-2 pl-4 text-white bg-blue-600 rounded-tl-lg rounded-tr-lg flex items-center font-bold"> 
                             <legend class="self-center">Booking Details</legend>
                             <!-- close btn -->
@@ -439,6 +418,9 @@ export default { //provides a more modular and organized way to define multiple 
   methods: { //responsible for making the API request to fetch user data.
     loadBooking() {
      
+
+
+
     },
     cancelBooking(bookID){
         alert("Book Has been cancel.")
