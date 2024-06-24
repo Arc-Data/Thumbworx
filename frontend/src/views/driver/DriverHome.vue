@@ -1,13 +1,25 @@
 <template>
-  <div>Driver Page</div>
+  <div>
+      <h1> Driver Page</h1>
+      <button @click="logout">Driver Logout</button>
+  </div>
 </template>
 
 <script>
+import { DriverStore } from '../../stores/driverStore.js';
 export default {
-    name: 'DriverPage',
+    name: 'DriverHome',
     setup() {
-        console.log("Hello")
+      const driverStore = DriverStore();
+      const logout = () => {
+    driverStore.logout();
+  };
+
+  return {
+    logout,
     }
+    
+}
 }
 </script>
 

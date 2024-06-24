@@ -18,4 +18,22 @@ app.use(pinia).use(router)
 const adminStore = useAdminStore();
 adminStore.checkTokenExpiryAndRefresh();
 
+// Check system color scheme preference
+const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+if (userPrefersDark) {
+  document.documentElement.classList.add('dark');
+} else {
+  document.documentElement.classList.remove('dark');
+}
+
+// Listen for changes to the user's preference
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+  if (event.matches) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+});
+
 app.mount('#app')

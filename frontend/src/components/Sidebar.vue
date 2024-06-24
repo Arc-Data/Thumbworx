@@ -425,11 +425,11 @@ export default {
 
 		const switchTheme = () => {
 			if (isDarkMode.value) {
-				document.documentElement.setAttribute('data-theme', 'dark');
-				localStorage.setItem('theme', 'dark');
+				document.documentElement.setAttribute('data-theme', 'Dark');
+				localStorage.setItem('theme', 'Dark');
 			} else {
-				document.documentElement.setAttribute('data-theme', 'light');
-				localStorage.setItem('theme', 'light');
+				document.documentElement.setAttribute('data-theme', 'Light');
+				localStorage.setItem('theme', 'Light');
 			}
 		};
 
@@ -451,10 +451,14 @@ export default {
 
 			// Initialize dark mode from localStorage
 			const currentTheme = localStorage.getItem('theme');
-			if (currentTheme === 'dark') {
+			if (currentTheme === 'Dark') {
 				isDarkMode.value = true;
-				document.documentElement.setAttribute('data-theme', 'dark');
+				document.documentElement.setAttribute('data-theme', 'Dark');
 			}
+      else {
+        document.documentElement.setAttribute('data-theme', 'Light');
+        localStorage.setItem('theme', 'Light');
+      }
 		});
 
 		return {
@@ -472,6 +476,28 @@ export default {
 </script>
 
 <style scoped>
+
+
+:root { /* light mode */
+  --font-color: #000;
+  --link-color:#1C75B9;
+  --link-white-color:#fff;
+  --bg-color: rgb(243,243,243);
+}
+
+[data-theme="Dark"] {
+  --font-color: #bdbab8;
+  --link-color:#0a86da;
+  --link-white-color:#bdbab8;
+  --bg-color: #333;
+}
+
+body {
+  color: #000;
+  color: var(--font-color);
+  background: rgb(243,243,243);
+  background: var(--bg-color);
+}
 
 
 </style>
