@@ -35,16 +35,14 @@ class ApiController extends Controller
 
             //Eto ung lumalabas kapag successful yung login
             return response()->json([
-                "status" => true,
                 "message" => "User logged in successfully",
                 "token" => $token, //Generating random token
-            ]);
+            ], 200);
         }
 
         return response()->json([
-            "status" => false,
             "message" => "Invalid details"
-        ]);
+        ], 400);
     }
 
     public function register(RegistrationRequest $request)

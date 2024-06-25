@@ -81,6 +81,6 @@ class AdminAuthController extends Controller
             'status' => 'success',
             'token' => $token,
             'type' => 'bearer',
-        ]);
+        ], 200);
     }
 }
