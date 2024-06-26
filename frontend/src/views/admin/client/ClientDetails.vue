@@ -413,7 +413,7 @@
   <script>
   import axios from "redaxios";
   import { ref, onMounted } from "vue";
-  import { useAdminStore } from "../../../stores/adminStore";
+  import { useAuthStore } from "../../../stores/authStore";
   
   export default {
     name: "UserDetails",
@@ -434,8 +434,8 @@
     methods: {
       fetchUserDetails() {
         const userId = this.$route.params.id;
-        const adminStore = useAdminStore();
-        const token = adminStore.token;
+        const authStore = useAuthStore();
+        const token = authStore.token;
   
         if (!token) {
           console.error("Token not available");
@@ -458,8 +458,8 @@
   
       async approveUser(userDetails) {
         try {
-          const adminStore = useAdminStore();
-          const token = adminStore.token;
+          const authStore = useAuthStore();
+          const token = authStore.token;
   
           // Make a POST request to UserController's endpoint to generate the random password
           const passwordResponse = await axios.post(
@@ -518,8 +518,8 @@
   
       async denyUser(userDetails) {
         try {
-          const adminStore = useAdminStore();
-          const token = adminStore.token;
+          const authStore = useAuthStore();
+          const token = authStore.token;
   
           userDetails.account_status = 2;
   

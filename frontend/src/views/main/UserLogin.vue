@@ -1,11 +1,11 @@
 <template>
   <div :class="isDarkMode ? 'dark' : ''">
-    <div :class="contentClasses">
+
   <div class="p-auto
   w-full
   bg-[url('https://www.frost.com/wp-content/uploads/2017/07/Connected-truck-telematics.jpg')]">
     <div class="flex items-center min-h-screen p-4 lg:justify-center center-margin">
-        <div
+        <div 
           class="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md"
         >
           <div
@@ -77,14 +77,13 @@
         </div>
         </div>
       </div>
-      </div>
   </div>
 
   </template>
 
 <script>
-import { useAdminStore } from '../../stores/adminStore';
-import { ref, onMounted, computed } from 'vue';
+import { useAuthStore } from '../../stores/authStore';
+import { ref, onMounted, } from 'vue';
 
   export default {
   setup() {
@@ -100,10 +99,6 @@ import { ref, onMounted, computed } from 'vue';
       }
     };
 
-    const contentClasses = computed(() => ({
-      'dark:bg-background-500': isDarkMode.value,
-      'bg-background-500': !isDarkMode.value,
-    })); 
 
     onMounted(() => {
       const currentTheme = localStorage.getItem('theme');
@@ -117,7 +112,6 @@ import { ref, onMounted, computed } from 'vue';
     return {
       isDarkMode,
       switchTheme,
-      contentClasses,
     };
   },
   data() {
@@ -129,42 +123,17 @@ import { ref, onMounted, computed } from 'vue';
   },
   methods: {
     async login() {
-      const adminStore = useAdminStore();
+      const authStore = useAuthStore();
       console.log(this.email, this.password);
       try {
         console.log("Huh");
-        await adminStore.login(this.email, this.password);
+        await authStore.login(this.email, this.password);
       } catch (error) {
         console.error('Error:', error);
       }
     },
   },
 };
-
-// import { ClientStore } from '../../stores/clientStore';
-
-// export default {
-//   data() {
-//     return {
-//       email: '',
-//       password: '',
-//       error: null,
-//     };
-//   },
-//   methods: {
-//     async login() {
-//       const clientStore = ClientStore()
-//       console.log(this.email, this.password)
-
-//       try {
-//         console.log("Huh")
-//         await clientStore.login(this.email, this.password)
-//       } catch (error) {
-//         console.error('Error:', error);
-//       }
-//     },
-//   },
-// };
 
 </script>
 
@@ -173,142 +142,6 @@ import { ref, onMounted, computed } from 'vue';
 <style scoped>
 
 
-:root { /* light mode */
- 
-  --text: #0a111a;
-  --text-50: #edf2f8;
-  --text-100: #dae4f1;
-  --text-200: #b6c9e2;
-  --text-300: #91aed4;
-  --text-400: #6c93c6;
-  --text-500: #4778b8;
-  --text-600: #396093;
-  --text-700: #2b486e;
-  --text-800: #1d3049;
-  --text-900: #0e1825;
-  --text-950: #070c12;
-
-    --background: #f4f7fb;
-    --background-50: #ecf1f8;
-    --background-100: #dae4f1;
-    --background-200: #b4c9e4;
-    --background-300: #8faed6;
-    --background-400: #6993c9;
-    --background-500: #4478bb;
-    --background-600: #366096;
-    --background-700: #294870;
-    --background-800: #1b304b;
-    --background-900: #0e1825;
-    --background-950: #070c13;
-    
-    --primary: #3c83f6;
-    --primary-50: #e7f0fe;
-    --primary-100: #cee0fd;
-    --primary-200: #9ec1fa;
-    --primary-300: #6da2f8;
-    --primary-400: #3c83f6;
-    --primary-500: #0b64f4;
-    --primary-600: #0950c3;
-    --primary-700: #073c92;
-    --primary-800: #052861;
-    --primary-900: #021431;
-    --primary-950: #010a18;
-    
-    --secondary: #82a9e8;
-    --secondary-50: #e9f0fb;
-    --secondary-100: #d4e1f7;
-    --secondary-200: #a9c4ef;
-    --secondary-300: #7ea6e7;
-    --secondary-400: #5389df;
-    --secondary-500: #286bd7;
-    --secondary-600: #2056ac;
-    --secondary-700: #184081;
-    --secondary-800: #102b56;
-    --secondary-900: #08152b;
-    --secondary-950: #040b16;
-    
-    --accent: #4986e9;
-    --accent-50: #e8f0fc;
-    --accent-100: #d2e1f9;
-    --accent-200: #a4c3f4;
-    --accent-300: #77a5ee;
-    --accent-400: #4986e9;
-    --accent-500: #1c68e3;
-    --accent-600: #1653b6;
-    --accent-700: #113f88;
-    --accent-800: #0b2a5b;
-    --accent-900: #06152d;
-    --accent-950: #030a17;
-    
-  
-}
-.dark {
-    --text: #e5ecf5;
-    --text-50: #070c12;
-    --text-100: #0e1825;
-    --text-200: #1d3049;
-    --text-300: #2b486e;
-    --text-400: #396093;
-    --text-500: #4778b8;
-    --text-600: #6c93c6;
-    --text-700: #91aed4;
-    --text-800: #b6c9e2;
-    --text-900: #dae4f1;
-    --text-950: #edf2f8;
-    
-    --background: #04070b;
-    --background-50: #070c13;
-    --background-100: #0e1825;
-    --background-200: #1b304b;
-    --background-300: #294870;
-    --background-400: #366096;
-    --background-500: #4478bb;
-    --background-600: #6993c9;
-    --background-700: #8faed6;
-    --background-800: #b4c9e4;
-    --background-900: #dae4f1;
-    --background-950: #ecf1f8;
-
-    --primary: #0950c3;
-    --primary-50: #010a18;
-    --primary-100: #021431;
-    --primary-200: #052861;
-    --primary-300: #073c92;
-    --primary-400: #0950c3;
-    --primary-500: #0b64f4;
-    --primary-600: #3c83f6;
-    --primary-700: #6da2f8;
-    --primary-800: #9ec1fa;
-    --primary-900: #cee0fd;
-    --primary-950: #e7f0fe;
-    
-    --secondary: #173e7d;
-    --secondary-50: #040b16;
-    --secondary-100: #08152b;
-    --secondary-200: #102b56;
-    --secondary-300: #184081;
-    --secondary-400: #2056ac;
-    --secondary-500: #286bd7;
-    --secondary-600: #5389df;
-    --secondary-700: #7ea6e7;
-    --secondary-800: #a9c4ef;
-    --secondary-900: #d4e1f7;
-    --secondary-950: #e9f0fb;
-    
-    --accent: #1653b6;
-    --accent-50: #030a17;
-    --accent-100: #06152d;
-    --accent-200: #0b2a5b;
-    --accent-300: #113f88;
-    --accent-400: #1653b6;
-    --accent-500: #1c68e3;
-    --accent-600: #4986e9;
-    --accent-700: #77a5ee;
-    --accent-800: #a4c3f4;
-    --accent-900: #d2e1f9;
-    --accent-950: #e8f0fc;
-    
-  }
 
 [data-theme="Dark"] {
   --text: #e5ecf5;
@@ -378,6 +211,39 @@ import { ref, onMounted, computed } from 'vue';
     
   }
 
+  :root { /* light mode */
+  --font-color: #000;
+  --link-color:#1C75B9;
+  --link-white-color:#fff;
+  --bg-color: rgb(243,243,243);
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+[data-theme="Dark"] {
+
+  --font-color: #bdbab8;
+  --link-color:#0a86da;
+  --link-white-color:#bdbab8;
+  --bg-color: #333;
+
+  
+}
+
+body {
+  color: #000;
+  color: var(--font-color);
+  background: rgb(243,243,243);
+  background: var(--bg-color);
+}
 /* body {
   color: #000;
   color: var(--font-color);
@@ -386,4 +252,4 @@ import { ref, onMounted, computed } from 'vue';
 } */
 
 </style>
-
+ 

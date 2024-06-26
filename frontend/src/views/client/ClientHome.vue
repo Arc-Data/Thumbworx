@@ -6,13 +6,13 @@
   </template>
   
   <script>
-  import { ClientStore } from '../../stores/clientStore.js';
+  import { useAuthStore } from '../../stores/authStore.js';
   export default {
       name: 'ClientHome',
       setup() {
-        const clientStore = ClientStore();
+        const authStore = useAuthStore();
         const logout = () => {
-      clientStore.logout();
+      authStore.logout();
     };
 
     return {

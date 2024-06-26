@@ -6,13 +6,13 @@
 </template>
 
 <script>
-import { DriverStore } from '../../stores/driverStore.js';
+import { useAuthStore } from '../../stores/authStore.js';
 export default {
     name: 'DriverHome',
     setup() {
-      const driverStore = DriverStore();
+      const authStore = useAuthStore();
       const logout = () => {
-    driverStore.logout();
+    authStore.logout();
   };
 
   return {

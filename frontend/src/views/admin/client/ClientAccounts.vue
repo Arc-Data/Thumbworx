@@ -105,7 +105,7 @@
     
   <script> //Bawal tanggalin ung script tag para makita pa rin display kasi part sya ng default code
   import axios from "redaxios";
-  import { useAdminStore } from '../../../stores/adminStore';
+  import { useAuthStore} from '../../../stores/authStore';
   
   export default {
     name: 'UserAccount',
@@ -127,8 +127,8 @@
     methods: {
       UserAccountLoad() {
         // Access the adminStore to get the token
-        const adminStore = useAdminStore();
-        const token = adminStore.token;
+        const authStore = useAuthStore();
+        const token = authStore.token;
   
         if (!token) {
           console.error('Token not available');

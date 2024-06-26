@@ -409,7 +409,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import router from '../router' // Para maredirect sa login or other pages kung want
-import { useAdminStore } from '../stores/adminStore'
+import { useAuthStore } from '../stores/authStore'
 import { FwbToggle } from 'flowbite-vue'
 
 export default {
@@ -467,8 +467,8 @@ export default {
 			toggleMenu,
 			switchTheme,
 			handleLogout() {
-				const adminStore = useAdminStore()
-				adminStore.logout()
+				const authStore = useAuthStore()
+				authStore.logout()
 			}
 		};
 	},

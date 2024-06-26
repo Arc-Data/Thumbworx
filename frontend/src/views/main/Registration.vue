@@ -210,7 +210,7 @@
 <script>
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
-import { useAdminStore } from '../../stores/adminStore';
+import { useAuthStore } from '../../stores/authStore';
 import apiClient from '../../api/apiClient';
 
 export default {

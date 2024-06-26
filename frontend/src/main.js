@@ -4,7 +4,7 @@ import router from './router/index'
 import { createPinia } from 'pinia'
 
 import './style.css'
-import { useAdminStore } from './stores/adminStore'
+import { useAuthStore } from './stores/authStore'
 
 const app = createApp(App)
 
@@ -15,8 +15,8 @@ pinia.use( ({ store }) => {
 
 app.use(pinia).use(router)
 
-const adminStore = useAdminStore();
-adminStore.checkTokenExpiryAndRefresh();
+const authStore = useAuthStore();
+authStore.checkTokenExpiryAndRefresh();
 
 // Check system color scheme preference
 const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;

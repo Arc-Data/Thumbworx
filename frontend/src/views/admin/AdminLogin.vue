@@ -63,7 +63,7 @@
   </template>
 
 <script>
-import { useAdminStore } from '../../stores/adminStore';
+import { useAuthStore } from '../../stores/authStore';
 
 export default {
   data() {
@@ -75,10 +75,10 @@ export default {
   },
   methods: {
     async login() {
-      const adminStore = useAdminStore()
+      const authStore = useAuthStore()
       try {
         console.log("What is going on")
-        await adminStore.adminLogin(this.email, this.password)
+        await authStore.adminLogin(this.email, this.password)
       } catch (error) {
         console.error('Error:', error);
       }

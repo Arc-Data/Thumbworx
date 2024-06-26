@@ -124,7 +124,7 @@
 <script>
 import axios from 'redaxios';
 import { ref, onMounted } from 'vue';
-import { useAdminStore } from '../../stores/adminStore';
+import { useAuthStore } from '../../stores/authStore';
 import Header from '../../components/Header.vue';
 
 export default {
@@ -133,7 +133,7 @@ export default {
       Header
     },
   setup() {
-    const adminStore = useAdminStore()
+    const authStore = useAuthStore()
     const token = adminStore.token
 
     const totalClients = ref(null);
