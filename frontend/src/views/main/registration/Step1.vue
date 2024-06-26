@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="">
         <h2 class="mb-4 text-xl font-bold">Step 1: Basic Information</h2>
         <form @submit.prevent="submitForm">
         <div class="mb-4">

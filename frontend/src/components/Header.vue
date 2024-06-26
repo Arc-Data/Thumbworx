@@ -1,5 +1,5 @@
 <template>
-  <header class="max-h-[70px] w-full shadow-2xl bg-primary-default pl-3 pr-6 py-3 z-10 text-white flex justify-between items-center relative sticky top-0 right-0">
+  <header class="max-h-[70px] w-full shadow-2xl bg-primary-default pl-3 pr-6 py-3 z-10 text-white flex justify-between items-center sticky top-0 right-0">
     <div class="flex items-center">
         <span id="header-title" class="w-full text-lg font-bold text-white-500 hover:cursor-pointer md:text-xl lg:text-2xl xl:text-3xl " style="max-width: calc(100% - 40px);">
         </span>

@@ -1,139 +1,143 @@
 <template>
-  <div class="max-w-3xl py-8 mx-auto">
-    <div class="p-6 rounded-lg shadow-md bg-background-100">
-      <step1 v-if="step === 1" 
-        :personal_info="form.personal_info" 
-        :errors="errors.value" 
-        :disabled="disabled" 
-        @submit-step1="handleStep1">
-      </step1>
-      <div v-else-if="step === 2">
-        <h2 class="mb-4 text-xl font-bold">Step 2: Additional Information </h2>
-        <form @submit.prevent="nextStep">
-          <div class="mb-4">
-            <p class="block text-gray-700">Permanent Address</p>
+  <div class="w-full
+    bg-[url('https://www.frost.com/wp-content/uploads/2017/07/Connected-truck-telematics.jpg')] bg-cover bg-no-repeat bg-fixed
+    ">
+    <div class="max-w-3xl py-8 mx-auto">
+      <div class="p-6 rounded-lg shadow-md bg-background-100">
+        <step1 v-if="step === 1" 
+          :personal_info="form.personal_info" 
+          :errors="errors.value" 
+          :disabled="disabled" 
+          @submit-step1="handleStep1">
+        </step1>
+        <div v-else-if="step === 2">
+          <h2 class="mb-4 text-xl font-bold">Step 2: Additional Information </h2>
+          <form @submit.prevent="nextStep">
             <div class="mb-4">
-              <label class="block text-gray-700">House Number</label>
-              <input type="text" v-model="form.permanent_address.house_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Street</label>
-              <input type="text" v-model="form.permanent_address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Barangay</label>
-              <input type="text" v-model="form.permanent_address.barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">City</label>
-              <input type="text" v-model="form.permanent_address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Province</label>
-              <input type="text" v-model="form.permanent_address.province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Region</label>
-              <input type="text" v-model="form.permanent_address.region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Country</label>
-              <input type="text" v-model="form.permanent_address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-          </div>
-          <div class="mb-4">
-            <p class="block text-gray-700">Current Address</p>
-            <div class="mb-4">
-              <label class="block text-gray-700">House Number</label>
-              <input type="text" v-model="form.current_address.house_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Street</label>
-              <input type="text" v-model="form.current_address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Barangay</label>
-              <input type="text" v-model="form.current_address.barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">City</label>
-              <input type="text" v-model="form.current_address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Province</label>
-              <input type="text" v-model="form.current_address.province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Region</label>
-              <input type="text" v-model="form.current_address.region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-            <div class="mb-4">
-              <label class="block text-gray-700">Country</label>
-              <input type="text" v-model="form.current_address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            </div>
-          </div>
-          <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
-          <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Next</button>
-      </form>
-      </div>
-      <div v-else-if="step === 3">
-        <form @submit.prevent="submitForm">
-
-          <div v-if="form.personal_info.user_type === 'driver' || form.personal_info.user_type === 'client'">
-            <h2 class="mb-4 text-xl font-bold" v-if="form.personal_info.user_type === 'driver'">Step 3: Additional Information (Driver)</h2>
-            <h2 class="mb-4 text-xl font-bold" v-else-if="form.personal_info.user_type === 'client'">Step 3: Additional Information (Client)</h2>
-
-            <div v-if="form.personal_info.user_type === 'driver'">
+              <p class="block text-gray-700">Permanent Address</p>
               <div class="mb-4">
-                <label class="block text-gray-700">Contact Person</label>
-                <input type="text" v-model="form.driver.contact_person" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block text-gray-700">House Number</label>
+                <input type="text" v-model="form.permanent_address.house_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               </div>
               <div class="mb-4">
-                <label class="block text-gray-700">Relationship with Contact Person</label>
-                <input type="text" v-model="form.driver.contact_person_relationship" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block text-gray-700">Street</label>
+                <input type="text" v-model="form.permanent_address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               </div>
               <div class="mb-4">
-                <label class="block text-gray-700">Contact Person Phone Number</label>
-                <input type="text" v-model="form.driver.contact_person_phone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block text-gray-700">Barangay</label>
+                <input type="text" v-model="form.permanent_address.barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               </div>
               <div class="mb-4">
-                <label class="block text-gray-700">Contact Person Email</label>
-                <input type="text" v-model="form.driver.contact_person_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block text-gray-700">City</label>
+                <input type="text" v-model="form.permanent_address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               </div>
               <div class="mb-4">
-                <label class="block text-gray-700">Contact Person Address</label>
-                <input type="text" v-model="form.driver.contact_person_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block text-gray-700">Province</label>
+                <input type="text" v-model="form.permanent_address.province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Region</label>
+                <input type="text" v-model="form.permanent_address.region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Country</label>
+                <input type="text" v-model="form.permanent_address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               </div>
             </div>
-
-            <div v-else-if="form.personal_info.user_type === 'client'">
+            <div class="mb-4">
+              <p class="block text-gray-700">Current Address</p>
               <div class="mb-4">
-                <label class="block text-gray-700">Company Name</label>
-                <input type="text" v-model="form.client.company_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block text-gray-700">House Number</label>
+                <input type="text" v-model="form.current_address.house_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               </div>
               <div class="mb-4">
-                <label class="block text-gray-700">Company Telephone Number</label>
-                <input type="text" v-model="form.client.company_telephone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block text-gray-700">Street</label>
+                <input type="text" v-model="form.current_address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               </div>
               <div class="mb-4">
-                <label class="block text-gray-700">Company Address</label>
-                <input type="text" v-model="form.client.company_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <label class="block text-gray-700">Barangay</label>
+                <input type="text" v-model="form.current_address.barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">City</label>
+                <input type="text" v-model="form.current_address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Province</label>
+                <input type="text" v-model="form.current_address.province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Region</label>
+                <input type="text" v-model="form.current_address.region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+              </div>
+              <div class="mb-4">
+                <label class="block text-gray-700">Country</label>
+                <input type="text" v-model="form.current_address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
               </div>
             </div>
-          </div>
-
-          <h2 class="mb-4 text-xl font-bold" v-else>Please Go Back and Select a User Type</h2>
-          <div v-if="form.personal_info.user_type === 'driver' || form.personal_info.user_type === 'client'">
             <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
-            <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Submit</button>
-          </div>
-          <div v-else>
-            <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
-          </div>
-          </form>
-      </div>
-      <div v-if="step === 4">
-        Success
+            <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Next</button>
+        </form>
+        </div>
+        <div v-else-if="step === 3">
+          <form @submit.prevent="submitForm">
+
+            <div v-if="form.personal_info.user_type === 'driver' || form.personal_info.user_type === 'client'">
+              <h2 class="mb-4 text-xl font-bold" v-if="form.personal_info.user_type === 'driver'">Step 3: Additional Information (Driver)</h2>
+              <h2 class="mb-4 text-xl font-bold" v-else-if="form.personal_info.user_type === 'client'">Step 3: Additional Information (Client)</h2>
+
+              <div v-if="form.personal_info.user_type === 'driver'">
+                <div class="mb-4">
+                  <label class="block text-gray-700">Contact Person</label>
+                  <input type="text" v-model="form.driver.contact_person" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-gray-700">Relationship with Contact Person</label>
+                  <input type="text" v-model="form.driver.contact_person_relationship" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-gray-700">Contact Person Phone Number</label>
+                  <input type="text" v-model="form.driver.contact_person_phone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-gray-700">Contact Person Email</label>
+                  <input type="text" v-model="form.driver.contact_person_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-gray-700">Contact Person Address</label>
+                  <input type="text" v-model="form.driver.contact_person_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+              </div>
+
+              <div v-else-if="form.personal_info.user_type === 'client'">
+                <div class="mb-4">
+                  <label class="block text-gray-700">Company Name</label>
+                  <input type="text" v-model="form.client.company_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-gray-700">Company Telephone Number</label>
+                  <input type="text" v-model="form.client.company_telephone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+                <div class="mb-4">
+                  <label class="block text-gray-700">Company Address</label>
+                  <input type="text" v-model="form.client.company_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                </div>
+              </div>
+            </div>
+
+            <h2 class="mb-4 text-xl font-bold" v-else>Please Go Back and Select a User Type</h2>
+            <div v-if="form.personal_info.user_type === 'driver' || form.personal_info.user_type === 'client'">
+              <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
+              <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Submit</button>
+            </div>
+            <div v-else>
+              <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
+            </div>
+            </form>
+        </div>
+        <div v-if="step === 4">
+          Success
+        </div>
       </div>
     </div>
   </div>
@@ -155,6 +159,7 @@ export default {
   setup() {
     const disabled = ref(false)
     const step = ref(1)
+
     const errors = reactive({})
     const form = reactive({
       personal_info: {
@@ -270,6 +275,7 @@ export default {
       form,
       disabled,
       errors,
+      
       prevStep,
       nextStep,
       handleStep1,
@@ -277,103 +283,6 @@ export default {
     };
 
   }
-  
-  // data() {
-  //   return {
-  //     step: 1,
-  //     form: {
-  //       personal_info: {
-  //         first_name: "",
-  //         last_name: "",
-  //         middle_name: "",
-  //         email: "",
-  //         phone_number1: "",
-  //         phone_number2: "",
-  //         birth_date: "",
-  //         gender: "",
-  //         marital_status: "",
-  //         user_type: "",
-  //         birth_date: null,
-  //       },
-  //       permanent_address: {
-  //         house_number: "",
-  //         street: "",
-  //         barangay: "",
-  //         city: "",
-  //         province: "",
-  //         region: "",
-  //         country: ""
-  //       },
-  //       current_address: {
-  //         house_number: "",
-  //         street: "",
-  //         barangay: "",
-  //         city: "",
-  //         province: "",
-  //         region: "",
-  //         country: ""
-  //       },
-  //       driver: {
-  //         contact_person: "",
-  //         contact_person_relationship: "",
-  //         contact_person_phone_number: "",
-  //         contact_person_email: "",
-  //         contact_person_address: ""
-  //       },
-  //       client: {
-  //         company_name: "",
-  //         company_telephone_number: "",
-  //         company_address: ""
-  //       }
-  //     },
-  //   };
-  // },
-  // methods: {
-  //   prevStep() {
-  //     this.step--;
-  //   },
-  //   nextStep() {
-  //     this.step++;
-  //   },
-  //   async step1() {
-  //     try {
-  //       const response = await apiClient.post('api/auth/validateStep1', this.form.personal_info)
-  //       console.log(response)
-  //     }
-  //     catch (error) {
-  //       console.log(error);
-  //     }
-  //   },  
-  //   async submitForm() {
-  //     try {
-  //       if (this.form.personal_info.birth_date) {
-  //         this.form.personal_info.birth_date = new Date(this.form.personal_info.birth_date)
-  //           .toISOString()
-  //           .split('T')[0];
-  //       }
-
-  //       const payload = {
-  //         personal_info: { ...this.form.personal_info },
-  //         permanent_address: { ...this.form.permanent_address },
-  //         current_address: { ...this.form.current_address },
-  //       };
-
-  //       if (this.form.personal_info.user_type === 'driver') {
-  //         payload.driver = { ...this.form.driver };
-  //       } else if (this.form.personal_info.user_type === 'client') {
-  //         payload.client = { ...this.form.client };
-  //       }
-
-  //       const response = await apiClient.post('/api/auth/register', payload);
-  //       if (response.status === "201") {
-  //         this.step++
-  //       }
-  //     } 
-  //     catch (error) {
-  //       console.log("error occcured", error)
-  //     }
-  //   },
-  // },
 };
 </script>
 

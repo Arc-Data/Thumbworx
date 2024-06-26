@@ -1,29 +1,28 @@
 <template>
   <div class="flex">
-    <aside :class="is_expanded ? 'w-64' : 'w-18'" class="z-50 flex flex-col h-screen py-2 transition-all duration-500 ease-in-out bg-primary-default text-light sticky top-0 left-0">
-		 <div class="flex justify-end relative transition-all duration-200 ease-in-out" :class="{'justify-center': !is_expanded}">
+    <aside :class="is_expanded ? 'w-64' : 'w-18'" class="sticky top-0 left-0 z-50 flex flex-col h-screen py-2 transition-all duration-500 ease-in-out bg-primary-default text-light">
+		 <div class="relative flex justify-end transition-all duration-200 ease-in-out" :class="{'justify-center': !is_expanded}">
               <button class="transition-transform duration-200 ease-in-out" @click="toggleMenu">
-                  <span class="material-icons text-light text-center
-            transition-transform duration-200 ease-out hover:text-primary mt-2 text-4xl" :class="{'text-center': !is_expanded}">menu</span>
+                  <span class="mt-2 text-4xl text-center transition-transform duration-200 ease-out material-icons text-light hover:text-primary" :class="{'text-center': !is_expanded}">menu</span>
               </button>
           </div>
 
 		<div class="">
-          <div class="":class="{'collapse': !is_expanded}">
+          <div class="" :class="{'collapse': !is_expanded}">
                <img
                    src="https://th.bing.com/th/id/R.f60de85e220a6c066dca269bae4e4eed?rik=5V1xnEBnOuZrJg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftruck-silhouette-images%2ftruck-silhouette-images-24.png&ehk=XOXvl%2bhOQLME4sLz9fccgTnrTYWeaP9o7p%2fun%2bLw0nk%3d&risl=&pid=ImgRaw&r=0"
-                    class="rounded-full size-28 ml-auto mr-auto mb-4"
+                    class="mb-4 ml-auto mr-auto rounded-full size-28"
                      alt="Thumbworx logo"
                       />
-                      <div class="text-center mb-6">
-                              <span class="font-bold text-white whitespace-nowrap text-xl">Thumbworx <br></span>
+                      <div class="mb-6 text-center">
+                              <span class="text-xl font-bold text-white whitespace-nowrap">Thumbworx <br></span>
                                <span class="block font-semibold text-white ">Trucking Management System</span>
                        </div>
     </div>
 
     <div class=" max-h-[500px] overflow-hidden overflow-y-auto px-2" >
           <div>
-              <ul class=" font-medium">
+              <ul class="font-medium ">
                 <li>
                     <router-link		 
                     to="/admin/dashboard" 		 
@@ -90,7 +89,7 @@
                         class="flex items-center w-full p-2 text-base text-white transition duration-75 rounded-lg pl-11 group "
                         aria-controls="dropdown-sub"
                         data-collapse-toggle="dropdown-sub">
-                        <span class="ml-1.5 ml-1.5 mr-2 material-icons ">local_shipping</span>
+                        <span class="ml-1.5 mr-2 material-icons ">local_shipping</span>
                         <span class="transition-opacity duration-200 ease-in-out text-cotton group-hover:text-black " :class="{'collapse': !is_expanded}">
                           Driver 
                         </span>
@@ -335,7 +334,6 @@
 </template>
 <script>
 import { ref, onMounted } from 'vue'
-import router from '../router' // Para maredirect sa login or other pages kung want
 import { useAdminStore } from '../stores/adminStore'
 import { FwbToggle } from 'flowbite-vue'
 
@@ -383,8 +381,6 @@ export default {
 </script>
 
 <style scoped>
-
-
 /* Hide scrollbar for Chrome, Safari and Opera */
 ::-webkit-scrollbar {
             display: none;

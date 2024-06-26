@@ -10,7 +10,7 @@
           
             class="p-4 py-6 text-white bg-blue-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly"
           >
-           <div class="my-3 text-4xl font-bold tracking-wider tracking-widest text-center">
+           <div class="my-3 text-4xl font-bold tracking-widest text-center">
               <a href="#" >Thumbworx</a>
             </div>
             <p class="mt-6 font-normal text-center text-gray-300 md:mt-0">

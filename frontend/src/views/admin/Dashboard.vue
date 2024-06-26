@@ -3,9 +3,9 @@
     <Header />
     
     <div class="relative justify-center w-full h-full px-10 py-10 ">
-     <div class=" overflow-hidden oveflow-y-auto">
+     <div class="overflow-hidden  oveflow-y-auto">
       <div>
-        <button  type="button" class="w-fit shadow-md text-white bg-primary font-medium rounded-lg text-sm  text-center  me-2 shadow-md">
+        <button  type="button" class="text-sm font-medium text-center text-white rounded-lg shadow-md w-fit bg-primary me-2">
         <div class=" pl-4 px-5 py-2.5 inline-flex items-center">
           <span class="mr-2 material-icons ">
             content_copy
@@ -17,7 +17,7 @@
       <div class="grid grid-cols-1 gap-4 mx-auto mt-10 sm:grid-cols-2 lg:grid-cols-4">
         
         <!-- card component -->
-        <div class="flex items-center justify-between p-3 font-medium text-white bg-primary border-b-4 border-blue-700 rounded-md shadow-lg h-28">
+        <div class="flex items-center justify-between p-3 font-medium text-white border-b-4 border-blue-700 rounded-md shadow-lg bg-primary h-28">
           
           <span class="pl-4 text-5xl material-icons">
             group
@@ -32,7 +32,7 @@
           </div>
         </div>
         
-        <div class="flex items-center justify-between p-3 font-medium text-white bg-primary border-b-4 border-blue-700 rounded-md shadow-lg h-28">
+        <div class="flex items-center justify-between p-3 font-medium text-white border-b-4 border-blue-700 rounded-md shadow-lg bg-primary h-28">
                               <span class="pl-4 text-5xl material-icons">
                                 handshake
                               </span>
@@ -43,7 +43,7 @@
                               </div>
                             </div>
                             <!-- card component -->
-                            <div class="flex items-center justify-between p-3 font-medium text-white bg-primary border-b-4 border-blue-700 rounded-md shadow-lg h-28">
+                            <div class="flex items-center justify-between p-3 font-medium text-white border-b-4 border-blue-700 rounded-md shadow-lg bg-primary h-28">
                               <span class="pl-4 text-5xl material-icons">
                                 local_shipping
                               </span>
@@ -54,7 +54,7 @@
                             </div>
                             
                             <!-- card component -->
-                            <div class="flex items-center justify-between p-3 font-medium text-white bg-primary border-b-4 border-blue-700 rounded-md shadow-lg h-28">
+                            <div class="flex items-center justify-between p-3 font-medium text-white border-b-4 border-blue-700 rounded-md shadow-lg bg-primary h-28">
                               <span class="pl-4 text-5xl material-icons">
                                 event
                               </span>
@@ -66,7 +66,7 @@
                             </div>
 
                       <!-- card component -->
-                <div class="flex items-center justify-between p-3 font-medium text-white bg-primary border-b-4 border-blue-700 rounded-md shadow-lg h-28">
+                <div class="flex items-center justify-between p-3 font-medium text-white border-b-4 border-blue-700 rounded-md shadow-lg bg-primary h-28">
                   <span class="pl-4 text-5xl material-icons">
                     admin_panel_settings
                   </span>
@@ -78,7 +78,7 @@
                 </div>
                 
                 <!-- card component -->
-                <div class="flex items-center justify-between p-3 font-medium text-white bg-primary border-b-4 border-blue-700 rounded-md shadow-lg h-28">
+                <div class="flex items-center justify-between p-3 font-medium text-white border-b-4 border-blue-700 rounded-md shadow-lg bg-primary h-28">
                   <span class="pl-4 text-5xl material-icons">
                     favorite
                   </span>
@@ -91,7 +91,7 @@
                 
 
                 <!-- card component -->
-                <div class="flex items-center justify-between p-3 font-medium text-white bg-primary border-b-4 border-blue-700 rounded-md shadow-lg h-28">
+                <div class="flex items-center justify-between p-3 font-medium text-white border-b-4 border-blue-700 rounded-md shadow-lg bg-primary h-28">
                   <span class="pl-4 text-5xl material-icons">
                     directions_boat
                   </span>
@@ -103,7 +103,7 @@
                 </div>
 
                         <!-- card component -->
-                <div class="flex items-center justify-between p-3 font-medium text-white bg-primary border-b-4 border-blue-700 rounded-md shadow-lg h-28">
+                <div class="flex items-center justify-between p-3 font-medium text-white border-b-4 border-blue-700 rounded-md shadow-lg bg-primary h-28">
                   <span class="pl-4 text-5xl material-icons">
                                 security
                               </span>
