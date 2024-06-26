@@ -19,10 +19,10 @@
             <div class="absolute right-0 mt-2 text-black bg-white rounded shadow-lg">
               <span class="text-slate-500 font-semibold flex justify-between px-3 py-2.5 hover:bg-gray-100 hover:text-slate-600 hover:cursor-pointer rounded-t-lg">
                     <span>Mode</span>
-                    <label class="mode-toggle mt-auto cursor-pointer flex" >
-                      <input type="checkbox" v-model="isDarkMode" id="darkmode-toggle" @change="switchTheme" class="sr-only peer p-2">
-                          <span v-if="!isDarkMode" class="material-icons pr-2">light_mode</span>
-                          <span v-if="isDarkMode" class="material-icons pr-2">dark_mode</span>
+                    <label class="flex mt-auto cursor-pointer mode-toggle" >
+                      <input type="checkbox" v-model="isDark" id="darkmode-toggle" class="p-2 sr-only peer">
+                          <span v-if="!isDark" class="pr-2 material-icons">light_mode</span>
+                          <span v-else class="pr-2 material-icons">dark_mode</span>
                       <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                     </label>
                 </span>
@@ -44,13 +44,15 @@
   <script>
 import { ref } from 'vue';
 import { useAdminStore } from '../stores/adminStore';
+import { useDark, useToggle } from "@vueuse/core";
 
   export default {
     name: 'Sidebar',
     setup() {
       const dropdown = ref(false);
       const adminStore = useAdminStore()
-      const isDarkMode = ref(false);
+      const isDark = useDark()
+      const toggleDark = useToggle(isDark)
       
       const user = adminStore.user
 
@@ -58,26 +60,8 @@ import { useAdminStore } from '../stores/adminStore';
         dropdown.value = !dropdown.value;
       }
 
-      const switchTheme = () => {
-			if (isDarkMode.value) {
-				document.documentElement.setAttribute('data-theme', 'dark');
-				localStorage.setItem('theme', 'dark');
-			} else {
-				document.documentElement.setAttribute('data-theme', 'light');
-				localStorage.setItem('theme', 'light');
-			}
-		};
-
-			// Initialize dark mode from localStorage
-			const currentTheme = localStorage.getItem('theme');
-			if (currentTheme === 'dark') {
-				isDarkMode.value = true;
-				document.documentElement.setAttribute('data-theme', 'dark');
-			}
-      
       const changePassword = () => {
         alert('Change Password clicked');
-       
       }
 
       const logout = () => {
@@ -89,9 +73,9 @@ import { useAdminStore } from '../stores/adminStore';
         dropdown,
         toggleProfile,
         changePassword,
+        toggleDark,
+        isDark,
         logout,
-        isDarkMode,
-			  switchTheme
       }
     }
   };
