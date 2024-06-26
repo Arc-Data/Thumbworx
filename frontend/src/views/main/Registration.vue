@@ -4,7 +4,7 @@
       <div v-if="step === 1">
         <!-- First Step Form -->
         <h2 class="mb-4 text-xl font-bold">Step 1: Basic Information</h2>
-        <form @submit.prevent="nextStep">
+        <form @submit.prevent="step1">
           <div class="mb-4">
             <label class="block text-gray-700">User Type</label>
             <select v-model="form.personal_info.user_type" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
@@ -200,8 +200,10 @@
           <div v-else>
             <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
           </div>
-
           </form>
+      </div>
+      <div v-if="step === 4">
+        Success
       </div>
     </div>
   </div>
@@ -273,6 +275,15 @@ export default {
     nextStep() {
       this.step++;
     },
+    async step1() {
+      try {
+        const response = await apiClient.post('api/auth/validateStep1', this.form.personal_info)
+        console.log(response)
+      }
+      catch (error) {
+        console.log(error);
+      }
+    },  
     async submitForm() {
       try {
         if (this.form.personal_info.birth_date) {

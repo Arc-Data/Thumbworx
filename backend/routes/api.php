@@ -14,6 +14,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('auth')->group(function () { //Put the 'auth' in the url.
+    Route::post("validateStep1", [ApiController::class, 'validateStep1']);
     Route::post("register", [ApiController::class, "register"]); 
     Route::post("login", [ApiController::class, "login"]);
     Route::get("refresh", [ApiController::class, "refreshToken"]);
