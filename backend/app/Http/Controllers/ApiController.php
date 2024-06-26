@@ -92,9 +92,7 @@ class ApiController extends Controller
         $token = JWTAuth::fromUser($user);
 
         return response()->json([
-            "message" => "Form valid",
-            'user' => $user->load(['currentAddress', 'permanentAddress']),
-            'token' => $token,
+            "message" => "Form valid"
         ], 201);
     }
 

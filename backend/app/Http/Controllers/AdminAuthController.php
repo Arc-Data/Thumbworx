@@ -60,11 +60,8 @@ class AdminAuthController extends Controller
             ], 500);
         }
 
-        $token = JWTAuth::fromUser($admin);
-
         return response()->json([
             "message" => "Created admin account.",
-            "token" => $this->responseWithToken($token),
         ]);
 
     }
