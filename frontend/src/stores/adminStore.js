@@ -16,6 +16,7 @@
                         password
                     })
 
+                    console.log(response)
                     const { token } = response.data;
                     this.token = token
                     localStorage.setItem('token', this.token)
