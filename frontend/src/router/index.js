@@ -39,7 +39,7 @@ import Registration from '../views/main/Registration.vue';
 import UserLogin from '../views/main/UserLogin.vue';
 import AdminLogin from '../views/admin/AdminLogin.vue';
 import DefaultLayout from '../layouts/DefaultLayout.vue';
-import { useAdminStore } from '../stores/adminStore';
+import { useAuthStore } from '../stores/authStore';
 import DriverHome from '../views/driver/DriverHome.vue';
 import ClientHome from '../views/client/ClientHome.vue';
 
@@ -229,8 +229,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  const adminStore = useAdminStore();
-  const user = adminStore.user;
+  const authStore = useAuthStore();
+  const user = authStore.user;
   console.log(user)
 
   const requiresGuest = to.matched.some(record => record.meta.requiresGuest);

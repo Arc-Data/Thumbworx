@@ -43,18 +43,19 @@
   
   <script>
 import { ref } from 'vue';
-import { useAdminStore } from '../stores/adminStore';
+
+import { useAuthStore } from '../stores/authStore';
 import { useDark, useToggle } from "@vueuse/core";
 
   export default {
     name: 'Sidebar',
     setup() {
       const dropdown = ref(false);
-      const adminStore = useAdminStore()
+      const authStore = useAuthStore()
       const isDark = useDark()
       const toggleDark = useToggle(isDark)
       
-      const user = adminStore.user
+      const user = authStore.user
 
       const toggleProfile = () => {
         dropdown.value = !dropdown.value;
@@ -65,7 +66,7 @@ import { useDark, useToggle } from "@vueuse/core";
       }
 
       const logout = () => {
-        adminStore.logout()
+        authStore.logout()
       }
       
       return {

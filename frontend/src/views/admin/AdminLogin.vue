@@ -29,7 +29,7 @@
                   placeholder="ex: admin@gmail.com"
                   v-model="email"
                   autofocus
-                  class="px-4 py-2 transition duration-300 border rounded border-slate-500 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                  class="px-4 py-2 transition duration-300 border rounded text-text-500 dark:text-100 border-slate-500 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 />
               </div>
               <div class="flex flex-col space-y-1">
@@ -60,7 +60,7 @@
   </template>
 
 <script>
-import { useAdminStore } from '../../stores/adminStore';
+import { useAuthStore } from '../../stores/authStore';
 
 export default {
   data() {
@@ -72,9 +72,10 @@ export default {
   },
   methods: {
     async login() {
-      const adminStore = useAdminStore()
+      const authStore = useAuthStore()
       try {
-        await adminStore.adminLogin(this.email, this.password)
+        console.log("What is going on")
+        await authStore.login(this.email, this.password, true)
       } catch (error) {
         console.error('Error:', error);
       }

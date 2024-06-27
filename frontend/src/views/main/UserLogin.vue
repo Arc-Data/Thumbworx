@@ -1,9 +1,11 @@
 <template>
+  <div :class="isDarkMode ? 'dark' : ''">
+
   <div class="p-auto
   w-full
   bg-[url('https://www.frost.com/wp-content/uploads/2017/07/Connected-truck-telematics.jpg')]">
     <div class="flex items-center min-h-screen p-4 lg:justify-center center-margin">
-        <div
+        <div 
           class="flex flex-col overflow-hidden bg-white rounded-md shadow-lg max md:flex-row md:flex-1 lg:max-w-screen-md"
         >
           <div
@@ -17,33 +19,49 @@
               With the power of Thumbworx, you can now focus only on functionaries for your products, while leaving the
               Trucking on us!
             </p>
+             <div>
+    <label class="flex items-center space-x-2 cursor-pointer mode-toggle">
+      <input type="checkbox" v-model="isDarkMode" id="darkmode-toggle" @change="switchTheme" class="sr-only peer"
+      />
+      <span v-if="!isDarkMode" class="material-icons">light_mode</span>
+      <span v-if="isDarkMode" class="material-icons">dark_mode</span>
+      <div
+        class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"
+      ></div>
+    </label>
+  </div>
           </div>
-          <div class="p-5 bg-white md:flex-1">
+          
+
+
+          <div class="p-5 bg-white dark:bg-background-500 md:flex-1">
+            
             <img class="m-auto size-40 center-margin" src="https://th.bing.com/th/id/R.f60de85e220a6c066dca269bae4e4eed?rik=5V1xnEBnOuZrJg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftruck-silhouette-images%2ftruck-silhouette-images-24.png&ehk=XOXvl%2bhOQLME4sLz9fccgTnrTYWeaP9o7p%2fun%2bLw0nk%3d&risl=&pid=ImgRaw&r=0" alt="" srcset="">
            <!-- Login For Both Admin/Client/Driver or Helper-->
+           
             <h3 class="my-4 text-2xl font-semibold text-center text-gray-700"> Login</h3> 
             <form @submit.prevent="login" class="flex flex-col space-y-5">
               <div class="flex flex-col space-y-1">
-                <label for="email" class="text-sm font-semibold text-gray-500">Email</label>
+                <label for="email" class="text-sm font-semibold text-gray-600">Email</label>
                 <input
                   type="email"
                   id="email"
                   placeholder="ex: johndoe@gmail.com"
                   v-model="email"
                   autofocus
-                  class="px-4 py-2 transition duration-300 border rounded border-slate-500 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                  class="px-4 py-2 !text-text-500 !darker:text-text-800 bg-slate-100 placeholder-gray-450 transition duration-300 border rounded border-slate-500 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 />
               </div>
               <div class="flex flex-col space-y-1">
                 <div class="flex items-center justify-between">
-                  <label for="password" class="text-sm font-semibold text-gray-500">Password</label>
+                  <label for="password" class="text-sm font-semibold text-gray-600">Password</label>
                     </div>
                 <input
                   type="password"
                   id="password"
                   placeholder="********"
                   v-model="password"
-                  class="px-4 py-2 transition duration-300 border rounded border-slate-500 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                  class="px-4 py-2 text-blue-400 transition duration-300 border rounded bg-slate-100 placeholder-gray-450 border-slate-500 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 />
               </div>
               <div>
@@ -57,14 +75,45 @@
             </form>
           </div>
         </div>
+        </div>
+      </div>
   </div>
-  </div>
+
   </template>
 
 <script>
-import { useAdminStore } from '../../stores/adminStore';
+import { useAuthStore } from '../../stores/authStore';
+import { ref, onMounted, } from 'vue';
 
-export default {
+  export default {
+  setup() {
+    const isDarkMode = ref(false);
+
+    const switchTheme = () => {
+      if (isDarkMode.value) {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'Dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'Light');
+      }
+    };
+
+
+    onMounted(() => {
+      const currentTheme = localStorage.getItem('theme');
+      if (currentTheme === 'Dark') {
+        isDarkMode.value = true;
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark')}
+    });
+
+    return {
+      isDarkMode,
+      switchTheme,
+    };
+  },
   data() {
     return {
       email: '',
@@ -74,14 +123,133 @@ export default {
   },
   methods: {
     async login() {
-      const adminStore = useAdminStore()
-
+      const authStore = useAuthStore();
+      console.log(this.email, this.password);
       try {
-        await adminStore.login(this.email, this.password)
+        console.log("Huh");
+        await authStore.login(this.email, this.password);
       } catch (error) {
         console.error('Error:', error);
       }
     },
   },
 };
+
 </script>
+
+
+
+<style scoped>
+
+
+
+[data-theme="Dark"] {
+  --text: #e5ecf5;
+    --text-50: #070c12;
+    --text-100: #0e1825;
+    --text-200: #1d3049;
+    --text-300: #2b486e;
+    --text-400: #396093;
+    --text-500: #4778b8;
+    --text-600: #6c93c6;
+    --text-700: #91aed4;
+    --text-800: #b6c9e2;
+    --text-900: #dae4f1;
+    --text-950: #edf2f8;
+    
+    --background: #04070b;
+    --background-50: #070c13;
+    --background-100: #0e1825;
+    --background-200: #1b304b;
+    --background-300: #294870;
+    --background-400: #366096;
+    --background-500: #4478bb;
+    --background-600: #6993c9;
+    --background-700: #8faed6;
+    --background-800: #b4c9e4;
+    --background-900: #dae4f1;
+    --background-950: #ecf1f8;
+
+    --primary: #0950c3;
+    --primary-50: #010a18;
+    --primary-100: #021431;
+    --primary-200: #052861;
+    --primary-300: #073c92;
+    --primary-400: #0950c3;
+    --primary-500: #0b64f4;
+    --primary-600: #3c83f6;
+    --primary-700: #6da2f8;
+    --primary-800: #9ec1fa;
+    --primary-900: #cee0fd;
+    --primary-950: #e7f0fe;
+    
+    --secondary: #173e7d;
+    --secondary-50: #040b16;
+    --secondary-100: #08152b;
+    --secondary-200: #102b56;
+    --secondary-300: #184081;
+    --secondary-400: #2056ac;
+    --secondary-500: #286bd7;
+    --secondary-600: #5389df;
+    --secondary-700: #7ea6e7;
+    --secondary-800: #a9c4ef;
+    --secondary-900: #d4e1f7;
+    --secondary-950: #e9f0fb;
+    
+    --accent: #1653b6;
+    --accent-50: #030a17;
+    --accent-100: #06152d;
+    --accent-200: #0b2a5b;
+    --accent-300: #113f88;
+    --accent-400: #1653b6;
+    --accent-500: #1c68e3;
+    --accent-600: #4986e9;
+    --accent-700: #77a5ee;
+    --accent-800: #a4c3f4;
+    --accent-900: #d2e1f9;
+    --accent-950: #e8f0fc;
+    
+  }
+
+  :root { /* light mode */
+  --font-color: #000;
+  --link-color:#1C75B9;
+  --link-white-color:#fff;
+  --bg-color: rgb(243,243,243);
+}
+
+
+
+
+
+
+
+
+
+
+/* 
+[data-theme="Dark"] {
+
+  --font-color: #bdbab8;
+  --link-color:#0a86da;
+  --link-white-color:#bdbab8;
+  --bg-color: #333;
+
+  
+}
+
+body {
+  color: #000;
+  color: var(--font-color);
+  background: rgb(243,243,243);
+  background: var(--bg-color);
+}
+/* body {
+  color: #000;
+  color: var(--font-color);
+  background: rgb(243,243,243);
+  background: var(--bg-color);
+} */
+
+</style>
+ 

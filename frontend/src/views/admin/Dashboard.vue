@@ -3,7 +3,7 @@
     <Header />
     
     <div class="relative justify-center w-full h-full px-10 py-10 ">
-     <div class="overflow-hidden  oveflow-y-auto">
+     <div class="overflow-hidden oveflow-y-auto">
       <div>
         <button  type="button" class="text-sm font-medium text-center text-white rounded-lg shadow-md w-fit bg-primary me-2">
         <div class=" pl-4 px-5 py-2.5 inline-flex items-center">
@@ -129,7 +129,7 @@
 <script>
 import axios from 'redaxios';
 import { ref, onMounted } from 'vue';
-import { useAdminStore } from '../../stores/adminStore';
+import { useAuthStore } from '../../stores/authStore';
 import Header from '../../components/Header.vue';
 
 export default {
@@ -138,8 +138,8 @@ export default {
       Header
     },
   setup() {
-    const adminStore = useAdminStore()
-    const token = adminStore.token
+    const authStore = useAuthStore()
+    const token = authStore.token
 
     const totalClients = ref(null);
     const totalDrivers = ref(null);

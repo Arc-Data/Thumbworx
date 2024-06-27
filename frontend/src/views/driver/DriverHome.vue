@@ -1,13 +1,25 @@
 <template>
-  <div>Driver Page</div>
+  <div>
+      <h1> Driver Page</h1>
+      <button @click="logout">Driver Logout</button>
+  </div>
 </template>
 
 <script>
+import { useAuthStore } from '../../stores/authStore.js';
 export default {
-    name: 'DriverPage',
+    name: 'DriverHome',
     setup() {
-        console.log("Hello")
+      const authStore = useAuthStore();
+      const logout = () => {
+    authStore.logout();
+  };
+
+  return {
+    logout,
     }
+    
+}
 }
 </script>
 

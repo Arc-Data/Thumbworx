@@ -2,12 +2,11 @@
 import { createApp, markRaw } from 'vue'
 import App from './App.vue'  // Main App component
 import router from './router/index'  // Vue Router instance
-import { createPinia } from 'pinia'  // Pinia for state management
+import { createPinia } from 'pinia'
 
-import './style.css'  // Import the main CSS stylesheet
-import { useAdminStore } from './stores/adminStore'  // Import the admin store
+import './style.css'
+import { useAuthStore } from './stores/authStore'
 
-// Create a new Vue application instance
 const app = createApp(App)
 
 // Create a new Pinia instance
@@ -22,13 +21,27 @@ pinia.use(({ store }) => {
 // Use Pinia and the router in the Vue application
 app.use(pinia).use(router)
 
-// Create an instance of the admin store
-const adminStore = useAdminStore()
+const authStore = useAuthStore();
+authStore.checkTokenExpiryAndRefresh();
 
-// Check token expiry and refresh the token if necessary
-adminStore.checkTokenExpiryAndRefresh()
+// Check system color scheme preference
+const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 
-// Mount the Vue application to the HTML element with id 'app'
+if (userPrefersDark) {
+  document.documentElement.classList.add('dark');
+} else {
+  document.documentElement.classList.remove('dark');
+}
+
+// Listen for changes to the user's preference
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
+  if (event.matches) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+});
+
 app.mount('#app')
 
 // This code sets up and mounts a Vue.js application with Pinia for state management and Vue Router for routing.

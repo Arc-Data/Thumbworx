@@ -84,6 +84,7 @@
 <script>
 import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
+
 import apiClient from '../../api/apiClient';
 import Step1 from '../main/registration/Step1.vue';
 import Step2 from '../main/registration/Step2.vue';
