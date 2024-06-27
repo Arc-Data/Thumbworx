@@ -10,75 +10,13 @@
           :disabled="disabled" 
           @submit-step1="handleStep1">
         </step1>
-        <div v-else-if="step === 2">
-          <h2 class="mb-4 text-xl font-bold">Step 2: Additional Information </h2>
-          <form @submit.prevent="nextStep">
-            <div class="mb-4">
-              <p class="block text-gray-700">Permanent Address</p>
-              <div class="mb-4">
-                <label class="block text-gray-700">House Number</label>
-                <input type="text" v-model="form.permanent_address.house_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Street</label>
-                <input type="text" v-model="form.permanent_address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Barangay</label>
-                <input type="text" v-model="form.permanent_address.barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">City</label>
-                <input type="text" v-model="form.permanent_address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Province</label>
-                <input type="text" v-model="form.permanent_address.province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Region</label>
-                <input type="text" v-model="form.permanent_address.region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Country</label>
-                <input type="text" v-model="form.permanent_address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-            </div>
-            <div class="mb-4">
-              <p class="block text-gray-700">Current Address</p>
-              <div class="mb-4">
-                <label class="block text-gray-700">House Number</label>
-                <input type="text" v-model="form.current_address.house_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Street</label>
-                <input type="text" v-model="form.current_address.street" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Barangay</label>
-                <input type="text" v-model="form.current_address.barangay" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">City</label>
-                <input type="text" v-model="form.current_address.city" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Province</label>
-                <input type="text" v-model="form.current_address.province" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Region</label>
-                <input type="text" v-model="form.current_address.region" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-              <div class="mb-4">
-                <label class="block text-gray-700">Country</label>
-                <input type="text" v-model="form.current_address.country" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              </div>
-            </div>
-            <button type="button" @click="prevStep" class="px-4 py-2 font-bold text-white bg-gray-500 rounded hover:bg-gray-700">Previous</button>
-            <button type="submit" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700">Next</button>
-        </form>
-        </div>
+        <step2 v-else-if="step === 2"
+          :permanent_address="form.permanent_address"
+          :current_address="form.current_address"
+          @prevStep="prevStep"
+          @submit-step2="handleStep2">
+         
+        </step2>
         <div v-else-if="step === 3">
           <form @submit.prevent="submitForm">
 
@@ -148,6 +86,7 @@ import VueDatePicker from '@vuepic/vue-datepicker';
 import '@vuepic/vue-datepicker/dist/main.css'
 import apiClient from '../../api/apiClient';
 import Step1 from '../main/registration/Step1.vue';
+import Step2 from '../main/registration/Step2.vue';
 import { reactive, ref, watch } from 'vue';
 
 export default {
@@ -155,6 +94,7 @@ export default {
   components: { 
     VueDatePicker,
     Step1,
+    Step2,
   },
   setup() {
     const disabled = ref(false)
@@ -237,6 +177,10 @@ export default {
       }
     };
 
+    const handleStep2 = async () => {
+      step.value++;
+    }
+
     const nextStep = () => {
       step++;
     }
@@ -279,6 +223,7 @@ export default {
       prevStep,
       nextStep,
       handleStep1,
+      handleStep2,
       submitForm,
     };
 

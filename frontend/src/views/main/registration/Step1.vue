@@ -112,7 +112,6 @@ export default {
         disabled: Boolean,
     },
     setup(props, { emit }) {
-        
         const submitForm = () => {
             emit('submit-step1');
         }
