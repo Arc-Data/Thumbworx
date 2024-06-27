@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterStep1;
 use App\Http\Requests\RegistrationRequest;
 use App\Mail\UserRegistered;
 use App\Models\CurrentAddress;
@@ -35,15 +36,18 @@ class ApiController extends Controller
 
             //Eto ung lumalabas kapag successful yung login
             return response()->json([
-                "status" => true,
                 "message" => "User logged in successfully",
                 "token" => $token, //Generating random token
-            ]);
+            ], 200);
         }
 
         return response()->json([
-            "status" => false,
             "message" => "Invalid details"
+        ], 400);
+    }
+    public function validateStep1(RegisterStep1 $request) {
+        return response()->json([
+            'message' => 'Form Valid'
         ]);
     }
 
@@ -94,9 +98,7 @@ class ApiController extends Controller
         $token = JWTAuth::fromUser($user);
 
         return response()->json([
-            "message" => "Form valid",
-            'user' => $user->load(['currentAddress', 'permanentAddress']),
-            'token' => $token,
+            "message" => "Form valid"
         ], 201);
     }
 

@@ -12,7 +12,7 @@
           
             class="p-4 py-6 text-white bg-blue-500 md:w-80 md:flex-shrink-0 md:flex md:flex-col md:items-center md:justify-evenly"
           >
-           <div class="my-3 text-4xl font-bold tracking-wider tracking-widest text-center">
+           <div class="my-3 text-4xl font-bold tracking-widest text-center">
               <a href="#" >Thumbworx</a>
             </div>
             <p class="mt-6 font-normal text-center text-gray-300 md:mt-0">
@@ -20,7 +20,7 @@
               Trucking on us!
             </p>
              <div>
-    <label class="cursor-pointer mode-toggle flex items-center space-x-2">
+    <label class="flex items-center space-x-2 cursor-pointer mode-toggle">
       <input type="checkbox" v-model="isDarkMode" id="darkmode-toggle" @change="switchTheme" class="sr-only peer"
       />
       <span v-if="!isDarkMode" class="material-icons">light_mode</span>
@@ -61,7 +61,7 @@
                   id="password"
                   placeholder="********"
                   v-model="password"
-                  class="px-4 py-2 text-blue-400 bg-slate-100 placeholder-gray-450 transition duration-300 border rounded border-slate-500 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
+                  class="px-4 py-2 text-blue-400 transition duration-300 border rounded bg-slate-100 placeholder-gray-450 border-slate-500 focus:border-transparent focus:outline-none focus:ring-4 focus:ring-blue-200"
                 />
               </div>
               <div>

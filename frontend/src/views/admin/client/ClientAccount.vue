@@ -1,23 +1,22 @@
-
-
 <template>
+  <div class="flex flex-col w-full">
+  <Header />
     <div class="w-full">
-      <div class="overflow-x-auto sm:-mx-6 lg:-mx-8 flex justify-center">
-        <div class="inline-block py-2 sm:px-6 lg:px-8 
-        mt-20 rounded-2xl border-solid border-slate-500 drop-shadow-md bg-white">
+      <div class="flex justify-center sm:-mx-6 lg:-mx-8">
+        <div class="inline-block w-11/12 py-2 mx-6 my-10 text-black border-solid sm:px-6 lg:px-8 lg:w-auto h-fit rounded-2xl border-slate-500 drop-shadow-md bg-blue-50">
           <div class="overflow-hidden ">
           <!-- tablecontainer -->
                     <div class="block">
                       <!-- searchbar part -->
-                      <div class=" p-2 flex flex-wrap justify-between">
-                        <form class="w-1/2 ">   
+                      <div class="flex flex-wrap justify-between p-2 ">
+                        <form class="w-1/2">   
                             <div class="relative">
-                                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
                                     <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                     </svg>
                                 </div>
-                                <input type="search" id="default-search" class="block w-full p-2 ps-5 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required />
+                                <input type="search" id="default-search" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg ps-5 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 " placeholder="Search" required />
                             </div>
                           <div>
                         </div>
@@ -28,33 +27,37 @@
                         <!-- driver filter -->
                       <div>
                         <div>
-                            <button type="button" @click="toggle" class="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-blue px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50" id="menu-button" aria-expanded="true" aria-haspopup="true">
-                              User type filter
-                              <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                          <button type="button" @click="toggle" class=" 
+                              
+                               bg-blue-100 inline-flex w-full justify-center gap-x-1.5 rounded-md px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm hover:bg-blue-200" id="menu-button" aria-expanded="true" aria-haspopup="true">
+                            User type filter
+                              <svg class="w-5 h-5 -mr-1 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                                 <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
                               </svg>
                             </button>
                         </div>
                       </div>
                       
-                      <div v-if="showDropdown" class=" absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                      <div v-if="showDropdown" class="absolute right-0 z-10 w-56 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                         <div class="py-1" role="none">
-                          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">Type 1</a>
-                          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Type 2</a>
-                          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Type 3</a>
-                          <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">--Clear--</a>
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">Type 1</a>
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-1">Type 2</a>
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-2">Type 3</a>
+                          <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="menu-item-0">--Clear--</a>
                         </div>
                       </div>
                     </div>
                   </div>
       
         
-          <div class="">
+          <div class="px-4">
             <br>
-            <h2>Client Account Records</h2>
+            <h2 class="ml-1 text-lg font-bold tracking-wide md:text-xl lg:text-xl xl:text-xl"><i class="icon pi pi-folder-open"></i> Client Account Records</h2>
             <br>
-            <table class="min-w-full text-center text-sm font-light text-surface dark:text-white">
-              <thead class="border-b border-neutral-200 font-medium dark:border-white/10">
+
+            <div class="overflow-hidden overflow-x-auto">
+              <table class="min-w-full text-sm font-light text-center text-surface ">
+              <thead class="font-medium border-b border-neutral-200 ">
                 <tr>
                   <th scope="col px-6 py-4">Client ID</th>
                   <th scope="col px-6 py-4">Name</th>
@@ -68,35 +71,37 @@
               <tbody>
         
                 <tr v-for="user in result" v-bind:key="user.id" 
-                  class="border-b border-neutral-200 transition duration-300 ease-in-out hover:bg-neutral-100 dark:border-white/10 dark:hover:bg-neutral-600">
-                  <td class="whitespace-nowrap px-6 py-4 font-medium">{{ user.id }}</td>
-                  <td class="whitespace-nowrap px-6 py-4">{{ user.first_name }} {{ user.last_name }}</td>
-                  <td class="whitespace-nowrap px-6 py-4">{{ user.email}}</td>
-                  <td class="whitespace-nowrap px-6 py-4">{{ user.phone_number1 }}</td>
-                  <td class="whitespace-nowrap px-6 py-4">User type</td>
-                  <td :class="getStatusClass(user.account_status)" class="whitespace-nowrap px-6 py-4">
-                    {{ getStatusDisplay(user.account_status) }}
-                  </td>
-                  <td class="whitespace-nowrap px-6 py-4"><button class="btn btn-primary" @click="viewDriverDetails(user.id)">View</button> </td>
+                  class="transition duration-300 ease-in-out border-b border-neutral-200 hover:bg-blue-100">
+                  <td class="px-6 py-4 font-medium whitespace-nowrap">{{ user.id }}</td>
+                  <td class="px-6 py-4 whitespace-nowrap">{{ user.first_name }} {{ user.last_name }}</td>
+                  <td class="px-6 py-4 whitespace-nowrap">{{ user.email}}</td>
+                  <td class="px-6 py-4 whitespace-nowrap">{{ user.phone_number1 }}</td>
+                  <td class="px-6 py-4 whitespace-nowrap">User type</td>
+                  <td  class="px-6 py-4 whitespace-nowrap">
+                      <div :class="getStatusClass(user.account_status)" class="p-1 text-center border-2 rounded-md">{{ getStatusDisplay(user.account_status) }}</div>
+                    </td>
+                  <td class="px-6 py-4 whitespace-nowrap"><button class="btn btn-primary" @click="viewClientDetails(user.id)"><span class="material-icons">visibility</span></button> </td>
               </tr>
               </tbody>
             </table>
+            </div>
+           
     
     
-      <!-- page turner button -->
-      <div class="w-full flex justify-between p-4 border-t border-blue-gray-50">
-        <button
-          class="select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button">
-          Previous
-        </button>
-          
-        <button
-          class="select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-          type="button">
-          Next
-        </button>
-      </div>
+    <!-- page turner button -->
+    <div class="flex justify-between w-full p-4 border-t border-blue-gray-50">
+      <button
+      class="bg-blue-100 select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      type="button">
+      <span class="material-icons">arrow_back_ios</span>
+    </button>
+      
+    <button
+      class="bg-blue-100 select-none rounded-lg border border-gray-900 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-gray-900 transition-all hover:opacity-75 focus:ring focus:ring-gray-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+      type="button">
+      <span class="material-icons">arrow_forward_ios</span>
+    </button>
+    </div>
           </div>
     </div>
           </div>
@@ -104,647 +109,692 @@
       </div>
     </div>
 
-    <div id="driverDetailsPop" class="collapse w-full absolute z-10 bg-black bg-opacity-50 pt-20 pb-20">
+    <div id="ClientDetailsPop" class="fixed top-0 left-0 z-50 flex justify-center w-screen h-screen pt-10 bg-black bg-opacity-50 collapse">
     <!-- pop up content div -->
-     <div class="rounded-lg drop-shadow-lg border-1 border-slate-400 bg-white w-fit ml-auto mr-auto">
-          <!-- popup header --> 
-          <div class="px-8 text-white bg-blue-600 rounded-tl-lg rounded-tr-lg flex items-stretch"> 
-            <legend class="self-center">Client's Details</legend>
-            <!-- close btn -->
-            <img @click="closePopup" src="https://www.nicepng.com/png/full/52-521935_close-button-png.png" class="size-7 self-center" alt="">
-          </div>
+    <div class="w-11/12 max-w-screen-md bg-white rounded-lg drop-shadow-lg border-1 border-slate-400 h-fit ">  
+       <!-- popup header --> 
+                          <div class="flex items-center pl-4 pr-2 font-bold text-white bg-blue-600 rounded-tl-lg rounded-tr-lg "> 
+                            <legend class="self-center">Client Details</legend>
+                            <!-- close btn -->
+                            <span @click="closePopup" class="material-icons text-slate-50 hover:cursor-pointer">close</span>
+                          </div>
 
           <!-- popup body -->
-          <div class="p-8">
-
-          <!-- personal info div -->
-          <div class="drop-shadow-lg">
-            <!-- header -->
-            <div class="rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
-                <h6>Personal Information</h6>
-            </div>
-            <!-- body -->
-            <div class="rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput1" class="form-label">First Name:</label>
-                  <!-- first_name and others is from the database. Hindi sya tinawag directly dito sa script code sa baba -->
-                  <input
-                    type="text"
-                    id="disabledTextInput1"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.first_name"
-                  />
-                </div>
-
-                <div class="col mb-3">
-                  <label for="disabledTextInput2" class="form-label">Middle Name:</label>
-                  <input
-                    type="text"
-                    id="disabledTextInput2"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.middle_name"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput3" class="form-label">Last Name</label>
-                  <input
-                    type="text"
-                    id="disabledTextInput3"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.last_name"
-                  />
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput4" class="form-label">Date of Birth</label>
-                  <input
-                    type="text"
-                    id="disabledTextInput4"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.birth_date"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput5" class="form-label">Age</label>
-                  <input
-                    type="text"
-                    id="disabledTextInput5"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.age"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput6" class="form-label">Gender</label>
-                  <input
-                    type="text"
-                    id="disabledTextInput6"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.gender"
-                  />
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput7" class="form-label"
-                    >Marital Status</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput7"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.marital_status"
-                  />
-                </div>
         
-                <div class="col"></div>
-                <!-- Empty column for alignment -->
-              </div>
-              
-            </div>
-          </div>
-          <!-- company info div -->
-          <br>
-          <div class="drop-shadow-lg">
-            <div class="rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
-              <h6>Company Information</h6>
-            </div>
+          <div class="
+          text-black
+           px-4 py-2 max-h-[600px] overflow-hidden overflow-y-auto">
 
-            <div class="rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
-              <div class="row">
-                            <div class="col mb-3">
-                                <label for="disabledTextInput9" class="form-label"
-                                >Client ID</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput9"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number1"
-                                />
-                            </div>
-                            <div class="col mb-3">
-                                <label for="disabledTextInput10" class="form-label"
-                                >Company Name</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput10"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number2"
-                                />
-                            </div>
-                           
-              </div>
-              <div class="row">
-                            <div class="col mb-3">
-                                <label for="disabledTextInput11" class="form-label">Email</label>
-                                <input
-                                type="text"
-                                id="disabledTextInput11"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.email"
-                                />
-                            </div>
-                            <div class="col mb-3">
-                                <label for="disabledTextInput10" class="form-label"
-                                >Industry Type</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput10"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number2"
-                                />
-                            </div>
-              </div>
-              <div class="row">
-                            <div class="col mb-3">
-                                <label for="disabledTextInput9" class="form-label"
-                                >Company Description</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput9"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number1"
-                                />
-                            </div>
-              </div>
+                              <!-- personal info div -->
+                              <div class="drop-shadow-lg">
+                                <!-- header -->
+                                <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+                                    <h6>Personal Information</h6>
+                                </div>
+                                <!-- body -->
+                                <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput1" class="form-label">First Name:</label>
+                                      <!-- first_name and others is from the database. Hindi sya tinawag directly dito sa script code sa baba -->
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput1"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.first_name"
+                                      />
+                                    </div>
 
-              <div class="row">
-                            <div class="col mb-3">
-                                <label for="disabledTextInput9" class="form-label"
-                                >Employee Size</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput9"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number1"
-                                />
-                            </div>
-                            <div class="col mb-3">
-                                <label for="disabledTextInput10" class="form-label"
-                                >Daily Trucking</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput10"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number2"
-                                />
-                               
-                            </div>
-                            <div class="col mb-3">
-                                <label for="disabledTextInput10" class="form-label"
-                                >Trucking Budget</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput10"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number2"
-                                />
-                            </div>
-              </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput2" class="form-label">Middle Name:</label>
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput2"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.middle_name"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput3" class="form-label">Last Name</label>
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput3"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.last_name"
+                                      />
+                                    </div>
+                                  </div>
 
-              <div class="row">
-                            <div class="col mb-3">
-                                <label for="disabledTextInput10" class="form-label"
-                                >Trucking Size</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput10"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number2"
-                                />
-                               
-                            </div>
-                            <div class="col mb-3">
-                                <label for="disabledTextInput10" class="form-label"
-                                >Trucking Vehicle</label
-                                >
-                                <input
-                                type="text"
-                                id="disabledTextInput10"
-                                class="form-control"
-                                disabled
-                                :value="userDetails.phone_number2"
-                                />
-                            </div>
-              </div>
-            </div>
-          </div>
-    <br>
-          <!-- address info div -->
-          <div class="drop-shadow-lg">
-            <div class="rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
-              <h6>Address</h6>
-            </div>
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput4" class="form-label">Date of Birth</label>
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput4"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.birth_date"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput5" class="form-label">Age</label>
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput5"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.age"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput6" class="form-label">Gender</label>
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput6"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.gender"
+                                      />
+                                    </div>
+                                  </div>
 
-            <div class="rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
-              
-            <div class="text-xl mb-2">
-                <h6>Permanent Address</h6>
-            </div>
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput12" class="form-label"
-                    > House No.</label
-                  >
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput7" class="form-label"
+                                        >Marital Status</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput7"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.marital_status"
+                                      />
+                                    </div>
 
-                  <input
-                    type="text"
-                    id="disabledTextInput12"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.per_house_number"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput13" class="form-label"
-                    > Street</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput13"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.per_street"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput14" class="form-label"
-                    > Barangay</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput14"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.per_barangay"
-                  />
-                </div>
-              </div>
+                                    <div class="col"></div>
+                                    <!-- Empty column for alignment -->
+                                  </div>
+                                  
+                                </div>
+                              </div>
+                              <!-- company info div -->
+                              <br>
+                              <div class="drop-shadow-lg">
+                                <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+                                  <h6>Company Information</h6>
+                                </div>
 
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput15" class="form-label"
-                    > City.</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput15"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.per_city"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput16" class="form-label"
-                    > Province</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput16"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.per_province"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput17" class="form-label"
-                    > Region</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput17"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.per_region"
-                  />
-                </div>
-              </div>
+                                <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
+                                   <div class="flex flex-wrap justify-between">
+                                                 <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput9" class="form-label"
+                                                    >Client ID</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput9"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                   disabled
+                                                    :value="userDetails.phone_number1"
+                                                    />
+                                                </div>
+                                                 <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput10" class="form-label"
+                                                    >Company Name</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput10"
+                                                    disabled
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    :value="userDetails.phone_number2"
+                                                    />
+                                                </div>
+                                                <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput11" class="form-label">Email</label>
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput11"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    disabled
+                                                    :value="userDetails.email"
+                                                    />
+                                                </div>
+                                              
+                                  </div>
+                                   <div class="flex flex-wrap justify-between">
+                                              
+                                                 <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput10" class="form-label"
+                                                    >Industry Type</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput10"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    disabled
+                                                    :value="userDetails.phone_number2"
+                                                    />
+                                                </div>
+                                                <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput9" class="form-label"
+                                                    >Company Description</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput9"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    disabled
+                                                    :value="userDetails.phone_number1"
+                                                    />
+                                                </div>
 
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput18" class="form-label"
-                    > Country.</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput18"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.per_country"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput19" class="form-label"
-                    > Zip Code</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput19"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.per_zip_code"
-                  />
-                </div>
-              </div>
+                                                <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput9" class="form-label"
+                                                    >Employee Size</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput9"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    disabled
+                                                    :value="userDetails.phone_number1"
+                                                    />
+                                                </div>
+                                  </div>
+                                   <div class="flex flex-wrap justify-between">
+                                                 <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput10" class="form-label"
+                                                    >Daily Trucking</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput10"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    disabled
+                                                    :value="userDetails.phone_number2"
+                                                    />
+                                                  
+                                                </div>
+                                                 <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput10" class="form-label"
+                                                    >Trucking Budget</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput10"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    disabled
+                                                    :value="userDetails.phone_number2"
+                                                    />
+                                                </div>
+                                                <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput10" class="form-label"
+                                                    >Trucking Size</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput10"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    disabled
+                                                    :value="userDetails.phone_number2"
+                                                    />
+                                                  
+                                                </div>
+                                  </div>
 
-            <div class="text-xl mb-2">
-              <h6>Current Address</h6>
-            </div>
+                                   <div class="flex flex-wrap justify-between">
+                                                
+                                                 <div class="w-full mx-2 mb-3 lg:w-48">
+                                                    <label for="disabledTextInput10" class="form-label"
+                                                    >Trucking Vehicle</label
+                                                    >
+                                                    <input
+                                                    type="text"
+                                                    id="disabledTextInput10"
+                                                    class="block w-full p-2 border rounded-md border-slate-300"
+                                                    disabled
+                                                    :value="userDetails.phone_number2"
+                                                    />
+                                                </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <br>
+                              <!-- address info div -->
+                              <div class="drop-shadow-lg">
+                                <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+                                  <h6>Address</h6>
+                                </div>
 
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput20" class="form-label"
-                    > House No.</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput20"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.cur_house_number"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput21" class="form-label"
-                    > Street</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput21"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.cur_street"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput22" class="form-label"
-                    > Barangay</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput22"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.cur_barangay"
-                  />
-                </div>
-              </div>
+                                <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
+                                  
+                                <div class="mb-2 text-xl">
+                                    <h6>Permanent Address</h6>
+                                </div>
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput12" class="form-label"
+                                        > House No.</label
+                                      >
 
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput23" class="form-label"
-                    > City.</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput23"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.cur_city"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput24" class="form-label"
-                    > Province</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput24"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.cur_province"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput25" class="form-label"
-                    > Region</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput25"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.cur_region"
-                  />
-                </div>
-              </div>
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput12"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.permanent_address?.per_house_number"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput13" class="form-label"
+                                        > Street</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput13"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.permanent_address?.per_street"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput14" class="form-label"
+                                        > Barangay</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput14"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.permanent_address?.per_barangay"
+                                      />
+                                    </div>
+                                  </div>
 
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput26" class="form-label"
-                    > Country.</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput26"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.cur_country"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput27" class="form-label"
-                    > Zip Code</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput27"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.cur_zip_code"
-                  />
-                </div>
-              </div>
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput15" class="form-label"
+                                        > City.</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput15"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.permanent_address?.per_city"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput16" class="form-label"
+                                        > Province</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput16"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.permanent_address?.per_province"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput17" class="form-label"
+                                        > Region</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput17"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.permanent_address?.per_region"
+                                      />
+                                    </div>
+                                  </div>
 
-            </div>
-          </div>
-    <br>
-          <!-- companycontact div -->
-          <div class="drop-shadow-lg"> 
-            <div class="rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
-              <h6>Company Contact Information</h6>
-            </div>
-            <div class="rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput28" class="form-label">Mobile Number 1</label>
-                  <input
-                    type="text"
-                    id="disabledTextInput28"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.full_name"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput29" class="form-label">Mobile Number 2</label>
-                  <input
-                    type="text"
-                    id="disabledTextInput29"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.relationship"
-                  />
-                </div>
-                <div class="col mb-3">
-                  <label for="disabledTextInput30" class="form-label"
-                    >Telephone Number</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput30"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.rel_phone_number"
-                  />
-                </div>
-              </div>
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput18" class="form-label"
+                                        > Country.</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput18"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.permanent_address?.per_country"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput19" class="form-label"
+                                        > Zip Code</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput19"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.permanent_address?.per_zip_code"
+                                      />
+                                    </div>
 
-              <div class="row">
-                <div class="col mb-3">
-                  <label for="disabledTextInput31" class="form-label"
-                    >Email</label
-                  >
-                  <input
-                    type="text"
-                    id="disabledTextInput31"
-                    class="form-control"
-                    disabled
-                    :value="userDetails.rel_email"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-    <br>
-          <!-- docu div -->
-          <div class="drop-shadow-lg">
-              <div class="rounded-tl-lg rounded-tr-lg p-3 text-xl bg-slate-200">
-                <h6>Documents</h6>
-              </div>
+                                    <div class="col"></div>
+                                  </div>
 
-              <!-- body -->
-              <div class="rounded-bl-lg rounded-br-lg p-3 bg-slate-100">
-                <div class="col mb-3">
-                  <label for="disabledTextInput12" class="form-label"
-                    >Business Permit:</label
-                  >
+                                <div class="mb-2 text-xl">
+                                  <h6>Current Address</h6>
+                                </div>
 
-                  <img src="" alt="uploaded file">
-                </div>
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput20" class="form-label"
+                                        > House No.</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput20"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.current_address?.cur_house_number"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput21" class="form-label"
+                                        > Street</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput21"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.current_address?.cur_street"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput22" class="form-label"
+                                        > Barangay</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput22"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.current_address?.cur_barangay"
+                                      />
+                                    </div>
+                                  </div>
 
-                <div class="col mb-3">
-                  <label for="disabledTextInput12" class="form-label"
-                    >DTI/SEC:</label
-                  >
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput23" class="form-label"
+                                        > City.</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput23"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.current_address?.cur_city"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput24" class="form-label"
+                                        > Province</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput24"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.current_address?.cur_province"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput25" class="form-label"
+                                        > Region</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput25"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.current_address?.cur_region"
+                                      />
+                                    </div>
+                                  </div>
 
-                  <img src="" alt="uploaded file">
-                </div>
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput26" class="form-label"
+                                        > Country.</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput26"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.current_address?.cur_country"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput27" class="form-label"
+                                        > Zip Code</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput27"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.current_address?.cur_zip_code"
+                                      />
+                                    </div>
+                                      <div class="col"></div>
+                                  </div>
 
-                <div class="col mb-3">
-                  <label for="disabledTextInput12" class="form-label"
-                    >Other Document:</label
-                  >
+                                </div>
+                              </div>
+                              <br>
+                              <!-- companycontact div -->
+                              <div class="drop-shadow-lg"> 
+                                <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+                                  <h6>Company Contact Information</h6>
+                                </div>
+                                <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput28" class="form-label">Mobile Number 1</label>
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput28"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.full_name"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput29" class="form-label">Mobile Number 2</label>
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput29"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.relationship"
+                                      />
+                                    </div>
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput30" class="form-label"
+                                        >Telephone Number</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput30"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.rel_phone_number"
+                                      />
+                                    </div>
+                                  </div>
 
-                  <img src="" alt="uploaded file">
-                </div>
+                                   <div class="flex flex-wrap justify-between">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput31" class="form-label"
+                                        >Email</label
+                                      >
+                                      <input
+                                        type="text"
+                                        id="disabledTextInput31"
+                                        class="block w-full p-2 border rounded-md border-slate-300"
+                                        disabled
+                                        :value="userDetails.rel_email"
+                                      />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <br>
+                              <!-- docu div -->
+                              <div class="drop-shadow-lg">
+                                  <div class="p-3 text-xl rounded-tl-lg rounded-tr-lg bg-slate-200">
+                                    <h6>Documents</h6>
+                                  </div>
+
+                                  <!-- body -->
+                                  <div class="p-3 rounded-bl-lg rounded-br-lg bg-slate-100">
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput12" class="form-label"
+                                        >Business Permit:</label
+                                      >
+
+                                      <img src="" alt="uploaded file">
+                                    </div>
+
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput12" class="form-label"
+                                        >DTI/SEC:</label
+                                      >
+
+                                      <img src="" alt="uploaded file">
+                                    </div>
+
+                                     <div class="w-full mx-2 mb-3 lg:w-48">
+                                      <label for="disabledTextInput12" class="form-label"
+                                        >Other Document:</label
+                                      >
+
+                                      <img src="" alt="uploaded file">
+                                    </div>
 
 
 
-              </div>
-          </div>
-    <br>
-          <!-- buttons div -->
-          <div class="flex justify-end">
-              <!-- triggers the approveUser method -->
-              <button class="btn btn-primary m-3 w-40
-              py-2 px-5 text-white font-semibold rounded-full shadow-md hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-75
-              " @click="approveUser(userDetails)">
-                Approve
-              </button>
-              <button class="m-3 w-40 bg-red-600
-              py-2 px-5 text-white font-semibold rounded-full shadow-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-400 focus:ring-opacity-75
-              " @click="denyUser(userDetails)">Deny</button>
-          </div>
+                                  </div>
+                              </div>
+                              <br>
+                              <!-- buttons div -->
+                              <div class="flex justify-center">
+                                  <!-- triggers the approveUser method -->
+                                  <button class="w-40 px-5 py-2 m-3 font-semibold text-white rounded-full shadow-md btn btn-primary hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-400 focus:ring-opacity-75 " @click="approveUser(userDetails)">
+                                    Approve
+                                  </button>
+                                  <button class="w-40 px-5 py-2 m-3 font-semibold text-white bg-red-600 rounded-full shadow-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-400 focus:ring-opacity-75 " @click="denyUser(userDetails)">Deny</button>
+                              </div>
 
-          </div>
-
-
-
-
-
+                  </div>
+         
      </div>
   </div>
-
+</div>
 </template>
 
 
 <script>
 //Bawal tanggalin ung script tag para makita pa rin display kasi part sya ng default code
 import axios from "redaxios";
+import { useAuthStore } from "../../../stores/authStore";
+import Header from '../../../components/Header.vue';
 
 export default { //provides a more modular and organized way to define multiple data properties within a component
   name: 'UserAccount',
+  components: {
+      Header
+    },
   data() {
       return {
+        result: [], // Change to array
         userDetails: {},
-          result: {
-            account_status: "", //Eto lang nakalagay kasi eto lang naman ung inupdate or current need tawagin sa database
-            email: "",
-            password: "",
-            token: "",
-          },
-          showDropdown: false,
-          statuses: [
-                      { id: 1, subStatuses: [{ id: 'a', status: 0 }, { id: 'b', status: 1 }] },
-                      { id: 2, subStatuses: [{ id: 'c', status: 2 }, { id: 'd', status: 3 }] },
-                      { id: 3, subStatuses: [{ id: 'e', status: 1 }, { id: 'f', status: 0 }] },
-                      { id: 4, subStatuses: [{ id: 'g', status: 3 }, { id: 'h', status: 2 }] },
-                    ],
+        results: {
+          account_status: "",
+          email: "",
+          password: "",
+          token: "",
+        },
+        showDropdown: false,
       };
+  },
+  computed: {
+    filteredResults() {
+      return this.result.filter(user => user.user_type === "client");
+    },
   },
 created() { //fetches data from the API when the component is created
   this.UserAccountLoad();
+  
 },
 mounted() {
-  console.log("mounted() called.......");
+        const headerTitle = document.getElementById("header-title");
+        if (headerTitle) {
+          headerTitle.innerText = "Registration Management / Client Management";
+        } else {
+          console.error("Element with ID 'header-title' not found")}
 },
-
 methods: { //responsible for making the API request to fetch user data.
   UserAccountLoad() {
-    var page = "http://127.0.0.1:8000/api/user";
-    axios.get(page).then(({ data }) => {
-      console.log(data);
-      this.result = data;
-    });
-  },
+        // Access the authStore to get the token
+        const authStore = useAuthStore();
+        const token = authStore.token;
+  
+        if (!token) {
+          console.error('Token not available');
+          return;
+        }
+  
+        var page = "http://127.0.0.1:8000/api/user";
+        
+        // Make an authenticated API request using the token for authorization
+        axios.get(page, {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }).then(({ data }) => {
+          console.log(data);
+          this.result = data;
+        }).catch(error => {
+          console.error('Error fetching user account data:', error);
+        });
+      },
+      getStatusDisplay(accountStatus) {
+        // Convert integer status to display text
+        switch (accountStatus) {
+          case 0:
+            return "Pending";
+          case 1:
+            return "Onboarding";
+          case 2:
+            return "Denied";
+          case 3:
+            return "Terminated";
+          case 4:
+            return "Cancelled";
+          case 5:
+            return "Blocked";
+          case 6:
+            return "Freezed";
+          default:
+            return accountStatus;// Return status as is if not matched | lalabas lng ung number
+        }
+      },
   getStatusClass(status) {
     switch (status) {
       case 0:
@@ -759,38 +809,34 @@ methods: { //responsible for making the API request to fetch user data.
         return "";
     }
   },
-  getStatusDisplay(accountStatus) {
-    // Convert integer status to display text
-    switch (accountStatus) {
-      case 0:
-        return "Pending";
-      case 1:
-        return "Onboarding";
-      case 2:
-        return "Denied";
-      case 3:
-        return "Active";
-      default:
-        return accountStatus; // Return status as is if not matched | lalabas lng ung number
-    }
-  },
   toggle() {
     this.showDropdown = !this.showDropdown;
   },
   closePopup(){
-    document.getElementById("driverDetailsPop").classList.add('collapse');
+    document.getElementById("ClientDetailsPop").classList.add('collapse');
   },
   // new function popup vieww off criver details
-  viewDriverDetails(userID){
-    axios
-      .get(`http://127.0.0.1:8000/api/user/${userID}`)
-      .then((response) => {
-        this.userDetails = response.data;
-        document.getElementById("driverDetailsPop").classList.remove("collapse")
-      })
-      .catch((error) => {
-        console.error("Error fetching user details:", error);
-      });
+  viewClientDetails(userId){
+        const authStore = useAuthStore();
+        const token = authStore.token;
+  
+        if (!token) {
+          console.error("Token not available");
+          return;
+        }
+  
+        axios
+          .get(`http://127.0.0.1:8000/api/user/${userId}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          })
+          .then((response) => {
+            this.userDetails = response.data;
+          })
+          .catch((error) => {
+            console.error("Error fetching user details:", error);
+          });
   },
   approveUser(userDetails) {
   // Make a POST request to UserController's endpoint to generate the random password
@@ -890,15 +936,23 @@ methods: { //responsible for making the API request to fetch user data.
 
 <style scoped>
 .status-pending {
-color: yellow;
+  color: rgb(250 204 21);
+  border-color: rgb(250 204 21);
+  background-color: rgb(254 240 138);
 }
 .status-onboarding {
-color: blue;
+  color: rgb(96 165 250);
+  border-color: rgb(96 165 250);
+  background-color: rgb(191 219 254);
 }
 .status-denied {
-color: red;
+  color:  rgb(248 113 113);
+  border-color: rgb(248 113 113);
+  background-color: rgb(254 202 202)
 }
 .status-active {
-color: green;
+  color: rgb(74 222 128);
+  border-color: rgb(74 222 128);
+  background-color: rgb(187 247 208);
 }
 </style>

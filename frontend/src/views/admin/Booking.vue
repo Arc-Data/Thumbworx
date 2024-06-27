@@ -424,15 +424,7 @@ export default { //provides a more modular and organized way to define multiple 
 
   },
 };
-
-
 </script>
-
-
-
-
-
-
 
 <style scoped>
 .status-pending {

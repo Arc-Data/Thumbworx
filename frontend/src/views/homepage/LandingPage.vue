@@ -31,14 +31,6 @@
     background-color: rgba(0, 102, 255, 0.69);
 }
 
-a:hover{
-    border-style: solid ;
-    border-color: rgb(0, 37, 92);
-    border-width: 2px;
-    color: rgb(0, 37, 92);
-    background-color: rgba(255, 255, 255, 0.69);
-}
-
 .border-fmt{
     border-style: solid ;
     border-color: rgb(255, 255, 255);
