@@ -24,24 +24,6 @@ app.use(pinia).use(router)
 const authStore = useAuthStore();
 authStore.checkTokenExpiryAndRefresh();
 
-// Check system color scheme preference
-const userPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-if (userPrefersDark) {
-  document.documentElement.classList.add('dark');
-} else {
-  document.documentElement.classList.remove('dark');
-}
-
-// Listen for changes to the user's preference
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
-  if (event.matches) {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
-  }
-});
-
 app.mount('#app')
 
 // This code sets up and mounts a Vue.js application with Pinia for state management and Vue Router for routing.

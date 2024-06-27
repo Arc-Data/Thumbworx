@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-
-
 import Dashboard from '../views/admin/Dashboard.vue';
 
 //--Admin--
@@ -99,7 +97,6 @@ const router = createRouter({
   {   
     path: '/admin',
     meta: { requiresAdmin: true },
-    component: DefaultLayout,
     children: [
       {
         path: 'dashboard',
