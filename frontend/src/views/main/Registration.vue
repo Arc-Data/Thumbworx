@@ -27,9 +27,16 @@
                       Address <span class="hidden sm:inline-flex sm:ms-2">Info</span>
                   </span>
               </li>
-              <li class="flex items-center">
-                  <span class="me-2">3</span>
-                  Additional
+              <li 
+                :class="step > 3 ? 'text-primary-default' : 'text-gray-500'"
+                class="flex md:w-full items-center after:content-[''] after:w-full after:h-1 after:border-b after:border-primary-default after:border-1 after:hidden sm:after:inline-block after:mx-6 xl:after:mx-10">
+                  <span class="flex items-center after:content-['/'] sm:after:hidden after:mx-2 after:text-primary-default-200 ">
+                      <svg v-if="step > 3" class="w-3.5 h-3.5 sm:w-4 sm:h-4 me-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z"/>
+                      </svg>
+                      <span class="me-2">3</span>
+                      Additional <span class="hidden sm:inline-flex sm:ms-2">Info</span>
+                  </span>
               </li>
           </ol>
       </div>
@@ -60,6 +67,7 @@
           :disabled="disabled"
           @next-step="handleStep3"
           @prev-step="prevStep"></DriverStep3>
+        <Success v-if="step === 4"></Success>
       </div>
     </div>
   </div>
@@ -75,6 +83,7 @@ import Step2 from '../main/registration/Step2.vue';
 import { reactive, ref, watch } from 'vue';
 import ClientStep3 from '../main/registration/ClientStep3.vue';
 import DriverStep3 from './registration/DriverStep3.vue';
+import Success from './registration/Success.vue';
 
 export default {
   name: 'MultistepForm',
@@ -83,7 +92,8 @@ export default {
     Step1,
     Step2,
     ClientStep3,
-    DriverStep3
+    DriverStep3,
+    Success,
   },
   setup(props) {
     const disabled = ref(false)
@@ -213,7 +223,8 @@ export default {
         const response = await apiClient.post(url, payload)
         
         if (response.status === 200) {
-          submitForm()
+          step.value++
+          // submitForm()
         }
       
       } 
