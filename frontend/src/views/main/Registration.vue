@@ -1,51 +1,4 @@
 <template>
-  <!-- <div class="">
-    <div class="max-w-3xl py-8 mx-auto">
-      <div class="p-6 rounded-lg shadow-md bg-background-100">
-        
-        <div v-else-if="step === 3">
-          <form @submit.prevent="submitForm">
-
-            <div v-if="form.personal_info.user_type === 'driver' || form.personal_info.user_type === 'client'">
-              <h2 class="mb-4 text-xl font-bold" v-if="form.personal_info.user_type === 'driver'">Step 3: Additional Information (Driver)</h2>
-              <h2 class="mb-4 text-xl font-bold" v-else-if="form.personal_info.user_type === 'client'">Step 3: Additional Information (Client)</h2>
-
-              <div v-if="form.personal_info.user_type === 'driver'">
-                <div class="mb-4">
-                  <label class="block text-gray-700">Contact Person</label>
-                  <input type="text" v-model="form.driver.contact_person" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                </div>
-                <div class="mb-4">
-                  <label class="block text-gray-700">Relationship with Contact Person</label>
-                  <input type="text" v-model="form.driver.contact_person_relationship" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                </div>
-                <div class="mb-4">
-                  <label class="block text-gray-700">Contact Person Phone Number</label>
-                  <input type="text" v-model="form.driver.contact_person_phone_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                </div>
-                <div class="mb-4">
-                  <label class="block text-gray-700">Contact Person Email</label>
-                  <input type="text" v-model="form.driver.contact_person_email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                </div>
-                <div class="mb-4">
-                  <label class="block text-gray-700">Contact Person Address</label>
-                  <input type="text" v-model="form.driver.contact_person_address" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                </div>
-              </div>
-
-              <div v-else-if="form.personal_info.user_type === 'client'">
-                
-              </div>
-            </div>
-
-            </form>
-        </div>
-        <div v-if="step === 4">
-          Success
-        </div>
-      </div>
-    </div> 
-  </div>-->
   <div class="flex min-h-screen bg-background-default">
     <div class="hidden md:block w-[600px] bg-primary-800"></div>
     <div class="flex-1 px-4 py-10 bg-primary-1 00 ">
@@ -95,6 +48,18 @@
           @update:sameAddress="updateSameAddress"
           @prev-step="prevStep"
           @next-step="handleStep2"></step2>
+        <ClientStep3 v-if="step === 3 && form.personal_info.user_type === 'client'"
+          :client="form.client"
+          :errors="errors.value"
+          :disabled="disabled"
+          @prev-step="prevStep"
+          @next-step="handleStep3"></ClientStep3>
+        <DriverStep3 v-if="step === 3 && form.personal_info.user_type === 'driver'"
+          :driver="form.driver" 
+          :errors="errors.value"
+          :disabled="disabled"
+          @next-step="handleStep3"
+          @prev-step="prevStep"></DriverStep3>
       </div>
     </div>
   </div>
@@ -108,6 +73,8 @@ import apiClient from '../../api/apiClient';
 import Step1 from '../main/registration/Step1.vue';
 import Step2 from '../main/registration/Step2.vue';
 import { reactive, ref, watch } from 'vue';
+import ClientStep3 from '../main/registration/ClientStep3.vue';
+import DriverStep3 from './registration/DriverStep3.vue';
 
 export default {
   name: 'MultistepForm',
@@ -115,8 +82,10 @@ export default {
     VueDatePicker,
     Step1,
     Step2,
+    ClientStep3,
+    DriverStep3
   },
-  setup() {
+  setup(props) {
     const disabled = ref(false)
     const step = ref(1)
 
@@ -188,7 +157,6 @@ export default {
         }
       } 
       catch(error) {
-        console.log(error)
         if (error.status === 422) {
           errors.value = error.data.errors
         }
@@ -201,34 +169,63 @@ export default {
     const handleStep2 = async () => {
       disabled.value = true 
 
+      for (const key in errors) {
+        if (errors.hasOwnProperty(key)) {
+          delete errors[key];
+        }
+      }
+
       try {
         const response = await apiClient.post('api/auth/validateStep2', {
           "current_address": form.current_address,
           "permanent_address": form.permanent_address,
         })
 
-        for (const key in errors) {
-          if (errors.hasOwnProperty(key)) {
-            delete errors[key];
-          }
+        if (response.status === 200) {
+          step.value++;
         }
-
-        console.log(response)
-        // step.value++;
 
       }
       catch (error) {
-        console.log(error)
         if (error.status === 422) {
           errors.value = error.data.errors
         }
-
-        console.log(errors.value)
       }
       finally {
         disabled.value = false
       }
 
+    }
+
+    const handleStep3 = async () => {
+      disabled.value = true
+
+      const url = form.personal_info.user_type === "driver" ? '/api/auth/driverValidateStep3' : '/api/auth/clientValidateStep3'
+      const payload = form.personal_info.user_type === "driver" ? form.driver : form.client;
+
+      for (const key in errors) {
+        if (errors.hasOwnProperty(key)) {
+          delete errors[key];
+        }
+      }
+      
+      try {
+        const response = await apiClient.post(url, payload)
+        
+        if (response.status === 200) {
+          submitForm()
+        }
+      
+      } 
+      catch (error) {
+        console.log(error)
+        if (error.status === 422) {
+          errors.value = error.data.errors
+        } 
+      } 
+      finally {
+        disabled.value = false
+      }    
     }
 
     const updateSameAddress = () => {
@@ -238,32 +235,53 @@ export default {
       }
     }
 
+    const prepData = () => {
+      if (form.personal_info.birth_date) {
+        form.personal_info.birth_date = new Date(form.personal_info.birth_date)
+          .toISOString()
+          .split('T')[0];
+      }
+
+      // i actually doubt ill need this but ill keep it for now
+      const payload = {
+        personal_info: { ...form.personal_info },
+        permanent_address: { ...form.permanent_address },
+        current_address: { ...form.current_address },
+      };
+      
+      if (form.personal_info.user_type === 'driver') {
+        payload.driver = { ...form.driver };
+      } else if (form.personal_info.user_type === 'client') {
+        payload.client = { ...form.client };
+      }
+
+      return payload
+    }
+
     const submitForm = async () => {
+      const payload = prepData()
+
       try {
-        if (form.personal_info.birth_date) {
-          form.personal_info.birth_date = new Date(form.personal_info.birth_date)
-            .toISOString()
-            .split('T')[0];
-        }
-
-        const payload = {
-          personal_info: { ...form.personal_info },
-          permanent_address: { ...form.permanent_address },
-          current_address: { ...form.current_address },
-        };
-
-        if (form.personal_info.user_type === 'driver') {
-          payload.driver = { ...form.driver };
-        } else if (form.personal_info.user_type === 'client') {
-          payload.client = { ...form.client };
-        }
-
         const response = await apiClient.post('/api/auth/register', payload);
-        if (response.status === "201") {
+        console.log(response)
+        for (const key in errors) {
+          if (errors.hasOwnProperty(key)) {
+            delete errors[key];
+          }
+        }
+        
+        if (response.status === 200) {
           step.value++;
         }
-      } catch (error) {
-        console.log("error occurred", error);
+      } 
+      catch (error) {
+        console.log(error)
+        if (error.status === 422) {
+          errors.value = error.data.errors
+        }
+      }
+      finally {
+        disabled.value = false;
       }
     };
 
@@ -277,6 +295,7 @@ export default {
       prevStep,
       handleStep1,
       handleStep2,
+      handleStep3,
       submitForm,
       updateSameAddress,
     };
