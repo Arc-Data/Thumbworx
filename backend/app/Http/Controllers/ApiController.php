@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ClientRegisterStep3;
+use App\Http\Requests\DriverRegisterStep3;
 use App\Http\Requests\RegisterStep1;
 use App\Http\Requests\RegisterStep2;
 use App\Http\Requests\RegistrationRequest;
@@ -46,32 +48,36 @@ class ApiController extends Controller
             "message" => "Invalid details"
         ], 400);
     }
-    public function validateStep1(RegisterStep1 $request) {
+    public function validateStep1(RegisterStep1 $request) 
+    {
         return response()->json([
             'message' => 'Form Valid'
         ]);
     }
 
-    public function validateStep2(RegisterStep2 $request) {
+    public function validateStep2(RegisterStep2 $request) 
+    {
         return response()->json([
             'message' => 'Form Valid'
         ]);
     }
 
-    public function clientValidateStep3() {
+    public function clientValidateStep3(ClientRegisterStep3 $request) 
+    {
         return response()->json([
             'message' => 'Form Valid'
         ]);
     }
 
     
-    public function driverValidateStep3() {
+    public function driverValidateStep3(DriverRegisterStep3 $request) 
+    {
         return response()->json([
             'message' => 'Form Valid'
         ]);
     }
 
-    public function register(RegistrationRequest $request)
+    public function register(Request $request)
     {
         $userData = $request->input('personal_info');
 
