@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterStep1;
+use App\Http\Requests\RegisterStep2;
 use App\Http\Requests\RegistrationRequest;
 use App\Mail\UserRegistered;
 use App\Models\CurrentAddress;
@@ -46,6 +47,25 @@ class ApiController extends Controller
         ], 400);
     }
     public function validateStep1(RegisterStep1 $request) {
+        return response()->json([
+            'message' => 'Form Valid'
+        ]);
+    }
+
+    public function validateStep2(RegisterStep2 $request) {
+        return response()->json([
+            'message' => 'Form Valid'
+        ]);
+    }
+
+    public function clientValidateStep3() {
+        return response()->json([
+            'message' => 'Form Valid'
+        ]);
+    }
+
+    
+    public function driverValidateStep3() {
         return response()->json([
             'message' => 'Form Valid'
         ]);
