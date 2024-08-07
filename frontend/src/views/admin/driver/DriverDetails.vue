@@ -375,6 +375,7 @@
 import axios from "redaxios";
 import Header from '../../../components/Header.vue';
 import { useAuthStore } from "../../../stores/authStore";
+import apiClient from "../../../api/apiClient";
 
 export default { //provides a more modular and organized way to define multiple data properties within a component
     name: 'Booking',
@@ -396,7 +397,7 @@ export default { //provides a more modular and organized way to define multiple 
       this.fetchUserDetails();
     },
     methods: {
-      fetchUserDetails() {
+      async fetchUserDetails() {
         const userId = this.$route.params.id;
         const authStore = useAuthStore();
         const token = authStore.token;
@@ -405,19 +406,39 @@ export default { //provides a more modular and organized way to define multiple 
           console.error("Token not available");
           return;
         }
-  
-        axios
-          .get(`http://127.0.0.1:8000/api/user/${userId}`, {
+
+        try {
+          const response = await apiClient.get(`/api/user/${userId}`, {
             headers: {
-              Authorization: `Bearer ${token}`,
-            },
+              Authorization: `Bearer ${token}`
+            }
           })
-          .then((response) => {
-            this.userDetails = response.data;
-          })
-          .catch((error) => {
-            console.error("Error fetching user details:", error);
-          });
+          console.log(response)
+        }
+        catch (error) {
+          console.log("An error occured :", error)
+        }
+        finally {
+          this.userDetails = {}
+
+        }
+
+
+        console.log(response)
+
+  
+        // axios
+        //   .get(`http://127.0.0.1:8000/api/user/${userId}`, {
+        //     headers: {
+        //       Authorization: `Bearer ${token}`,
+        //     },
+        //   })
+        //   .then((response) => {
+        //     this.userDetails = response.data;
+        //   })
+        //   .catch((error) => {
+        //     console.error("Error fetching user details:", error);
+        //   });
       },
       getStatusClass() {
 

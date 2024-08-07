@@ -126,7 +126,6 @@ import { ref, onMounted, } from 'vue';
       const authStore = useAuthStore();
       console.log(this.email, this.password);
       try {
-        console.log("Huh");
         await authStore.login(this.email, this.password);
       } catch (error) {
         console.error('Error:', error);

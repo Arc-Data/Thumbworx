@@ -98,7 +98,7 @@
                           </span>
                         </router-link>
                       </li>
-                      <li>
+                      <!-- <li>
                         <router-link to="/admin/drivers/bookings"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
                           <span class="mx-2 material-icons ">library_books </span>
@@ -106,7 +106,7 @@
                             Booking
                           </span>
                         </router-link>
-                      </li>
+                      </li> -->
                       <li>
                         <router-link to="/admin/drivers/ratings"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
@@ -116,7 +116,7 @@
                           </span>
                         </router-link>
                       </li>
-                      <li>
+                      <!-- <li>
                         <router-link to="/"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
                           <span class="mx-2 material-icons ">assessment </span>
@@ -124,7 +124,7 @@
                             Evaluation
                           </span>
                         </router-link>
-                      </li>
+                      </li> -->
                       <li>
                         <router-link to="/admin/drivers/logs"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
@@ -166,15 +166,15 @@
                           </span>
                         </router-link>
                       </li>
-                      <li>
-                        <router-link to="/admin/helpers/bookings"
+                      <!-- <li>
+                        <router-link to="/admin/helpers/booking"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
                           <span class="mx-2 material-icons ">library_books </span>
                           <span class="transition-opacity duration-200 ease-in-out" :class="{ 'collapse': !is_expanded }">
                             Booking
                           </span>
                         </router-link>
-                      </li>
+                      </li> -->
                       <li>
                         <router-link to="/admin/helpers/ratings"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
@@ -184,7 +184,7 @@
                           </span>
                         </router-link>
                       </li>
-                      <li>
+                      <!-- <li>
                         <router-link to="/"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
                           <span class="mx-2 material-icons ">assessment </span>
@@ -192,7 +192,7 @@
                             Evaluation
                           </span>
                         </router-link>
-                      </li>
+                      </li> -->
                       <li>
                         <router-link to="/admin/helpers/logs"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
@@ -239,7 +239,7 @@
                         </router-link>
                       </li>
                       <li>
-                        <router-link to="/admin/clients/bookings"
+                        <router-link to="/admin/clients/booking"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
                           <span class="mx-2 material-icons ">library_books </span>
                           <span class="transition-opacity duration-200 ease-in-out" :class="{ 'collapse': !is_expanded }">
@@ -248,7 +248,7 @@
                         </router-link>
                       </li>
                       <li>
-                        <router-link to="/admin/clients/ratings"
+                        <router-link to="/admin/clients/rating"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
                           <span class="mx-2 material-icons ">stars </span>
                           <span class="transition-opacity duration-200 ease-in-out" :class="{ 'collapse': !is_expanded }">
@@ -256,7 +256,7 @@
                           </span>
                         </router-link>
                       </li>
-                      <li>
+                      <!-- <li>
                         <router-link to="/"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">
                           <span class="mx-2 material-icons ">assessment </span>
@@ -265,7 +265,7 @@
                           </span>
 
                         </router-link>
-                      </li>
+                      </li> -->
                       <li>
                         <router-link to="/admin/clients/logs"
                           class="flex items-center p-2 transition duration-200 ease-in-out text-light hover:bg-dark-alt hover:text-primary">

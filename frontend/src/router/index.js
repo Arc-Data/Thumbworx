@@ -182,12 +182,12 @@ const router = createRouter({
             name: 'HelperDetails',
           },
           {
-            path: 'helperlogs',
+            path: 'logs',
             component: HelperLogs,
             name: 'HelperLogs',
           },
           {
-            path: 'helperratings',
+            path: 'ratings',
             component: HelperRatings,
             name: 'HelperRatings',
           },
