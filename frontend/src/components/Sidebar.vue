@@ -10,7 +10,7 @@
 		<div class="">
           <div class="" :class="{'collapse': !is_expanded}">
                <img
-                   src="https://th.bing.com/th/id/R.f60de85e220a6c066dca269bae4e4eed?rik=5V1xnEBnOuZrJg&riu=http%3a%2f%2fclipart-library.com%2fimages_k%2ftruck-silhouette-images%2ftruck-silhouette-images-24.png&ehk=XOXvl%2bhOQLME4sLz9fccgTnrTYWeaP9o7p%2fun%2bLw0nk%3d&risl=&pid=ImgRaw&r=0"
+                   :src="logo"
                     class="mb-4 ml-auto mr-auto rounded-full size-28"
                      alt="Thumbworx logo"
                       />
@@ -335,6 +335,7 @@
 <script>
 import { ref, onMounted } from 'vue'
 import router from '../router' // Para maredirect sa login or other pages kung want
+import Logo from '../assets/Logo.png'
 import { useAuthStore } from '../stores/authStore'
 import { FwbToggle } from 'flowbite-vue'
 
@@ -372,6 +373,7 @@ export default {
 		return {
 			is_expanded,
 			toggleMenu,
+      logo: Logo,
 			handleLogout() {
 				const authStore = useAuthStore()
 				authStore.logout()
