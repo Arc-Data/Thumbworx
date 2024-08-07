@@ -1,7 +1,7 @@
 <template>
   <div class="flex">
     <aside :class="is_expanded ? 'w-64' : 'w-18'"
-      class="sticky top-0 left-0 z-50 flex flex-col h-screen py-2 transition-all duration-500 ease-in-out bg-primary-default text-light">
+      class="sticky top-0 left-0 z-50 flex flex-col h-full min-h-screen py-2 transition-all duration-500 ease-in-out bg-primary-default text-light">
       <div class="relative flex justify-end transition-all duration-200 ease-in-out"
         :class="{ 'justify-center': !is_expanded }">
         <button class="transition-transform duration-200 ease-in-out" @click="toggleMenu">
