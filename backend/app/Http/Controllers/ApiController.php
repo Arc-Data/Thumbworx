@@ -79,6 +79,7 @@ class ApiController extends Controller
 
     public function register(Request $request)
     {
+        Log::info("HEllo");
         $userData = $request->input('personal_info');
 
         $password = Str::random(12);

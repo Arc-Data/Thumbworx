@@ -224,7 +224,7 @@ export default {
         
         if (response.status === 200) {
           step.value++
-          // submitForm()
+          submitForm()
         }
       
       } 
